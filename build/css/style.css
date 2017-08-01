@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.out {
+  color: #008000;
+}
+@media (min-width: 640px) {
+  .out {
+    color: #f00;
+  }
+}
+@media (min-width: 800px) {
+  .out {
+    color: #00f;
+  }
+}
+@media (min-width: 1200px) {
+  .out {
+    color: #ffa500;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
