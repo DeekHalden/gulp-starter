@@ -1,10 +1,17 @@
 // Normally mainpage styles
 .out
-    color green
-    +mobile() 
-        color red    
-    +tablet()
-        color blue 
-    +desktop()
-        color orange
+  color green
+  clearfix()
+  rem(10)
+  +mobile() 
+    color red    
+  +tablet()
+    color blue 
+    rem(16)
+    vertical(50)
+    horizontal(50)
+  +desktop()
+    color orange
+.left 
+  float left
     

@@ -6,8 +6,8 @@ gulp.task('watch', [
     'sprite:watch',
     'stylus:watch',
     'copy:watch',
-    // 'pug:watch',
-    'html:watch',
+    'pug:watch',
+    // 'html:watch',
     'font:watch',
     'js:watch'
 ]);
@@ -17,4 +17,4 @@ gulp.task('delete', function (cb) {
     rimraf('./'+config.dest.root, cb);
 });
 gulp.task('default', ['server', 'watch'], function() {});
-gulp.task('build', ['html','font','sprite','copy','js','stylus'], function() {});
+gulp.task('build', ['pug','font','sprite','copy','js','stylus'], function() {});
