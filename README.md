@@ -15,7 +15,7 @@ We have two options for building html
 
 2) Optionally one can use `Pug` (it's commented in gulpfile.js). Basic template is in `/src/pug/`
 
-_Sass_ is compiled and postprocessed with Autoprefixer. We are using `gulp-ruby-sass`, so don't forget to _install Ruby and Sass_ to use this boilerplate.
+Stylus is compiled and postprocessed with Autoprefixer.
 
 `src/img/icons` are joined into sprite, which could be used in Sass like this:
 ```
