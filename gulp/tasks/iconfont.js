@@ -21,14 +21,14 @@ gulp.task('font', function(){
     }))
     .on('glyphs', function(glyphs, options) {
         console.log(glyphs);
-        gulp.src(config.src.helpers+'_svgfont.sass')
+        gulp.src(config.src.helpers+'_svgfont.styl')
             .pipe(consolidate('lodash', {
                 glyphs: glyphs,
                 fontName: fontname,
                 fontPath: 'fonts/',
                 className: 'icon'
             }))
-            .pipe(gulp.dest(config.src.sass+'lib/'));
+            .pipe(gulp.dest(config.src.styl+'lib/'));
         gulp.src(config.src.helpers+'icons.html')
             .pipe(consolidate('lodash', {
                 glyphs: glyphs,
