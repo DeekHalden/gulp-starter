@@ -1,0 +1,42 @@
+.footer 
+    // width inherit
+    position absolute
+    bottom 0
+    background-color #fff
+    height 327px
+    left 0
+    right 0
+        
+    &__item
+        text-align center
+        margin 0 auto 10px
+        &:nth-child(2)
+            font-family $bold
+            
+        
+            
+        
+    &__developers
+        text-align center
+        margin 0 auto
+        
+        font-family $reg
+        font-size 13px
+    &__link
+        margin 0  30px
+        color #000
+        text-decoration none
+        &:hover
+            color $main
+@media(min-width 992px)
+    .footer
+        padding 0
+        height 60px
+        line-height 60px
+        &__item
+            float left
+            margin-bottom 0
+            &:first-child
+                margin-right 103px
+        &__developers
+            float right

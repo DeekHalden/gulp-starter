@@ -28,6 +28,6 @@ gulp.task('pug-all', function() {
 });
 
 gulp.task('pug:watch', function() {
-    gulp.watch(config.src.pug + '/**/*.pug', ['pug']);
+    gulp.watch('src/**/*.pug', ['pug']);
     gulp.watch([config.src.pug + '/_*.pug', config.src.pug + '/includes/*.pug'], ['pug-all']);
 });

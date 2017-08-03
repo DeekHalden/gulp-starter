@@ -5,10 +5,10 @@
 	font-weight: normal
 	font-style: normal
 
-<% _.each(glyphs, function(glyph) { %>$<%= className %>-<%= glyph.name %>: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>"
+<% _.each(glyphs, function(glyph) { %>$<%= className %>-<%= glyph.name %>= "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>"
 <% }); %>
 
-%<%= className %>
+$<%= className %>
 	font-family: "<%= fontName %>"
 	font-style: normal
 	font-weight: normal
@@ -19,7 +19,7 @@
 	-moz-osx-font-smoothing: grayscale
 
 .<%= className %>, [class^="icon-"], [class*=" icon-"]
-	@extend %<%= className %>
+	@extend $<%= className %>
 	display: inline-block
 
 <% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before

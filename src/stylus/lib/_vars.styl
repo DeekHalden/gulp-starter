@@ -1,4 +1,4 @@
-base-font-size = 16
+base-font-size = 14
 base-line-height = 24
 
 normal() 
@@ -6,26 +6,35 @@ normal()
 
 $main = #1eaf26
 $add = #486776
+$dark = #2a3e48
 
-@font-face 
-    font-family Lato-regular
-    src url(./fonts/Lato-Regular.ttf)
-    normal()
-@font-face 
-    font-family Lato-Light
-    src url(./fonts/Lato-Light.ttf)  
-    normal()
-@font-face 
-    font-family Lato-Bold
-    src url(./fonts/Lato-Bold.ttf)  
-    normal()
-@font-face 
-    font-family Lato-Black
-    src url(./fonts/Lato-Black.ttf)  
-    normal()
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url("./fonts/lato-bold.eot");
+  src: local("Lato Bold"), local("Lato-Bold"), url("./fonts/lato-bold.eot?#iefix") format("embedded-opentype"), url("./fonts/lato-bold.woff2") format("woff2"), url("./fonts/lato-bold.woff") format("woff"), url("./fonts/lato-bold.ttf") format("truetype"), url("./fonts/lato-bold.svg#lato") format("svg");
+  font-weight: 700;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato-Black';
+  src: url("./fonts/lato-black.eot");
+  src: local("Lato Black"), local("Lato-Black"), url("./fonts/lato-black.eot?#iefix") format("embedded-opentype"), url("./fonts/lato-black.woff2") format("woff2"), url("./fonts/lato-black.woff") format("woff"), url("./fonts/lato-black.ttf") format("truetype"), url("./fonts/lato-black.svg#lato") format("svg");
+  font-weight: 700;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("./fonts/lato-regular.eot");
+  src: local("Lato Black"), local("Lato-regular"), url("./fonts/lato-regular.eot?#iefix") format("embedded-opentype"), url("./fonts/lato-regular.woff2") format("woff2"), url("./fonts/lato-regular.woff") format("woff"), url("./fonts/lato-regular.ttf") format("truetype"), url("./fonts/lato-regular.svg#lato") format("svg");
+  font-weight: 400;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato-Light';
+  src: url("./fonts/lato-light.eot");
+  src: local("Lato Black"), local("Lato-light"), url("./fonts/lato-light.eot?#iefix") format("embedded-opentype"), url("./fonts/lato-light.woff2") format("woff2"), url("./fonts/lato-light.woff") format("woff"), url("./fonts/lato-light.ttf") format("truetype"), url("./fonts/lato-light.svg#lato") format("svg");
+  font-weight: 100;
+  font-style: normal; }
 @font-face 
     font-family pfd
-    src url(./fonts/pfdintextcomppro-medium.ttf.ttf)  
+    src url(./fonts/pfdintextcomppro-medium.ttf)  
     normal()
     
 $regular = Lato-Regular

@@ -1,0 +1,148 @@
+.header-wrapper
+    background-color transparent
+    position fixed
+    padding-top 10px
+    top 0
+    left 0
+    z-index 112312312
+.header
+    &__logo-wrapper
+        width 150px
+        display block
+        float left
+        font-family $regular
+    &__logo
+        transition: all 0.5s ease;
+        filter: none;
+        opacity: 1;
+        display block
+        width 100%
+        height  auto
+        &:hover
+            filter:  contrast(150%);
+    &__toggle
+        position relative
+        float right
+        width 32px
+        cursor pointer
+        height 32px
+        margin-top 10px
+        transition .2s linear all
+        &:hover .header__toggle-item
+            background-color $main 
+        &:hover
+            border-radius 3px
+            background-color #2a3e48
+    &__toggle-item
+        position absolute
+        border-radius 2px
+        width 80%
+        display block
+        height 4px
+        left 10%
+        // transform translateX(-50%)
+        background-color $main
+        transition .2s linear all
+        &:nth-child(1)
+            top 5px
+        &:nth-child(2)
+            top 50%
+            transform translateY(-50%)
+        &:nth-child(3)
+            bottom  5px
+.aside
+    top 0
+    background-color rgba($main, 0.9)
+    width 280px
+    position fixed
+    right -280px
+    height 100%
+    border-top 6px solid $main
+    padding 0px 0px 0 0px
+    transition .2s ease all
+    border-left 1px solid  $main
+    // &__nav
+    &__actions-nav
+        padding-top 10px
+        padding-left 10px
+        float left
+        .aside__link
+            display  inline-block
+            margin-right 10px
+
+        
+    &__nav
+        padding-top 10px
+        padding-left 10px        
+        border-bottom 1px solid rgba(205, 205, 205, 0.3);
+        .aside__link
+            margin-bottom 20px
+    &__link
+        font-weight 600
+        text-decoration none
+        cursor pointer
+        rem(14)
+        color #fff
+        display block
+        position relative
+        &:hover
+            color $main
+    &__sub
+        display none
+        +md()
+            top 40px
+            position absolute
+            .aside
+                &__link
+                    float none
+                    padding 10px 0 !important
+                    display block
+                    margin-bottom 0
+        // position absolute
+        
+            
+    &--open 
+        
+        right 0
+        
+@media(min-width 967px)
+    .header
+        transition .2s ease all
+        &--tiny 
+            height 69px
+            .aside__nav
+                display none
+        &__logo-wrapper
+            width 200px
+        &__toggle
+            display none
+    .aside
+        background-color transparent
+        margin-left 52px
+        width calc(100% - 252px)
+        border none
+        float right
+        position static
+        &__lang-switcher
+            padding-left 77px
+            border-right none
+        &__lang-switcher, &__actions-nav, &__search
+            padding-top 21px
+            padding-bottom 21px
+        &__nav
+            border-bottom none
+            padding 24px 0
+            display flex
+            justify-content space-between
+            .aside__link
+                margin-bottom 0
+        &__link
+            text-align left
+            display inline-block
+            margin-right 20px
+            float left
+            
+            
+                        
+            
+    

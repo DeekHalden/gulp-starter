@@ -28,7 +28,7 @@ gulp.task('font', function(){
                 fontPath: 'fonts/',
                 className: 'icon'
             }))
-            .pipe(gulp.dest(config.src.styl+'lib/'));
+            .pipe(gulp.dest(config.src.stylus+'lib/'));
         gulp.src(config.src.helpers+'icons.html')
             .pipe(consolidate('lodash', {
                 glyphs: glyphs,

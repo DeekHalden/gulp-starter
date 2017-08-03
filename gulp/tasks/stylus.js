@@ -38,5 +38,5 @@ gulp.task('stylus', function() {
 });
 
 gulp.task('stylus:watch', function() {
-    gulp.watch(config.src.stylus + '/**/*', ['stylus']);
+    gulp.watch('src/**/*.styl', ['stylus']);
 });

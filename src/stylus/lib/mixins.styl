@@ -3,8 +3,8 @@
 rem($fontValue = base-font-size, $baseFontValue = base-font-size, $baseLineValue = base-line-height)
   font-size   $fontValue px
   font-size   ($fontValue / $baseFontValue) rem
-  line-height ($fontValue / $baseFontValue) * $baseLineValue
-  line-height ($baseLineValue/$baseFontValue) * ($fontValue / $baseFontValue) rem
+  // line-height ($fontValue / $baseFontValue) * $baseLineValue
+  // line-height ($baseLineValue/$baseFontValue) * ($fontValue / $baseFontValue) rem
 
 
 clearfix()
@@ -20,10 +20,10 @@ clearfix()
 
 vertical(value)
   position: absolute
-  top: value+'%'
+  top value+'%'
   transform translateY(-50%)
 horizontal(value) 
-  position: absolute
-  left: value+'%'
+  position absolute
+  left value+'%'
   transform translateX(-50%)
   

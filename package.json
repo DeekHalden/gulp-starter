@@ -29,6 +29,7 @@
     "rimraf": "~2.5.2"
   },
   "dependencies": {
+    "bemto.pug": "^2.1.0",
     "gulp-stylus": "^2.6.0"
   }
 }

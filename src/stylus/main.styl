@@ -1,17 +1,257 @@
 // Normally mainpage styles
-.out
-  color green
-  clearfix()
-  rem(10)
-  +mobile() 
-    color red    
-  +tablet()
-    color blue 
-    rem(16)
-    vertical(50)
-    horizontal(50)
-  +desktop()
-    color orange
-.left 
-  float left
+.jumbotron
+  background-image url('./../img/main-bg--sm.png')
+  background-size cover
+  background-position center
+  position relative
+  overflow hidden
+  +lg()
+    background-image url('./../img/main-bg--lg.png');
     
+  &__main-video
+    display none
+    +md()
+      top 50%
+      transform translateY(-50%)
+      width: 100%    !important;
+      height: auto   !important;
+      position absolute
+      display block
+      
+  &__img-block
+    width 100%
+    position relative
+    margin-bottom 20px
+    +sm()
+      float left
+      width 380px
+    +lg()
+      
+      float left
+  &__img
+    display block
+    max-width 100%
+    margin 0 auto
+  &__text
+    margin-top 20px
+    color #fff
+    +md()
+      position absolute
+      left 115%
+      width 290px
+      bottom -5px
+      transform translateX(-50%) 
+    +lg()
+      width 320px
+      
+.jumbotron-wrapper
+  padding-top 80px  
+  padding-bottom 80px  
+  +lg()
+    background-image url('./../img/result.png')
+    background-position calc(100% - 15px) bottom
+    background-repeat no-repeat
+    padding-top 190px
+    
+    
+.card
+  color #fff
+  max-width 287px
+  margin 60px auto 0
+  padding 50px
+  background-color rgba($main, .78)
+  clear both
+  +sm()
+    margin-top 0
+    clear none
+    float right
+  // +md()
+    
+  h1
+    rem(60)
+    line-height 50px
+    font-family $pfd
+    text-transform uppercase
+    margin-bottom 32px
+  p
+    rem(14)
+    margin-bottom 45px
+    line-height 25px
+  &__link
+    rem(13)
+    display block
+    color #fff
+    font-weight bold
+    text-decoration none
+    border 1px solid #fff
+    text-align center
+    height 48px
+    border-radius 5px
+    line-height 48px
+    cursor pointer
+    transition .5s linear all
+    &:hover
+      background-color $main
+      
+.content
+  h1
+    font-family $pfd
+    rem(30)
+    text-align center
+    margin-bottom 10px
+    text-transform uppercase
+    span
+      &.main-style
+        color $main
+      &.add-style
+        color $dark
+    +md()
+      position relative
+      text-align left
+      z-index 1
+      &:before
+        z-index -1
+        content attr(data-title)
+        position absolute
+        text-transform uppercase
+        left 0%
+        top 50%
+        transform translateY(-50%)
+        rem(80)
+        color #f9f9f9
+    +lg()
+      rem(43)
+      margin-bottom 90px
+  p
+    font-family $regular
+    line-height 25px
+    rem(13)
+    margin-bottom 20px
+    +lg()
+      margin-bottom 40px
+// about block    
+.about
+  background-image url('./../img/about-graph.png') 
+  background-repeat no-repeat
+  background-size contain
+  background-position center bottom
+  .about-wrapper
+    padding-top 20px
+    padding-bottom 20px
+    +lg()
+      padding-top 84px
+      padding-bottom 84px
+  &__img-wrapper
+    display none
+    width 280px
+    margin 0 auto
+    +md()
+      display block
+      float left
+    +lg()
+      width 45%
+  &__text
+    +md()
+      float right
+      width calc(100% - 330px)
+    +lg()
+      width 45%
+  &__img
+    width 100%
+    display block
+// about block    
+  
+// work block
+.work
+  padding 20px 0
+  background-color #f1f4f7
+  +lg()
+    
+    padding 112px 0 
+
+.advantage-row
+  margin-top 40px
+  text-align center
+  +lg()
+    padding-top 20px
+.svg
+  position absolute
+  left 0
+  right 0
+  
+  width 100%
+
+.advantage-item
+  
+  display inline-block
+  width 350px
+  height 110px
+  margin-bottom 66px
+  padding-right 30px
+  background-color #fff
+  position relative
+  z-index 10
+  +lg()
+    display block
+    float left
+    width 30%
+    margin-right 5%
+
+    &:nth-child(3n + 1)
+      // margin-left 0
+    &:nth-child(3n + 3)
+      margin-right 0
+    
+    
+  &:hover
+    .advantage-item__icon-wrapper
+      background-color $dark
+    .advantage-item__icon
+      color $main
+  &:nth-child(2n + 1)
+    padding-right 90px
+  &:last-child
+    
+    margin-bottom 0
+    display block
+    margin 0 auto
+    float none
+    clear both
+    
+  &__order
+    position absolute
+    top -40px
+    font-family $pfd
+    rem(32)
+    color $add
+    z-index -1
+    &:before
+      top -50%
+      left -100%
+      z-index -2
+      content attr(data-id)
+      position absolute
+      rem(100)
+      color rgba(76, 176, 89, 0.12)
+      
+  &__icon-wrapper
+    width 110px
+    height 110px
+    float left
+    background-color $main
+    text-align center
+    line-height 110px
+    &--active
+      background-color $dark
+  &__icon
+    vertical-align middle
+    color #fff
+    rem(70)
+    &--active
+      color $main
+  p
+    margin-top 20px
+    margin-left 142px
+    margin-bottom 0 !important
+// work block
+

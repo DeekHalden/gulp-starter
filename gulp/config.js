@@ -5,7 +5,7 @@ module.exports = {
     stylus  : 'src/stylus/',
     js      : 'src/js/',
     img     : 'src/img/',
-    helpers : 'gulp/helpers/'
+    helpers : 'src/stylus/lib/'
   },
   dest:{
     root    : 'build/',
