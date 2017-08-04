@@ -94,6 +94,9 @@
       -moz-osx-font-smoothing: grayscale;
     }
     
+    .icon-logo:before {
+      content: "\EA01";
+    }
     .icon-01:before {
       content: "\EA03";
     }
@@ -136,6 +139,12 @@
     .icon-youtube:before {
       content: "\EA10";
     }
+    .icon-left:before {
+      content: "\EA11";
+    }
+    .icon-right:before {
+      content: "\EA12";
+    }
   </style>
 </head>
 <body>
@@ -147,6 +156,14 @@
   </h1>
 
   <ul class="icons-list">
+    
+    <li class="icon-box">
+      <input class="icon-class-name autoselect" type="text" value=".icon-logo" readonly>
+      <input class="icon-unicode autoselect" type="text" value="\EA01" readonly>
+      <div class="icon-container">
+        <i class="icon icon-logo"></i>
+      </div>
+    </li>
     
     <li class="icon-box">
       <input class="icon-class-name autoselect" type="text" value=".icon-01" readonly>
@@ -257,6 +274,22 @@
       <input class="icon-unicode autoselect" type="text" value="\EA10" readonly>
       <div class="icon-container">
         <i class="icon icon-youtube"></i>
+      </div>
+    </li>
+    
+    <li class="icon-box">
+      <input class="icon-class-name autoselect" type="text" value=".icon-left" readonly>
+      <input class="icon-unicode autoselect" type="text" value="\EA11" readonly>
+      <div class="icon-container">
+        <i class="icon icon-left"></i>
+      </div>
+    </li>
+    
+    <li class="icon-box">
+      <input class="icon-class-name autoselect" type="text" value=".icon-right" readonly>
+      <input class="icon-unicode autoselect" type="text" value="\EA12" readonly>
+      <div class="icon-container">
+        <i class="icon icon-right"></i>
       </div>
     </li>
     

@@ -4,6 +4,8 @@ var iconfont = require("gulp-iconfont");
 var consolidate = require("gulp-consolidate");
 var config = require('../config');
 var browserSync = require('browser-sync');
+var rename = require('gulp-rename');
+
 reload = browserSync.reload;
 
 var fontname = 'svgfont';
@@ -21,13 +23,14 @@ gulp.task('font', function(){
     }))
     .on('glyphs', function(glyphs, options) {
         console.log(glyphs);
-        gulp.src(config.src.helpers+'_svgfont.styl')
+        gulp.src(config.src.helpers+'_svgfont.sass')
             .pipe(consolidate('lodash', {
                 glyphs: glyphs,
                 fontName: fontname,
                 fontPath: 'fonts/',
                 className: 'icon'
             }))
+            .pipe(rename('_svgfont.styl'))
             .pipe(gulp.dest(config.src.stylus+'lib/'));
         gulp.src(config.src.helpers+'icons.html')
             .pipe(consolidate('lodash', {

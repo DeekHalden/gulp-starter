@@ -1,11 +1,12 @@
 module.exports = {
   src : {
     root    : 'src/',
-    pug     : 'src/pug',
+    pug    : 'src/pug',
     stylus  : 'src/stylus/',
+    sass    : 'src/sass/',
     js      : 'src/js/',
     img     : 'src/img/',
-    helpers : 'src/stylus/lib/'
+    helpers : 'gulp/helpers/'
   },
   dest:{
     root    : 'build/',

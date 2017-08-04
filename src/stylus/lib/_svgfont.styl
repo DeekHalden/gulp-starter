@@ -5,25 +5,26 @@
 	font-weight: normal
 	font-style: normal
 
-$icon-sepa ="\EA01"
-$icon-skrill ="\EA02"
-$icon-01 ="\EA03"
-$icon-02 ="\EA04"
-$icon-03 ="\EA05"
-$icon-04 ="\EA06"
-$icon-05 ="\EA07"
-$icon-06 ="\EA08"
-$icon-07 ="\EA09"
-$icon-calendar ="\EA0A"
-$icon-client ="\EA0B"
-$icon-dollar ="\EA0C"
-$icon-instagram ="\EA0D"
-$icon-login ="\EA0E"
-$icon-vk ="\EA0F"
-$icon-youtube ="\EA10"
+$icon-logo= "\EA01"
+$icon-01= "\EA03"
+$icon-02= "\EA04"
+$icon-03= "\EA05"
+$icon-04= "\EA06"
+$icon-05= "\EA07"
+$icon-06= "\EA08"
+$icon-07= "\EA09"
+$icon-calendar= "\EA0A"
+$icon-client= "\EA0B"
+$icon-dollar= "\EA0C"
+$icon-instagram= "\EA0D"
+$icon-login= "\EA0E"
+$icon-vk= "\EA0F"
+$icon-youtube= "\EA10"
+$icon-left= "\EA11"
+$icon-right= "\EA12"
 
 
-icon
+$icon
 	font-family: "svgfont"
 	font-style: normal
 	font-weight: normal
@@ -34,13 +35,11 @@ icon
 	-moz-osx-font-smoothing: grayscale
 
 .icon, [class^="icon-"], [class*=" icon-"]
-	@extend icon
+	@extend $icon
 	display: inline-block
 
-.icon-sepa:before
-	content: $icon-sepa
-.icon-skrill:before
-	content: $icon-skrill
+.icon-logo:before
+	content: $icon-logo
 .icon-01:before
 	content: $icon-01
 .icon-02:before
@@ -69,3 +68,7 @@ icon
 	content: $icon-vk
 .icon-youtube:before
 	content: $icon-youtube
+.icon-left:before
+	content: $icon-left
+.icon-right:before
+	content: $icon-right

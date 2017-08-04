@@ -55,16 +55,19 @@
     
     
 .card
-  color #fff
-  max-width 287px
-  margin 60px auto 0
-  padding 50px
-  background-color rgba($main, .78)
-  clear both
-  +sm()
-    margin-top 0
-    clear none
-    float right
+  &--top
+    max-width 255px
+    color #fff
+    margin 60px auto 0
+    padding 50px
+    background-color rgba($main, .78)
+    clear both
+    +sm()
+      margin-top 0
+      clear none
+      float right
+  &--stages
+    width 100%
   // +md()
     
   h1
@@ -90,10 +93,21 @@
     line-height 48px
     cursor pointer
     transition .5s linear all
+    i
+      display inline-block
+      margin-left 5px
+      rem(9)
     &:hover
       background-color $main
       
+      
 .content
+  .content-wrapper
+    padding-top 20px
+    padding-bottom 20px
+    +lg()
+      padding-top 84px
+      padding-bottom 84px
   h1
     font-family $pfd
     rem(30)
@@ -135,12 +149,7 @@
   background-repeat no-repeat
   background-size contain
   background-position center bottom
-  .about-wrapper
-    padding-top 20px
-    padding-bottom 20px
-    +lg()
-      padding-top 84px
-      padding-bottom 84px
+  
   &__img-wrapper
     display none
     width 280px
@@ -164,43 +173,69 @@
 // work block
 .work
   padding 20px 0
+  position relative
   background-color #f1f4f7
-  +lg()
-    
-    padding 112px 0 
-
 .advantage-row
   margin-top 40px
   text-align center
+  position relative
+  
   +lg()
     padding-top 20px
-.svg
-  position absolute
-  left 0
-  right 0
+    
+.svg-wrapper
   
-  width 100%
+  position absolute
+  top 256px
+  left 47%
+  transform translateX(-50%)
+  img
+    display none
+    +lg()
+      display block
 
 .advantage-item
-  
-  display inline-block
-  width 350px
-  height 110px
+  display table
+  width 100%
+  // height 110px
   margin-bottom 66px
-  padding-right 30px
   background-color #fff
   position relative
   z-index 10
-  +lg()
-    display block
+  text-align left
+  +sm()
+    display inline-block
+    width 48%
     float left
-    width 30%
-    margin-right 5%
-
+    &:nth-child(2n + 1)
+      padding-right 90px
+    &:nth-child(2n + 2)
+      padding-right 20px
+    &:nth-child(2n)
+      float right
+  +md()
+    width 350px
+    &:nth-child(2n + 1)
+      padding-right 120px
+    &:nth-child(2n + 2)
+      padding-right 40px
+    // &:nth-child(2n)
+    //   float none
+    // &:nth-child(3n)
+    //   float left
+  +lg()
+    margin-bottom 57px
+    &:nth-child(2n)
+      float none
+    &:nth-child(2n + 3)
+      float none
     &:nth-child(3n + 1)
-      // margin-left 0
-    &:nth-child(3n + 3)
-      margin-right 0
+      float left
+    &:nth-child(3n)
+      float right
+      &__text
+        padding-right 60px
+      
     
     
   &:hover
@@ -208,15 +243,16 @@
       background-color $dark
     .advantage-item__icon
       color $main
-  &:nth-child(2n + 1)
-    padding-right 90px
+  // &:nth-child(2n + 1)
+  //   padding-right 90px
   &:last-child
-    
     margin-bottom 0
-    display block
     margin 0 auto
     float none
     clear both
+    +lg()
+      margin 0 auto
+      float none
     
   &__order
     position absolute
@@ -235,12 +271,17 @@
       color rgba(76, 176, 89, 0.12)
       
   &__icon-wrapper
-    width 110px
-    height 110px
-    float left
+    display table-cell
+    height 120px
+    width 120px
     background-color $main
     text-align center
     line-height 110px
+    +sm()
+      float left
+      display block
+      width 110px
+      height 110px
     &--active
       background-color $dark
   &__icon
@@ -249,9 +290,19 @@
     rem(70)
     &--active
       color $main
+  &__text
+    vertical-align middle
+    display table-cell
+    width calc(100% - 110px)
+    padding 0 10px
+    +sm()
+      // padding 0 20px
+      float right
+      display block
+      width calc(100% - 120px)
   p
-    margin-top 20px
-    margin-left 142px
     margin-bottom 0 !important
+    +sm()
+      padding-top 20px
 // work block
 

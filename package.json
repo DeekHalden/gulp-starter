@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "bemto.pug": "^2.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.6.0"
   }
 }
