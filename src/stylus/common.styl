@@ -48,6 +48,8 @@ html, body
 	
 .main
     padding-bottom 327px
+    &--padding
+        padding-top 67px
     
 .container-fluid
     width 100%
@@ -83,6 +85,22 @@ select::-ms-expand
     display none
 img
     border-style none
+    
+.breadcrumb
+    &__list
+        list-style none
+    &__item, &__link
+        display inline-block
+        color $add
+        text-decoration none
+        &--devider
+            margin 0 5px
+            color $main
+    &__link
+        &:hover
+            color $main
+        
+        
     
 textarea,
 input[type="text"],

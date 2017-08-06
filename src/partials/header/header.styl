@@ -2,31 +2,64 @@
     background-color transparent
     position fixed
     padding-top 10px
+    padding-bottom 10px
     top 0
     left 0
-    z-index 112312312
+    z-index 111
+    &--white
+        background-color #fff
+        .header
+            &__logo-wrapper
+                span 
+                    color $add
+                
+        .aside
+            &__link
+                color $add
+                &:hover 
+                    color $main
+        &--tiny
+            background-color #fff
+                    
+    &--tiny 
+        background-color rgba($main, .6)
+        border-bottom 1px solid $main
 .header
     &__logo-wrapper
         width 150px
-        display block
+        display table
         float left
         font-family $regular
+        text-decoration none
+        transition: all 0.5s ease;
+        span
+            rem(20)
+            line-height 20px
+            color #fff
+            vertical-align middle    
+            display table-cell
+            font-family: pfd
+            transition: all 0.5s ease;
+        &:hover
+            filter:  contrast(150%);
+            span 
+                color $main
+            
     &__logo
+        display table-cell
         transition: all 0.5s ease;
         filter: none;
         opacity: 1;
-        display block
-        width 100%
+        vertical-align middle    
+        height 50px
         height  auto
-        &:hover
-            filter:  contrast(150%);
     &__toggle
         position relative
         float right
         width 32px
         cursor pointer
         height 32px
-        margin-top 10px
+        margin-top 7px
         transition .2s linear all
         &:hover .header__toggle-item
             background-color $main 
@@ -86,7 +119,7 @@
         display block
         position relative
         &:hover
-            color $main
+            color $add
     &__sub
         display none
         +md()
@@ -105,18 +138,13 @@
         
         right 0
         
-@media(min-width 967px)
+@media(min-width 1200px)
+    
     .header
-        transition .2s ease all
-        &--tiny 
-            height 69px
-            .aside__nav
-                display none
-        &__logo-wrapper
-            width 200px
         &__toggle
             display none
     .aside
+        line-height 47px
         background-color transparent
         margin-left 52px
         width calc(100% - 252px)
@@ -130,8 +158,9 @@
             padding-top 21px
             padding-bottom 21px
         &__nav
+            padding-top 0
+            vertical-align middle
             border-bottom none
-            padding 24px 0
             display flex
             justify-content space-between
             .aside__link

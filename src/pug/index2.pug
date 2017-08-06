@@ -1,0 +1,189 @@
+extends _layout
+
+block content
+    -let workdata = [{icon:'', text:"Ознакомтесь с нашими трейдерами"},{icon:'', text:"Ознакомтесь с документацией предоставленной на сайте"},{icon:'', text:"Откройте счет в компании Forward-Trade"},{icon:'', text:"Выберите трейдера с которым вы хотите сотрудничать"},{icon:'', text:"Наблюдайте за торговлей трейдера"},{icon:'', text:"Выплатите вознаграждение трейдеру с полученной прибыли"},{icon:'', text:"Получайте прибыль с Forward-Trade"}]
+    -let stagesdata = [{title:'Акции и облегации', text:"Международные финансовые рынки – это потенциально высокий доход в иностранной валюте от торговли самыми ликвидными бумагами крупнейших американских, европейских и азиатских компаний, а также, так называемых, еврооблигаций. Инвестор получает доступ к фондовым рынкам развитых экономик и отраслям, слабо представленным в России, а также возможность диверсифицировать свой портфель."},{title:'Фьючерсы и опционы', text:"Срочный рынок предоставляет трейдерам возможность получать неограниченный доход, совершая сделки с фьючерсами и опционами на индексы, валюты, товары, ценные бумаги и процентные ставки. Спекулятивные стратегии дают возможность зарабатывать на любой рыночной ситуации, а использование бесплатного эффекта «плеча» может многократно увеличить возможную прибыль. А так же ни для кого не секрет, что на опционах можно заработать до 80% прибыли."},{title:'Валюта', text:"Валютный рынок – это возможность зарабатывать на колебаниях курсов мировых валют или просто возможность совершать выгодные обменные операции по рыночному курсу на регулируемом и защищенном рынке. Биржевой валютный рынок – это эффективный инструмент для трейдеров, которые хотят совершать арбитражные и спекулятивные операции с высокотехнологичным доступом к торгам."},{title:'Крипто валюта', text:"Биржи криптовалют работают подобно обычным фондовым и валютным биржам. Рынок криптовалют отличается от фондовых рынков тем, что волатильность на нем гораздо выше чем у акций, фьючерсов и фиатных валют. За 2013 год курс Bitcoin вырос более чем на 550%. Колебания на фондовых рынках в сотни раз меньше. Для получения заметной прибыли на фондовых рынках нужно вкладывать немалые средства. На криптовалютных биржах получить заметную прибыль можно гораздо меньшими средствами."}]
+    -let carouseldata = [{},{},{},{},{}]
+    -let infodata = {img:'./img/0.png',name:'Артем Соболев',birth: 1990, exp:'60 месяцев', tactic: 'Агрессивная', fee: '4.2%', income:'6%', field:'Валюта, фьючерсы и опционы, крипто-валюты', add: 'Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.', email: 'webcase@com.ua'}
+    -let advantagedata = [{img:'./img/lock.png', title:'Надежность', text:'Полностью регулируется российским законодательством.'},{img:'./img/nofee.png', title:'Без скрытых комиссий', text:'Честность, прозрачность и понятность — являются главными принципами нашей политики. Каждый клиент сможет подобрать для себя оптимальные условия.'},{img:'./img/unique.png', title:'Уникальное предложение', text:'Вам больше не нужно тратить кучу времени и сил на поиски трейдера. Компания регулярно отбирает лучших специалистов.'},{img:'./img/accesebility.png', title:'Доступность системы', text:'Структура сайта максимально проста и понятна, отсутствие лишних деталей делает процесс работы предельно доступным для всех пользователей.'},{img:'./img/support.png', title:'Оперативная поддержка', text:'Качественная, своевременная и продуктивная техническая поддержка. Помощь профессионалов в принятии решений, а так же разрешении любых сложившихся ситуаций.', icon: true}]
+    -let relationsdata = [{title:'Предоставляем отчеты о прибыльности сделок', content: ['Используя наш опыт и возможности, мы ежедневно анализируем  фондовые биржи и финансовые рынки, чтобы найти лучшие варианты среди трейдеров, которые дадут наибольшую отдачу на вложенные средства. Результаты нашей работы вы всегда можете посмотреть на нашем сайте в виде графиков доходности наших трейдеров.','Качество аналитических работ превыше всего. Мы просыпаемся, проводим день и ложимся спать с мыслями о том, чтобы завтра в нашем распоряжении была только высококачественная аналитика. Наш выбор фильтруется из сотен трейдеров, многие из которых дали феноменальную прибыль. Мы знаем, что аналитика высшего уровня будет способствовать успеху и долгосрочному сотрудничеству с нашими клиентам.']}, {title:'Средства клиентов надежно защищены от рисков', content: ['Чего сегодня не хватает многим трейдинговым компаниям, так это отдела по безопасности, занимающегося мониторингом и контролем над рисками каждого отдельного трейдера и всех крупных позиций компании.','Множество трейдинговых компаний в последние годы потеряли довольно-таки крупные деньги и вышли из бизнеса, в связи с чем огромное количество трейдеров остались без работы. Одна из главных причин такого провала – отсутствие отдела безопасности либо недостаточный профессионализм его работы.','Компания Forward Trade создана трейдерами, а это значит, что мы понимаем, насколько важно не потерять уверенность в завтрашнем дне.']}, {title:'Предлагаем взаимовыгодное сотрудничество', content:['Для всех клиентов Forward Trade, желающих получать больше прибыли и вознаграждений, была разработана эксклюзивная бонусная программа, которая призвана увеличивать среднемесячный доход каждого активного клиента.','Ее эксклюзивность заключается в том, что она работает по принципу построения карьеры и состоит из нескольких ступеней, расширяя которые, вы будете получать не только премиальный бонус, но и постоянно растущий дополнительный доход, который в свою очередь будут приносить ваши партнеры.']}]
+    -let statisticdata = [{value: '556',icon: 'icon-calendar', title:'Дней в работе'},{value: '12256',icon: 'icon-dollar', title:'Среднее пополнение клиента, $'},{value: '2342',icon: 'icon-client', title:'Всего клиентов'}]
+    +b.SECTION.jumbotron.container-fluid
+        +e.mask
+            +e.mask
+            +e.VIDEO.main-video(autoplay loop muted)
+                source(src='./video/v1.mp4' type="video/mp4")
+        .container.clearfix.jumbotron-wrapper
+            +e.img-block.clrarfix
+                +e.IMG(src="./img/logo-sm.png").img
+                +e.text
+                    p Lorem ipsum dolor sit amet, cu aperiri tractatos nec, ei minim nostrud vim. Quot iracundia pro in, munere cotidieque ad quo. Ne cum nullam numquam. No eum mundi nominati reformidans.
+            +b.card--top
+                h1 Forward trade
+                p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, architecto.
+                +e.A.link(href="") Стать участником
+                    i.icon-right
+    +b.SECTION.about.content
+        .container.content-wrapper.clearfix
+            +e.img-wrapper
+                +e.IMG(src="./img/about-dude.png").img
+            +e.text
+                H1.title(data-title="О КОМПАНИИ")
+                    SPAN.add-style О КОМПАНИИ 
+                p Компания FORWARD-TRADE объединяет трейдеров и людей, желающих зарабатывать на финансовых рынках. Любой участник – может выбрать трейдера, отвечающего его личным предпочтениям, и начать с ним сотрудничать. Проще говоря, это место где встречаются средства тех, кто хочет заработать, и опыт тех, кто знает, как это правильно сделать.
+
+                p Мы являемся одними из первопроходцев интернет-трейдинга.  С момента основания и развития этой структуры, наша компания уделяла много внимания внедрению инновационных технологий в сфере клиентского сервиса и программного обеспечения, что позволило достичь высокого качества оказываемых услуг.
+
+                p Благодаря быстро развивающимся информационным технологиям теперь это не проблема. Все, что Вам нужно, – компьютер или мобильное устройство с доступом в Интернет и надежный поставщик услуг. В свою очередь, FORWARD-TRADE предоставляет возможность легко подобрать грамотного трейдера и начать зарабатывать хорошие дивиденды.
+    +b.SECTION.work.content
+        .svg-wrapper
+            img(src="./img/line.svg")
+        .container.content-wrapper.clearfix
+            +e.text
+                H1.title(data-title="КАК ЭТО РАБОТАЕТ?")
+                    SPAN.add-style КАК ЭТО 
+                    span.main-style РАБОТАЕТ?
+            +b.advantage-row.clearfix
+                each el, i in workdata
+                    +b.advantage-item
+                        +e.H2.order(data-id='0'+( i + 1)) 0#{i + 1}
+                        +e.icon-wrapper
+                            +e.I.icon(class='icon-0' + (i + 1))
+                        +e.text
+                            p=el.text
+    +b.SECTION.stages.content
+        .container.content-wrapper.clearfix
+            +e.text
+                H1.title(data-title="ТОРГОВЫЕ РЫНКИ")
+                    span.main-style ТОРГОВЫЕ 
+                    SPAN.add-style РЫНКИ 
+            .stages-row
+                each el, i in stagesdata
+                    +b.card--stages
+                        img(src='./img/card'+i+'.png')
+                        h3=el.title
+                        p=el.text
+    +b.SECTION.traders.content
+        .container.content-wrapper    
+            +e.text
+                H1.title(data-title="Наши трейдеры ")
+                    SPAN.add-style Наши 
+                    span.main-style трейдеры 
+            +b.carousel
+                -for(let index = 0; index < 2; index++)
+                    each el,i  in carouseldata
+                        +b.carousel-card
+                            +e.img-wrapper
+                                img(src='./img/'+i+'.png')
+                            +e.text-wrapper
+                                +e.name
+                                    h3 Артем Соболев
+                                +e.expirience
+                                    p 180 месяцев
+                                +e.rate
+                                    p Доходность 
+                                        span 35% 
+                                +e.A(href="personal.html").link Сотрудничать
+                                    i.icon-right
+                                +e.A(href='#infowindow-' + i data-effect="mfp-zoom-in").details.infowindow-open Подробнее о трейдере
+            -for(let index= 0; index< 8; index++)
+                .mfp-hide(id="infowindow-" + index).infowindow-wrapper
+                    +b.infowindow.container
+                        +e.H3.title Анкета трейдера
+                            span &times;
+                        +e.img-wrapper
+                            +e.IMG(src=infodata.img)
+                        +e.name
+                            h3 Артем Соболев
+                        +e.BUTTON(data-email=infodata.email).details-toggle Показать email
+                        +e.personal.clearfix
+                            +e.P Год рождения
+                                span=infodata.birth
+                            +e.P Опыт работы
+                                span=infodata.exp
+                            +e.P Тактики торговли
+                                span=infodata.tactic
+                        +e.finance-details.clearfix
+                            +e.P Вознаграждение:
+                                span=infodata.fee
+
+                            +e.P Доходность:
+                                span=infodata.income
+                        +e.stage.clearfix
+                            +e.P Рынки:
+                                span Валюта, фьючерсы и опционы, крипто-валюты
+                            +e.P Дополнительная информация:
+                                span Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.
+    +b.SECTION.advantages.content                                
+        .container.content-wrapper.clearfix
+            +e.text
+                H1.title(data-title="приемущества сотрудничества")
+                    span.main-style приемущества 
+                    SPAN.add-style сотрудничества 
+            .advantages-row.clearfix
+                each el, i in advantagedata
+                    +b.card--advantages
+                        img(src=el.img)
+                        -if(el.icon !== true)
+                            i.icon-right
+                        h3=el.title
+                        p=el.text
+    +b.SECTION.relations.content                                
+        .container.content-wrapper.clearfix
+            +e.text
+                H1.title(data-title="ВЗАИМООТНОШЕНИЯ С КЛИЕНТОМ")
+
+                    SPAN.add-style ВЗАИМООТНОШЕНИЯ
+                    span.main-style  С КЛИЕНТОМ
+            .relations-row
+                each el, i in relationsdata
+                    +b.relation-item.clearfix
+                        +e.count
+                            span='0'+(i+1)
+                        +e.text
+                            h2=el.title
+                            each element in el.content
+                                p=element
+                        +e.img-wrapper
+                            +e.IMG(src='./img/relations'+i+'.png')
+
+    +b.SECTION.statistics.content
+        .container.content-wrapper.clearfix
+            +e.text
+                H1.title(data-title="СТАТИСТИКА КОМПАНИИ")
+                    span.main-style СТАТИСТИКА                                
+                    SPAN.add-style КОМПАНИИ
+            .statistics-row
+                each el, i in statisticdata
+                    +b.card--statistics
+                        h3=el.title
+                        .value-wrapper
+                            span 
+                                i(class=el.icon)
+                            p=el.value
+                    -if(i < statisticdata.length - 1)
+                        i.icon-right.icon-direction
+
+    include ../partials/start
+
+
+
+
+
+                        
+
+
+
+
+
+
+
+
+
+block additional-scripts
+    script(src="js/app.js")
+
+
+            
+
+  

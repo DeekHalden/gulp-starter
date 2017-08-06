@@ -1,3 +1,56 @@
+.content
+  .content-wrapper
+    padding-top 20px
+    padding-bottom 20px
+    +md()
+      padding-top 42px
+      padding-bottom 42px
+    +lg()
+      padding-top 84px
+      padding-bottom 84px
+  h1
+    font-family $pfd
+    rem(30)
+    text-align center
+    margin-bottom 10px
+    text-transform uppercase
+    span
+      &.main-style
+        color $main
+      &.add-style
+        color $dark
+    +md()
+      position relative
+      text-align left
+      z-index 1
+      margin-bottom 42px
+    +lg()
+      rem(43)
+      margin-bottom 90px
+      &:before
+        z-index -1
+        content attr(data-title)
+        position absolute
+        text-transform uppercase
+        left 0%
+        top 50%
+        transform translateY(-50%)
+        rem(80)
+        color #f9f9f9
+  h2
+    font-family: $bold
+    color $main
+    text-align center
+    rem(33)
+      
+  & > p
+    color $add
+    font-family $regular
+    line-height 25px
+    rem(13)
+    margin-bottom 20px
+    +lg()
+      margin-bottom 40px
 // Normally mainpage styles
 .jumbotron
   background-image url('./../img/main-bg--sm.png')
@@ -7,11 +60,20 @@
   overflow hidden
   +lg()
     background-image url('./../img/main-bg--lg.png');
+  &__mask
+    display none
+    width: 100%
+    position: absolute
+    height 100%
+    +md()
+      background-color rgba(0,0,0,.5)
+      z-index: 2
+      display: block
     
   &__main-video
-    display none
     +md()
       top 50%
+      z-index: 1
       transform translateY(-50%)
       width: 100%    !important;
       height: auto   !important;
@@ -47,6 +109,8 @@
 .jumbotron-wrapper
   padding-top 80px  
   padding-bottom 80px  
+  position: relative
+  z-index: 3
   +lg()
     background-image url('./../img/result.png')
     background-position calc(100% - 15px) bottom
@@ -56,30 +120,183 @@
     
 .card
   &--top
-    max-width 255px
+    width 287px
     color #fff
     margin 60px auto 0
     padding 50px
     background-color rgba($main, .78)
     clear both
+    h1
+      rem(60)
+      line-height 50px
+      font-family $pfd
+      text-transform uppercase
+      margin-bottom 32px
+    p
+      rem(14)
+      margin-bottom 45px
+      line-height 25px
     +sm()
+      width: 287px
       margin-top 0
       clear none
       float right
   &--stages
+    display none
+    margin-bottom 30px
     width 100%
+    padding-bottom 20px
+    box-shadow: 0 30px 27px rgba(0, 0, 0, 0.05);
+    +xs()
+      width: 48%
+      &:nth-child(2n + 1)
+        float left
+      &:nth-child(2n + 2)
+        float right
+    +sm()
+      width: 255px
+    img
+      width: 100%
+      display: block
+      margin-bottom 41px
+    h3
+      text-transform initial
+      color: #20c335;
+      rem(18)
+      font-weight: 700;
+      line-height: 25px;
+      margin-bottom 24px
+    h3, p
+      padding 0 25px
+    p
+      color: #486776;
+      rem(13)
+      font-weight: 400;
+      line-height: 20px;
+  &--advantages
+    margin-bottom 40px
+    img
+      display block
+      height 69px
+    h3
+      color: #20c335;
+      rem(15)
+      font-weight: 700;
+      line-height: 25px;
+    p
+      color: #486776;
+      rem(13)
+      font-weight: 400;
+      line-height: 20px;
+    i 
+      display none
+    +sm()
+      display inline-block
+      height 100%
+      vertical-align top
+      // float right
+      width: 48%
+      &:nth-child(2n + 1)
+        // float left
+      &:last-child
+        clear both
+        float none
+        margin-left auto
+        margin-right auto
+    +lg()
+      display none
+      width: 20%
+      float left
+      padding-right 20px
+      position: relative
+      h3
+        margin-top 50px
+        margin-bottom 36px
+      i 
+        position: absolute
+        top 30px
+        right 34px
+        display block
+      &:last-child
+        clear none
+        float left
+  &--statistics
+    text-align center
+    margin-bottom 20px
+    h3
+      color: #20c335;
+      rem(15)
+      line-height: 25px;  
+    .value-wrapper
+      position: relative
+    p
+      vertical-align middle
+      font-family: $bold
+      background-image: linear-gradient(180deg, rgba(42, 62, 72, .7) 0%,   rgba($light-color, 1) 100%);
+      -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      color: #2a3e48;
+      display inline-block
+      
+      font-size: 50px 
+      line-height 50px
+      position: relative
+      font-weight: 900;
+    span
+      left 0px
+      top 50%
+      // transform translateY(-50%)
+      // position: absolute
+      vertical-align middle
+      display inline-block
+      width: 38px 
+      height 38px
+      background-color $main
+      border-top-left-radius 19px
+      border-bottom-left-radius 19px
+      border-bottom-right-radius 19px
+      text-align center
+      line-height 42px
+      i
+        color #fff
+        // color $main
+    +xs()
+      float left
+      h3
+        rem(12)
+        margin-bottom 0px
+      p
+        rem(30)
+      
+    +md()
+      h3
+        padding-left 20px
+        margin-bottom 28px
+        rem(15)
+      p
+        line-height 60px
+        rem(60)
+      span 
+        position: relative
+        left 10px
+        z-index: 1
+      
+    +lg()
+      // min-width 30%
+      p
+        line-height 100px
+        rem(100)
+      span 
+        left 20px
+      
+    
+        
+        
+
+      
   // +md()
     
-  h1
-    rem(60)
-    line-height 50px
-    font-family $pfd
-    text-transform uppercase
-    margin-bottom 32px
-  p
-    rem(14)
-    margin-bottom 45px
-    line-height 25px
+  
   &__link
     rem(13)
     display block
@@ -101,48 +318,7 @@
       background-color $main
       
       
-.content
-  .content-wrapper
-    padding-top 20px
-    padding-bottom 20px
-    +lg()
-      padding-top 84px
-      padding-bottom 84px
-  h1
-    font-family $pfd
-    rem(30)
-    text-align center
-    margin-bottom 10px
-    text-transform uppercase
-    span
-      &.main-style
-        color $main
-      &.add-style
-        color $dark
-    +md()
-      position relative
-      text-align left
-      z-index 1
-      &:before
-        z-index -1
-        content attr(data-title)
-        position absolute
-        text-transform uppercase
-        left 0%
-        top 50%
-        transform translateY(-50%)
-        rem(80)
-        color #f9f9f9
-    +lg()
-      rem(43)
-      margin-bottom 90px
-  p
-    font-family $regular
-    line-height 25px
-    rem(13)
-    margin-bottom 20px
-    +lg()
-      margin-bottom 40px
+
 // about block    
 .about
   background-image url('./../img/about-graph.png') 
@@ -165,6 +341,13 @@
       width calc(100% - 330px)
     +lg()
       width 45%
+    p
+      font-family $regular
+      line-height 25px
+      rem(13)
+      margin-bottom 20px
+      +lg()
+        margin-bottom 40px
   &__img
     width 100%
     display block
@@ -306,3 +489,474 @@
       padding-top 20px
 // work block
 
+
+// stages block
+.stages-row
+  +xs()
+    display flex
+    flex-wrap wrap
+    flex-direction row
+    justify-content space-between
+  +sm()
+    margin-left -10px
+    margin-right -10px
+    justify-content space-around
+// stages block
+    
+// stages block
+.traders
+  background-color #f1f4f7
+// .carousel
+
+.carousel-control 
+  position: absolute
+  top: 75px
+  background-color rgba($light-color, .06)
+  
+  width: 46px 
+  height 46px
+  z-index: 10
+  line-height 50px
+  text-align center
+  cursor pointer
+  &--left
+    left -45px
+  &--right 
+    right -45px
+    
+  
+.carousel-card
+  text-align center
+  position: relative
+  margin 0 5px
+  &:hover
+    .carousel-card
+      &__text-wrapper
+        background-color #fff
+      &__details
+        visibility visible
+        opacity 1
+        
+  &__img-wrapper
+    
+    position: absolute
+    z-index: 1
+    left 50%
+    transform translateX(-50%)
+    width: 150px
+    height 150px
+    border-radius 100px
+    box-shadow: 0 28px 24px rgba(0, 0, 0, 0.17);
+    overflow hidden
+    MARGIN 0 auto
+    img
+      display block
+      width: 100%
+      height 100%
+  
+  &__text-wrapper
+    transition .2s linear all
+    position: relative
+    background-color #fff
+    margin-top 75px
+    padding-bottom 25px
+    +lg()
+      background-color transparent
+  &__name
+    font-family: $bold
+    padding-top 105px
+    margin-top 38px
+    color: #486776;
+    rem(17)
+    font-weight: 700;
+    line-height: 25px;
+    margin-bottom 21px
+  &__expirience
+    color: #486776;
+    rem(14)
+    font-weight: 400;
+  &__rate
+    font-family: $bold
+    color: #486776;
+    rem(18)
+    font-weight: 900;
+    margin-bottom 37px
+    span 
+      color: #20c335;
+      font-weight: 900;
+  &__link
+    width: 185px
+    margin 0 auto
+    @extends .card__link
+    background-color: #20c335;
+    background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0) 100%);
+    i
+      display inline-block
+      margin-top 2px
+      transition .2s linear all
+    &:hover
+      background-color #2a3e48
+      i
+        color #20c335
+  &__details
+    display: block
+    margin-top 25px
+    color: #20c335;
+    transition .2s linear all
+    text-decoration none
+    rem(13)
+    +lg()
+      visibility hidden
+      opacity 0
+      
+    &:hover 
+      color #2a3e48
+      
+.carousel
+  margin-top 150px
+  margin 0 auto
+  width calc(100% - 90px)
+
+.infowindow
+  background-color #f1f3f5
+  max-width 600px
+  padding-bottom 20px
+  +md()
+    padding 0 56px 54px
+  &__title
+    padding 20px 15px
+    color: #2a3e48;
+    margin-left -15px
+    margin-right -15px
+    box-shadow: 0 28px 24px rgba(0, 0, 0, 0.17);
+    rem(25)
+    font-weight: 900;
+    margin-bottom 20px
+    position: relative
+    +md()
+      padding 20px 54px 
+      margin-left -54px
+      margin-right -54px
+    span 
+      cursor: pointer
+      top 50%
+      vertical(50)
+      position: absolute
+      right 15px
+      +md()
+        right: 54px
+      &:hover 
+        color $main
+  &__img-wrapper
+    width 150px
+    height 150px
+    box-shadow: 0 28px 24px rgba(0, 0, 0, 0.17);
+    border-radius 50%
+    margin 0 auto
+    
+    img
+      display block
+      width: 100%
+    +md()
+      float left
+      width: 200px
+      height 200px
+      margin-bottom 55px
+  &__name
+    text-align center
+    margin-top 40px
+    margin-bottom 20px
+    color: #486776;
+    rem(25)
+    font-weight: 700;
+    line-height: 25px;
+    +md()
+      padding-top 20px
+  &__details-toggle
+    @extends .card__link  
+    background-color #fff
+    color $main
+    width: 100%
+    box-shadow: 0 36px 32px rgba(61, 78, 95, 0.08);
+    &:hover
+      background-color rgba(255,255,255,.4)
+    +md()
+      margin: 26px auto 0
+      width: 235px
+  &__personal
+    clear both
+    margin-top 20px
+    p
+      color: #38515e;
+      font-size: 15px;
+      line-height: 25px;
+      font-weight: 700;
+      span 
+        float right
+        font-weight: 300;
+    +md()
+    
+      display flex
+      justify-content space-around
+      
+      p
+        float left
+        width: 33%
+        span 
+          float none
+          display block
+  &__finance-details
+    margin-top 20px
+    line-height: 54px;
+    p
+      color: #38515e;
+      rem(20)
+      font-weight: 700;
+      span 
+        color: #20c335;
+        rem(30)
+        font-weight: 900;
+        float right
+    +md()
+      display flex
+      p
+        float left
+        width: 50%
+        rem(23)
+        span
+          
+          rem(38)
+          float none
+          display: block
+  &__stage
+      @extends  .infowindow__personal
+      +md()
+        display block
+        p
+          width: 100%
+          & + p
+            margin-top 25px
+      
+// advantages
+.advantages-row
+  text-align center
+  +lg()
+    text-align left
+
+.statistics-row
+  .icon-direction
+    display none
+  +xs()
+    margin-top 20px
+    display flex
+    align-items center
+    justify-content space-between
+  +md()
+    .icon-direction
+      display block
+          
+
+    
+.start-work
+  background-image url('./../img/start-work.png')
+  background-position center
+  background-repeat no-repeat
+  background-size cover
+  padding 47px 0
+  +md()
+    padding 189px 0
+    .right-aligned
+      float right
+    &__link
+      margin 0
+  .title
+    text-shadow 1px 1px 1px #fff
+    margin-bottom 47px
+    clear both
+  &__link
+    @extends .card__link
+    background-color $main
+    border none
+    width 280px
+    margin 0 auto
+    &:hover
+      background-color rgba($main,.7)
+    i
+      vertical-align middle
+    +md()
+      margin-right 40px
+.relations
+  background-color #fff
+.relation-item
+  position: relative
+  background-color: #f1f4f7;
+  padding 0 20px
+  &__img-wrapper
+    display none
+    img
+      display: block
+      width 100%
+      height 100%
+      
+  &__count
+    margin-bottom 20px
+    width: 78px;
+    height: 78px;
+    box-shadow: 0 30px 27px rgba(0, 0, 0, 0.18);
+    background-color: #20c335;
+    span
+      color: #ffffff;
+      font-family: pfd
+      font-size: 100px;
+      font-weight: 500;
+  &__text
+    h2
+      color: #20c335;
+      rem(22)
+      line-height 29px
+      margin-bottom 20px
+      font-family: $black
+      text-transform: uppercase;
+    p
+      color: #486776;
+      rem(13)
+      line-height: 20px;
+      margin-bottom 20px
+  +lg()
+    padding 0
+    margin-bottom 0
+    &__count
+      position: absolute
+      top 90px
+      z-index: 1
+      horizontal(50)
+    &__img-wrapper
+      float left
+      display: block
+      width: 50%
+      height 581px
+    &__text
+      height 100%
+      float left
+      width 50%
+      p
+        line-height 22px
+        rem(15)
+    &:nth-child(2n + 1)
+      .relation-item__text
+        float right
+        padding 90px 70px 0 90px
+    &:nth-child(2n + 2)
+      .relation-item__text
+        padding 90px 90px 0 70px
+  // line-height: 30px;
+
+
+// index page end
+
+// company start
+.company-img
+  display none
+  
+.company
+  &__company-wrapper
+    max-width 707px
+    +md()
+      float left
+      max-width calc(100% - 300px)
+    +lg()
+      padding 57px 65px
+      max-width: 707px
+    
+  &__info-row
+    margin-top 20px
+  &__certificates-row
+    margin-bottom 20px
+    text-align center
+  &__link
+  
+    width 126px
+    height 186px
+    display inline-block
+    img
+      display block
+      width: 100%
+  &__text-row
+    color: #486776;
+    rem(13)
+    font-weight: 400;
+    line-height: 25px;
+    p 
+      & + p
+        margin-top 20px
+.download-wrapper
+  max-width 350px
+  margin 20px auto 0
+  +sm()
+    display flex
+    flex-wrap wrap
+    max-width initial
+  +md()
+    margin-top 47px
+    float right
+    width 250px
+  +lg()
+    width 350px
+  &__download-link
+    
+    text-decoration none
+    display flex
+    align-items center
+    justify-content space-between
+    margin 0 auto 10px
+    padding 24px  36px
+    background-color #fff
+    transition .2s linear all
+    box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
+    &:hover
+      background-color: #edf9ee;
+      .download-wrapper__icon-download
+        color $main
+    +sm()
+      width: 48%
+    +md()
+      width: 100%
+    
+  &__icon-pdf
+    rem(39)
+    color $main
+  &__icon-download
+    rem(14)
+    transition .2s linear all
+    color #dcdcdc
+  &__text
+    color $add
+.certificate-popup
+  &__img
+    width: 100%
+    display block
+    
+
+
+
+
+
+
+
+
+  
+@media(min-width 400px)
+  .company
+    &__certificates-row
+      float left
+      clear both
+      width: 128px
+      margin-right 20px
+      margin-bottom 0
+      position: relative
+      z-index: 1
+    &__link
+      margin-bottom 10px
+      display block
+      
+      

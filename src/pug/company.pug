@@ -1,0 +1,37 @@
+extends _layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+  -let certificates = ['./img/company-ogrn.jpg', './img/company-id.jpg']
+  -let textrowdata = ['Компания FORWARD-TRADE объединяет трейдеров и людей, желающих зарабатывать на финансовых рынках. Любой участник – может выбрать трейдера, отвечающего его личным предпочтениям, и начать с ним сотрудничать. Проще говоря, это место где встречаются средства тех, кто хочет заработать, и опыт тех, кто знает, как это правильно сделать.','Мы являемся одними из первопроходцев интернет-трейдинга.  С момента основания и развития этой структуры, наша компания уделяла много внимания внедрению инновационных технологий в сфере клиентского сервиса и программного обеспечения, что позволило достичь высокого качества оказываемых услуг.','Благодаря быстро развивающимся информационным технологиям теперь это не проблема. Все, что Вам нужно, – компьютер или мобильное устройство с доступом в Интернет и надежный поставщик услуг. В свою очередь, FORWARD-TRADE предоставляет возможность легко подобрать грамотного трейдера и начать зарабатывать хорошие дивиденды.']
+  +b.main--padding
+    +breadcrumbs([{title:'Главная',link:'index.html'}],'О компании')
+    .jumbotron
+      +b.IMG(src="./img/company-bg.png").company-img
+    +b.SECTION.company.content
+      .container.content-wrapper.clearfix
+        +e.company-wrapper
+          H2.title
+            span.main-style О компании
+          +e.info-row.clearfix
+            +e.certificates-row.clearfix
+              -for(let i =0; i < 2; i++)
+                +e.A(class="link image-popup-vertical-fit" data-effect="mfp-zoom-in" href="#certificate" + i)
+                  img(src=certificates[i])
+                +b.certificate-popup.mfp-hide.container(id="certificate"+i)
+                  +e.IMG(src=certificates[i]).img
+
+            +e.text-row
+              each el in textrowdata
+                p=el
+        +b.download-wrapper
+          -for(let i=0; i< 3; i++)
+            +e.A(href="").download-link
+              +e.I.icon-pdf.icon-pdf
+              +e.SPAN.text Agreement.pdf
+              +e.I.icon-download.icon-download
+
+                
+
+block additional-scripts
+    script(src="js/app.js")
