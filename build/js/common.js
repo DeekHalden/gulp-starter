@@ -213,4 +213,9 @@ $(document).ready(function() {
             $(window).scroll(startCounter);
         }
     }());
+    (function() {
+        if($('video').length > 0) {
+            $('video')[0].playbackRate=.65
+        }
+    }());
 });
