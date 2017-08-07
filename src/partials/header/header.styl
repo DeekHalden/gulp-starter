@@ -6,8 +6,11 @@
     top 0
     left 0
     z-index 111
+    
     &--white
+        transition .2s linear all
         background-color #fff
+        box-shadow 0 15px 27px rgba(61, 78, 96, 0.06);
         .header
             &__logo-wrapper
                 span 
@@ -15,21 +18,27 @@
                 
         .aside
             &__link
-                color $add
+                transition .2s linear all
+                color $main
                 &:hover 
-                    color $main
-        &--tiny
-            background-color #fff
+                    color $add
+    
                     
     &--tiny 
         background-color rgba($main, .6)
         border-bottom 1px solid $main
+        &.header-wrapper--white
+            .aside
+                &__link
+                    color #fff
+                    &:hover 
+                        color $add
 .header
     &__logo-wrapper
         width 150px
         display table
         float left
-        font-family $regular
+        font-family $pfd
         text-decoration none
         transition: all 0.5s ease;
         span
@@ -38,7 +47,7 @@
             color #fff
             vertical-align middle    
             display table-cell
-            font-family: pfd
+            font-family: $pfd
             transition: all 0.5s ease;
         &:hover
             filter:  contrast(150%);
@@ -122,9 +131,17 @@
             color $add
     &__sub
         display none
+        
+        &.is-active
+            padding-top 10px
+            display block
         +md()
-            top 40px
+            top 58px
+            left -10px
             position absolute
+            width 200%
+            background-color rgba(30,175,38,0.6)
+            padding-left 10px
             .aside
                 &__link
                     float none

@@ -1,0 +1,87 @@
+extends _layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+    -let rowdata = [{title:'Профессиональный рост', content:'Работая в компании FORWARD-TRADE, каждый клиент имеет возможность стать профессионалом своего дела. Взаимодействуя с лучшими трейдерами, Вы получаете новые знания и расширяете свои горизонты. В то время как поддержка компании и постоянный поток свежей инвестиционной аудитории никогда не позволит Вам остаться без дела.'},{title:'Своевременные выплаты ', content:'Ежедневно получайте своевременные комиссионные начисления за каждый успешный торговый день. Заявки на выплаты обрабатываются от 3 до 7 дней.'},{title:'Специализированные инструменты', content:'Каждый трейдер компании FORWARD-TRADE, получает доступ к дорогостоящему  программному обеспечению, которое значительно увеличивает положительный исход каждой сделки.'}, {title:'Отсутствие централизации', content:'Вам не нужно ежедневно посещать офис компании, местоположение не играет роли. Все что необходимо для работы, это стабильный доступ к сети интернет! '}]
+    -let demandsrow = ['Опыт успешного управления активами', 'Детальное знание особенностей финансовых рынков и в частности валютного рынка Forex','Базовые знания фондовых рынков','Наличие собственной торговой стратегии','Наличие собственной торговой стратегии','Высокая работоспособность и ответственность', 'Знание иностранных языков']
+
+    +b.main--padding
+        +breadcrumbs([{title:'Главная',link:'index.html'}],'Трейдеру')
+        +b.jumbotron--company
+            +b.IMG(src="./img/trader-bg.png").trader-img
+            +e.title-wrapper.container
+                +e.H2.title
+                    span.add-style СТАНЬ ЧАСТЬЮ КОМАНДЫ 
+                    span.main-style ЛУЧШИХ ТРЕЙДЕРОВ
+        +b.SECTION.why.content
+            .container.content-wrapper.clearfix
+                +e.text
+                    H2.title Почему работать с нами выгодно?
+                +b.advantages-row
+                    each el, i in rowdata
+                        +b.card--why
+                            h3(data-id='0'+(i+1))=el.title
+                            p=el.content
+        +b.SECTION.demands.content
+            .container.content-wrapper.clearfix
+                +e.text
+                    H2.title Требования к трейдерам проекта
+                +b.demands-row
+                    each el, i in demandsrow
+                        h4
+                            i.icon-check
+                            | #{el}
+        +b.SECTION.join.content
+            .container.content-wrapper.clearfix
+                +e.text
+                    H2.title Присоединяйся к команде профессионалов
+                    p Проект FORWARD-TRADE – это место где встречаются средства тех, кто хочет заработать, и опыт тех, кто знает, как это правильно сделать.  Примечательно то, что большинство профессиональных трейдеров и впоследствии успешных управляющих когда-то начинали с нуля. Многие из них даже не имеют финансового или экономического образования. Единственное, что их объединяет, – это целеустремленность, настойчивость и ответственность перед своим делом. Только так трейдерство превращается в профессию.
+                img(src="./img/trader-man.png")
+        +b.SECTION.form-wrapper.content
+            .container.content-wrapper.clearfix
+                +e.img-wrapper
+                    +e.IMG(src="./img/about-dude.png").img
+                    p Если Вы желаете присоединиться к команде трейдеров проекта «FORWARD-TRADE», считаете, что соответствуете всем требованиям, а так же принимаете на себя ответственность, оговоренную в оферте и иной документации, представленной на сайте, Вам необходимо предоставить все необходимые данные, после чего организация проводит полную обработку полученных данных. Если информация будет удовлетворять запрос, мы обязательно свяжемся с Вами и обсудим дальнейшее сотрудничество.
+                +e.text
+                    H2.title Оставьте заявку
+                    +b.FORM.form--join(name="join" id="join" enctype="multipart/form-data").clearfix
+                        +e.form-control--100
+                            label(for="join__name") Фио
+                            +e.INPUT.input(type="text" id="join__name" name="join__name" data-msg="Некорректное имя" )
+                        +e.form-control--50
+                            label(for="join__email") E-mail
+                            +e.INPUT.input(type="email" id="join__email" name="join__email" data-msg="Введите email в формате XX@XX.XX" data-msg-required="Обязательное поле")
+                        +e.form-control--50
+                            label(for="join__address") Адрес
+                            +e.INPUT.input(type="text" id="join__address" name="join__address")
+                        +e.form-control--50
+                            label(for="join__tel") Телефон
+                            +e.INPUT.input(type="tel" id="join__tel" name="join__tel" data-msg="Неверный номер телефона" data-msg-required="Обязательное поле")
+                        +e.form-control--50
+                            label() Трейдерский опыт
+                            +e.SELECT.input--dropdown
+                                option(value="") 1 год
+                                option(value="") 2 года
+                                option(value="") 3 года
+                                option(value="") 4 года
+                                option(value="") 5 лет
+                        +e.form-control--50
+                            label(for="join__work") Место работы
+                            +e.INPUT.input(type="text" id="join__work" name="join__work")
+                        +e.form-control--50
+                            label(for="join__document") Документ подтверждающий личность
+                            +e.INPUT.input(type="file" id="join__document" name="join__document")
+                            +e.input--mask
+                        +e.form-control--100
+                            label(for="join__comment") Комментарий
+                            +e.TEXTAREA.input--textarea(id="join__comment" name="join__comment")
+
+                        +e.form-control--single
+                            +e.text Заявка рассматривается от 7 до 30 суток
+                        +e.form-control--50.--right
+                            +e.INPUT.input--submit(type="submit" value="Отправить заявку")
+
+
+
+block additional-scripts
+    script(src="js/app.js")

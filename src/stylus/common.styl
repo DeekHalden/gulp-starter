@@ -47,7 +47,7 @@ html, body
     height 100%
 	
 .main
-    padding-bottom 327px
+    padding-bottom 427px
     &--padding
         padding-top 67px
     
@@ -66,18 +66,26 @@ html, body
     clear both
     
 input::-webkit-input-placeholder 
-    font-family $font
-    font-size 14px
+    font-family $regular
+    rem(14)
+    color #fff
+    font-weight 300
 input::-moz-placeholder 
-    font-family $font
-    font-size 14px
+    font-family $regular
+    rem(14)
+    color #fff
+    font-weight 300
    
 input::-moz-placeholder 
-    font-family $font
-    font-size 14px
+    font-family $regular
+    rem(14)
+    color #fff
+    font-weight 300
 input::-ms-input-placeholder 
-    font-family $font
-    font-size 14px
+    font-family $regular
+    rem(14)
+    color #fff
+    font-weight 300
 input::-webkit-inner-spin-button
     display none
     -webkit-appearance none
@@ -87,6 +95,9 @@ img
     border-style none
     
 .breadcrumb
+    padding 18px 0
+    
+    background-color: #ffffff;
     &__list
         list-style none
     &__item, &__link

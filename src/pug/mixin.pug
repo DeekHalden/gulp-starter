@@ -11,7 +11,7 @@ mixin breadcrumbs(items, last)
             span.breadcrumb__link-current= last
 
 mixin createHeader()
-  -let data = [{className: 'link--dropdown', title:'О компании', sub:[{href:'company.html',title:'О компании'}, {href:'company.html',title:'О компании'},{href:'company.html',title:'О компании'}]},{className: 'link', href:'',title:'Трейдеру'}, {className: 'link', href:'',title:'Стать участником'}, {className: 'link', href:'',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'}]
+  -let data = [{className: 'link--dropdown', title:'О компании', sub:[{href:'company.html',title:'О компании'}, {href:'company.html',title:'О компании'},{href:'company.html',title:'О компании'}]},{className: 'link', href:'trader.html',title:'Трейдеру'}, {className: 'link', href:'',title:'Стать участником'}, {className: 'link', href:'',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'}]
   .container-fluid.header-wrapper(class=attributes.class)
     +b.header.clearfix.container
         +e.A(href="index.html").logo-wrapper
@@ -28,9 +28,11 @@ mixin createHeader()
             //-         +e.link.A(href="") Kontakte
             +e.nav
                 each el in data
-                    +e.A(href=el.href, class=el.className) #{el.title}
                     -if(el.sub)
-                        +e.sub 
-                            each el in data[0].sub
-                                +e.A(href=el.href).link #{el.title}
+                        +e.SPAN(class=el.className) #{el.title}
+                            +e.sub 
+                                each el in data[0].sub
+                                    +e.A(href=el.href).link #{el.title}
+                    -else 
+                        +e.A(href=el.href, class=el.className) #{el.title}
 

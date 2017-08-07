@@ -1,9 +1,26 @@
+-let data = [{title:'О компании',link:'company.html'},{title:'Трейдеру',link:'trader.html'},{title:'Стать участником',link:'participate.html'},{title:'Партнерам',link:'partners.html'},{title:'Отзывы',link:'feedbach.html'}]
+-let socials = [{className:'icon-vk', text:'vkontakte'},{className:'icon-youtube', text:'YouTube'},{className:'icon-inst', text:'instagram'}]
 +b.footer.clearfix
     .container.clearfix
-        +e.item &copy; 2017 Grubatec. All rights reserved
-        +e.item
-            +e.A(href="uns.html").link Über uns  
-            +e.A(href="kontakte.html").link KONTAKTE
-        +e.developers &copy; 2017 Grubatec. All rights reserved
+        +e.aside--left
+            +e.A(href="index.html").logo-wrapper
+                +e.logo.IMG(src="./img/logo.svg")
+                span FORWARD <br> TRADE
+            p Компания FORWARD-TRADE объединяет трейдеров и людей, желающих зарабатывать на финансовых рынках. Любой участник – может выбрать трейдера, отвечающего его личным предпочтениям, и начать с ним сотрудничать. Проще говоря, это место где встречаются средства тех, кто хочет заработать, и опыт тех, кто знает, как это правильно сделать.
+        +e.aside--right
+            +b.nav
+                each el in data
+                    +e.A(href=el.link).link= el.title
+            +b.additions
+                +b.FORM.search(id="seach" name="search")
+                    +e.form-control
+                        +e.INPUT(type="text" id="seach__query" name="seach__query" placeholder="Поиск").input
+                +b.socials
+                    each el in socials
+                        +e.A(href="").link
+                            i(class=el.className)
+                            | #{el.text}
+
+    
 
     

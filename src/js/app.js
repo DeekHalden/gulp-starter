@@ -2,4 +2,5 @@
 //=include lib/jquery.drawsvg.js
 //=include lib/slick.min.js
 //=include lib/jquery.magnific-popup.min.js
+//=include lib/validator.js
 //=include common.js

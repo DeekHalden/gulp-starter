@@ -1,3 +1,5 @@
+.mfp-close 
+  display none !important
 .content
   .content-wrapper
     padding-top 20px
@@ -38,10 +40,12 @@
         rem(80)
         color #f9f9f9
   h2
-    font-family: $bold
+    font-family: $black
     color $main
     text-align center
     rem(33)
+    +md()
+      text-align left
       
   & > p
     color $add
@@ -58,8 +62,36 @@
   background-position center
   position relative
   overflow hidden
+  &--company 
+    .trader-img
+      width 100%
+      
+      display block
+      
   +lg()
     background-image url('./../img/main-bg--lg.png');
+  &__title-wrapper
+    position absolute
+    left 50%
+    top 50%
+    transform translateX(-50%) translateY(-50%)
+    
+  &__title
+    text-align center
+    font-family $pfd
+    font-weight 500
+    rem(35)
+    
+    span
+      letter-spaceing 2px
+      display block
+    span.add-style
+      color #2a3e48
+    span.main-style
+      color $main
+    +sm()
+      text-align left
+      
   &__mask
     display none
     width: 100%
@@ -119,6 +151,36 @@
     
     
 .card
+  &--why
+    margin-bottom 40px
+    h3
+      rem(15)
+      font-family $bold
+      color #2a3e48
+      padding-top 37px
+      position relative
+      text-align left
+      margin-bottom 20px
+      &:after
+        top -50px
+        left 0
+        content attr(data-id)
+        rem(100)
+        font-family $pfd
+        opacity: 0.12;
+        color: #4cb059;
+        position absolute
+    p
+      rem(13)
+      text-align left
+      
+      color #486776
+      line-height 20px
+    +md()
+      margin-top 82px
+      display inline-block
+      width 23.5%
+      vertical-align top
   &--top
     width 287px
     color #fff
@@ -175,8 +237,10 @@
       line-height: 20px;
   &--advantages
     margin-bottom 40px
+    
     img
       display block
+      margin 0 auto
       height 69px
     h3
       color: #20c335;
@@ -209,6 +273,8 @@
       float left
       padding-right 20px
       position: relative
+      img
+        margin 0
       h3
         margin-top 50px
         margin-bottom 36px
@@ -232,7 +298,7 @@
     p
       vertical-align middle
       font-family: $bold
-      background-image: linear-gradient(180deg, rgba(42, 62, 72, .7) 0%,   rgba($light-color, 1) 100%);
+      background-image: -webkit-linear-gradient(180deg, rgba(42, 62, 72, .7) 0%,   rgba($light-color, 1) 100%);
       -webkit-background-clip: text;
       // -webkit-text-fill-color: transparent;
       color: #2a3e48;
@@ -399,7 +465,7 @@
   +md()
     width 350px
     &:nth-child(2n + 1)
-      padding-right 120px
+      padding-right 110px
     &:nth-child(2n + 2)
       padding-right 40px
     // &:nth-child(2n)
@@ -440,7 +506,7 @@
   &__order
     position absolute
     top -40px
-    font-family $pfd
+    font-family $pfd !important
     rem(32)
     color $add
     z-index -1
@@ -741,6 +807,8 @@
 .advantages-row
   text-align center
   +lg()
+    display flex
+    justify-content space-between
     text-align left
 
 .statistics-row
@@ -806,7 +874,7 @@
     background-color: #20c335;
     span
       color: #ffffff;
-      font-family: pfd
+      font-family: $pfd
       font-size: 100px;
       font-weight: 500;
   &__text
@@ -839,9 +907,11 @@
       height 100%
       float left
       width 50%
+      h2
+        text-align left
       p
         line-height 22px
-        rem(15)
+        rem(13)
     &:nth-child(2n + 1)
       .relation-item__text
         float right
@@ -857,16 +927,34 @@
 // company start
 .company-img
   display none
+  +lg()
+    display block
+    width 100%
   
 .company
   &__company-wrapper
     max-width 707px
+    .title
+      text-align left
+      font-size 33px
+      font-family $black
     +md()
       float left
       max-width calc(100% - 300px)
     +lg()
-      padding 57px 65px
+      padding 57px 65px 0 65px
       max-width: 707px
+      position absolute
+      top -200px
+      background-color #fff
+      .title
+        text-align left
+        margin-bottom 58px
+  +lg()
+    .content-wrapper 
+      padding-top 45px !important
+      padding-bottom 164px !important
+        
     
   &__info-row
     margin-top 20px
@@ -874,13 +962,28 @@
     margin-bottom 20px
     text-align center
   &__link
-  
+    position relative
     width 126px
     height 186px
     display inline-block
     img
       display block
-      width: 100%
+      width: auto
+      height 100%
+    &:hover
+      .company__mask
+        display block
+  &__mask
+    transition .2s linear all
+    display none
+    color #fff
+    width 100%
+    height 100%
+    left 0
+    position absolute
+    background-color: rgba(30, 175, 38, 0.41);
+    text-align center
+    line-height 186px
   &__text-row
     color: #486776;
     rem(13)
@@ -902,6 +1005,7 @@
     width 250px
   +lg()
     width 350px
+    margin-top 0px
   &__download-link
     
     text-decoration none
@@ -936,13 +1040,190 @@
     width: 100%
     display block
     
+// faq
+@import '../partials/faq/faq'
 
-
-
-
-
-
-
+// faq
+// traders
+// .why
+//   .content-wrapper
+//     padding-bottom 0 !important
+.demands
+  .content-wrapper
+    padding-top 0 !important
+  +md()
+    background-image url('./../img/trader-must.png')
+    background-repeat no-repeat
+    background-position calc(50% - 640px) bottom
+    background-size contain
+  .title
+    rem(33)
+    +md()
+      margin-right 30px
+      text-align right
+    +lg()
+      margin-right 126px
+.demands-row
+  margin-top 20px
+  h4
+    color #486776
+    line-height 45px
+    rem(14)
+    font-family $regular
+    font-weight 400
+    
+    i 
+      display inline-block
+      margin-right 26px
+      color $main
+      rem(9)
+  +md()
+    width 60%
+    float right
+.join
+  background-color #f5f8fa
+  img
+    display none
+  +md()
+    background #f5f8fa url('./../img/trader-join-bg.png') no-repeat right bottom
+    img
+      display block
+      position absolute
+      right 0 
+      bottom 0
+    // background-size contain
+  &__text
+    h2
+      margin-bottom 27px
+    p
+      color #486776
+      line-height 25px
+      rem(14)
+    +md()
+      width 49%
+      padding 10px 0 0
+      h2
+        
+        margin-bottom 54px
+.form-wrapper
+  &__img-wrapper
+    margin-bottom 20px
+    img
+        display none
+  p
+    rem(13)
+    color #486776
+    line-height 25px
+  +md()
+    &__img-wrapper
+      margin-top 60px
+      float left
+      max-width 290px
+      img
+        display block
+        width 270px
+        margin-bottom 68px
+  +lg()
+    &__img-wrapper
+      max-width 320px
+  &__text
+    +md()
+      width 590px
+      float right
+    +lg()
+      width 640px
+.form
+  width 100%
+  margin 33px auto 0
+  +sm()
+    width auto
+    
+    
+  &__form-control
+    position relative
+    label
+      cursor pointer
+      margin-bottom 9px
+      rem(15)
+      color #486776
+      font-family $bold
+      display block
+      &.error
+        cursor initial
+        position absolute
+        bottom 0px
+        font-family $regular
+        font-weight 300
+        color red
+    &--50
+      width 100%
+      +sm()
+        width 48%
+        float right
+        &:nth-child(2n)
+          float left
+        
+    &--100
+      width 100%
+      clear both
+    &--right
+      float right  !important
+    &--single
+      height 50px
+      line-height 50px
+      float left
+      color: #486776;
+      font-family $regular
+      rem(13)
+      font-weight: 300;
+  &__input
+    margin-bottom 30px
+    font-family $regular
+    rem(14)
+    color #486776
+    font-weight 300
+    padding-left 19px
+    width 100%
+    height: 50px;
+    border none
+    box-shadow: inset 2px 2px 0 rgba(102, 115, 130, 0.18);
+    border-radius: 5px !important
+    background-color: #f1f4f7;
+    &.error
+      border 1px solid red
+    &[type="file"]
+      // position absolute
+      z-index -1
+      cursor pointer
+    &--dropdown
+      background #f1f4f7 url('./../img/downarrow.png') 97% center no-repeat
+      
+    &--textarea
+      resize none
+      height 100px
+      padding-top 10px
+      &:focus
+        
+        outline none
+    &--mask
+      pointer-events none
+      background #f1f4f7 url('./../img/pin.png') 97% center no-repeat
+      cursor pointer
+      position absolute
+      z-index 1
+      bottom 0
+      left 0
+    &--submit 
+      box-shadow: inset 0 1px 1px 1px rgba(0, 0, 0, 0.23);
+      border-radius: 5px;
+      background-color: #20c335;
+      background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0) 100%);
+      color #fff
+      @extends .card__link
+      padding-left 0
+      float right
+  
+// traders
 
   
 @media(min-width 400px)

@@ -32,9 +32,8 @@ $(document).ready(function() {
         }
     }());
     (function() {
-        $('.aside__link--dropdown').on('click', function(e) {
-            e.preventDefault()
-            $('.aside__sub').slideToggle()
+        $('.aside__link--dropdown').on('click', function() {
+            $('.aside__sub').toggleClass('is-active')
         })
     }());
     (function() {
@@ -64,10 +63,10 @@ $(document).ready(function() {
 
     (function() {
         if ($(window).width() > 920) {
-            $(window).on('resize scroll', function() {
+            function activateAnimation() {
                 $('.advantage-item').fadeIn(1000).each(function(i) {
                     if ($(this).isInViewport()) {
-                        $(this).delay(i + 100 * 2).delay(1000).addClass('animated bounceInLeft')
+                        $(this).delay(1000).addClass('animated bounceInLeft')
                         $('.svg-wrapper img').delay(1000).addClass('fadeInLeft animated')
                     }
                 });
@@ -79,17 +78,23 @@ $(document).ready(function() {
                 })
                 if ($('.stages').length > 0 && $('.stages').isInViewport()) {
                     $('.card--stages').fadeIn(1000).each(function() {
-                        $(this).addClass('animated zoomIn')
+                        // $(this).addClass('animated zoomIn')
                     })
                 }
                 if ($('.advantages-row').length > 0 && $('.advantages-row').isInViewport()) {
                     console.log(1)
                     $('.card--advantages').each(function(i) {
-                        setInterval(() => {
-                            $(this).fadeIn(500)
-                        }, i * 200)
+
+                        $(this).fadeIn((i + 5) * 500)
+
+
                     })
                 }
+            }
+            activateAnimation()
+
+            $(window).on('resize scroll', function() {
+                activateAnimation()
 
             });
             $('.card__link').on('mouseover', function(e) {
@@ -151,7 +156,9 @@ $(document).ready(function() {
                 }
             },
             closeBtnInside: false,
-            fixedContentPos: true,
+            fixedContentPos: false,
+            fixedBgPos: true,
+            autoFocusLast: true,
         });
         $('.infowindow__title span').on('click', function(e) {
             e.preventDefault()
@@ -176,7 +183,7 @@ $(document).ready(function() {
     }());
     (function() {
 
-        $('.info-window__details-toggle').on('click', function(e) {
+        $('.infowindow__details-toggle').on('click', function(e) {
             e.preventDefault()
             var data = $(this).data('email')
             $(this).text(data)
@@ -214,8 +221,129 @@ $(document).ready(function() {
         }
     }());
     (function() {
-        if($('video').length > 0) {
-            $('video')[0].playbackRate=.65
+        if ($('video').length > 0) {
+            $('video')[0].playbackRate = .65
         }
     }());
+    (function() {
+        $(".faq__qw").on('click', function(e) {
+            var el = $(this).parent();
+            el.find(".faq__answer").slideToggle()
+            el.find(".icon-toggle-wrapper .icon-minus").toggle()
+            el.find(".icon-toggle-wrapper .icon-plus").toggle()
+        })
+    }());
+    (function() {
+        $("input[type='tel']").keydown(function(e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl/cmd+A
+                (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: Ctrl/cmd+C
+                (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: Ctrl/cmd+X
+                (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+            var max = 11;
+            if (e.which < 0x20) {
+                // e.which < 0x20, then it's not a printable character
+                // e.which === 0 - Not a character
+                return; // Do nothing
+            }
+            if (this.value.length == max) {
+                e.preventDefault();
+            } else if (this.value.length > max) {
+                // Maximum exceeded
+                this.value = this.value.substring(0, max);
+            }
+        })
+        $.validator.addMethod("alpha", function(value, element) {
+            return this.optional(element) || value == value.match(/^[a-zA-Zа-яА-Я ]+$/);
+        });
+
+        $.validator.addMethod("emailMethod", function(value, element) {
+            let isEmail = this.optional(element) || /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(value);
+            return isEmail
+        });
+
+        $.validator.addMethod("usPhone", function(value, element) {
+            let isPhone = (this.optional(element) || /^\d+$/.test(value)) && this.getLength($.trim(value), element) === 11;
+
+
+            return isPhone;
+
+        }, "Please enter valid phone");
+
+        $("#join").validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+
+                join__name: {
+                    alpha: true
+                },
+                join__email: {
+                    required: true,
+                    emailMethod: true
+                },
+                join__tel: {
+                    required: true,
+                    usPhone: true
+
+                },
+                join__message: {
+                    required: false,
+
+                },
+                hiddenRecaptcha: {
+                    required: function() {
+                        if (grecaptcha.getResponse() == '') {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+            },
+
+            messages: {
+
+
+            },
+            submitHandler: function(form) {
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                let data = $(form).serialize();
+                $.ajax({
+                        url: '',
+                        type: 'POST',
+                        data: data,
+                    })
+                    .done(function() {
+                        form.reset();
+                        console.log("success");
+                    })
+                    .fail(function() {
+                        console.log("error");
+                    })
+                    .always(function() {
+                        console.log("complete");
+                    });
+            }
+        });
+    }())
 });
