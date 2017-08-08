@@ -15,24 +15,42 @@
             &__logo-wrapper
                 span 
                     color $add
-                
         .aside
             &__link
                 transition .2s linear all
-                color $main
+                color $add
                 &:hover 
-                    color $add
-    
-                    
+                    color $main
+        .aside
+            &__sub
+                
+                +md()
+                    background-color #fff
+        &.header-wrapper--tiny
+            background-color #fff
     &--tiny 
-        background-color rgba($main, .6)
+        padding-top 0px 
+        padding-bottom 0px
+        background-color #fff
         border-bottom 1px solid $main
+        .header
+            &__logo-wrapper
+                span 
+                    color $main
+        .aside
+            background-color #fff
+            &__link
+                color $main
+                i 
+                    color $main
+                &:hover
+                    color $add
         &.header-wrapper--white
             .aside
                 &__link
-                    color #fff
+                    color $add
                     &:hover 
-                        color $add
+                        color $main
 .header
     &__logo-wrapper
         width 150px
@@ -101,9 +119,10 @@
     height 100%
     border-top 6px solid $main
     padding 0px 0px 0 0px
-    transition .2s ease all
     border-left 1px solid  $main
+    transition .2s linear all
     // &__nav
+        
     &__actions-nav
         padding-top 10px
         padding-left 10px
@@ -128,12 +147,18 @@
         display block
         position relative
         &:hover
-            color $add
+            color $main
+        &--login
+            i
+                color #fff
+                margin-top 3px
+                display inline-block
+                margin-right 12px
     &__sub
         display none
         
         &.is-active
-            padding-top 10px
+            padding-top 20px
             display block
         +md()
             top 58px
@@ -154,13 +179,27 @@
     &--open 
         
         right 0
+        .aside
+            &__sub
+                border-bottom 1px solid rgba(205,205,205,0.3)
+            &__link
+                &:hover
+                    color $add
         
 @media(min-width 1200px)
     
     .header
+        padding-top 20px 
+        padding-bottom 20px
         &__toggle
             display none
+        &--white
+            .aside
+                &__link
+                    &--login
+                         border-left 1px solid #f1f4f7
     .aside
+        transition 0s
         line-height 47px
         background-color transparent
         margin-left 52px
@@ -187,6 +226,13 @@
             display inline-block
             margin-right 20px
             float left
+            &--login
+                padding-left 65px
+                i
+                    color $main
+               
+                
+        
             
             
                         

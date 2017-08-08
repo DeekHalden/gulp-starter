@@ -1,6 +1,7 @@
 .mfp-close 
   display none !important
 .content
+  background-color #fff
   .content-wrapper
     padding-top 20px
     padding-bottom 20px
@@ -13,6 +14,7 @@
   h1
     font-family $pfd
     rem(30)
+    font-weight 500
     text-align center
     margin-bottom 10px
     text-transform uppercase
@@ -26,6 +28,7 @@
       text-align left
       z-index 1
       margin-bottom 42px
+      opacity 0
     +lg()
       rem(43)
       margin-bottom 90px
@@ -62,7 +65,14 @@
   background-position center
   position relative
   overflow hidden
+  &--partner 
+    background-image url('./../img/partner-bg.png') !important
+    
   &--company 
+    
+    background-image url('./../img/trader-bg.png') !important
+    padding-right 0 !important
+    padding-left 0 !important
     .trader-img
       width 100%
       
@@ -70,11 +80,37 @@
       
   +lg()
     background-image url('./../img/main-bg--lg.png');
+  &__content
+    color #fff
+    i
+      rem(60)
+      color #fff
+      margin-bottom 32px
+    h3
+      color $main
+      rem(33)
+      font-family $black
+      margin-bottom 41px
+    p
+      font-weight 300
+      margin 0 auto
+      rem(15)
+      line-height 25px
+      max-width 690px
+      font-family $regular 
+
   &__title-wrapper
-    position absolute
-    left 50%
-    top 50%
-    transform translateX(-50%) translateY(-50%)
+    padding-top 20px 
+    padding-bottom 20px
+    
+    +sm()
+      padding-top 75px
+      padding-bottom 75px
+      text-align left
+    +md()
+      padding-top 150px
+      padding-bottom 150px
+    
     
   &__title
     text-align center
@@ -143,6 +179,16 @@
   padding-bottom 80px  
   position: relative
   z-index: 3
+  text-align center
+  &--partner
+    background-image none !important
+    padding-top 40px !important
+    padding-bottom 40px
+    +lg()
+      padding-top 110px !important
+      padding-bottom 110px
+    
+    
   +lg()
     background-image url('./../img/result.png')
     background-position calc(100% - 15px) bottom
@@ -204,7 +250,6 @@
       clear none
       float right
   &--stages
-    display none
     margin-bottom 30px
     width 100%
     padding-bottom 20px
@@ -217,6 +262,8 @@
         float right
     +sm()
       width: 255px
+    +md()
+      display none
     img
       width: 100%
       display: block
@@ -255,7 +302,7 @@
     i 
       display none
     +sm()
-      display inline-block
+      display inline-block !important
       height 100%
       vertical-align top
       // float right
@@ -708,9 +755,8 @@
       top 50%
       vertical(50)
       position: absolute
-      right 15px
-      +md()
-        right: 54px
+      right 30px
+      
       &:hover 
         color $main
   &__img-wrapper
@@ -867,7 +913,7 @@
       height 100%
       
   &__count
-    margin-bottom 20px
+    margin-bottom 30px
     width: 78px;
     height: 78px;
     box-shadow: 0 30px 27px rgba(0, 0, 0, 0.18);
@@ -1051,11 +1097,11 @@
 .demands
   .content-wrapper
     padding-top 0 !important
-  +md()
-    background-image url('./../img/trader-must.png')
-    background-repeat no-repeat
-    background-position calc(50% - 640px) bottom
-    background-size contain
+    +md()
+      background-image url('./../img/trader-must.png')
+      background-repeat no-repeat
+      background-position 80px bottom
+      background-size contain
   .title
     rem(33)
     +md()
@@ -1081,7 +1127,9 @@
     width 60%
     float right
 .join
-  background-color #f5f8fa
+  background #f5f8fa
+  &--partner 
+    background #fff !important
   img
     display none
   +md()
@@ -1089,8 +1137,10 @@
     img
       display block
       position absolute
-      right 0 
+      right 137px 
       bottom 0
+      &.girl
+        right 50px
     // background-size contain
   &__text
     h2
@@ -1206,6 +1256,7 @@
         
         outline none
     &--mask
+      line-height 50px
       pointer-events none
       background #f1f4f7 url('./../img/pin.png') 97% center no-repeat
       cursor pointer
@@ -1224,7 +1275,218 @@
       float right
   
 // traders
+// participate
+.info
+  &__text
+    .title
+      span
+        display block
+  &__info-wrapper
+    padding 40px
+    box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
+    +sm()
+      display table
+    i
+      rem(67)
+      color $main
+      float left
+      margin-right 20px
+      margin-bottom 20px
+      +sm()
+        margin-right 0px
+        margin-bottom 0px
+        float none
+        vertical-align middle
+        display table-cell
+      
+    p
+      +sm()
+        padding-left 39px
+        vertical-align middle
+        display table-cell
+.instructions-row
+  margin-top 42px
+.instruction-item
+  margin-bottom 44px
+  clear both
+  box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
+  +sm()
+    box-shadow: 0 0 0 0
+    margin-bottom 94px
+  &__img-wrapper
+    width 100%
+    box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
+    margin-bottom 20px
+    float right
+    +xs()
+      width 30%
+    +sm()
+      margin-bottom 0
+    +lg()
+      width 48%
+    img
+      display block
+      width 100%
+  +lg()
+    &:nth-child(2n)
+      .instruction-item
+        &__img-wrapper
+          float right
+        &__heading 
+          float left
+    &:nth-child(2n + 1)
+      float right
+      .instruction-item
+        &__img-wrapper
+          float left
+        &__heading
+           
+          float right
+  &__heading 
+    float left
+    padding-bottom 20px
+    +xs()
+      width 68%
+    +lg()
+      width 48%
+  &__step
+    box-shadow: 0 30px 27px rgba(0, 0, 0, 0.18);
+    margin-right 39px
+    display inline-block
+    height 62px
+    width 62px
+    background-color $main
+    float left
+    position relative
+    +sm()
+      margin-bottom 61px
+    span
+      position absolute
+      bottom -36px
+      rem(78)
+      right -10px
+      font-family $pfd
+      color #fff
+      font-weight 500
+        
+  &__title
+    float left
+    line-height 1
+    margin-bottom 20px
+    h2
+      text-align left
+  p
+    clear both
+    color #486776
+    rem(13)
+    line-height 25px
+// participate
 
+// partner
+.bonus-row
+  margin-top 20px
+  +md()
+    display flex
+    justify-content space-between
+    margin-top 105px
+  
+.bonus-item
+  margin 0 auto 30px
+  position relative
+  max-width 540px
+  box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
+  background-color: #20c335;
+  padding 53px
+  color #fff
+  z-index 1
+  +md()
+    width calc(100% / 2 - 15px)
+    margin-bottom 65px
+    &:first-child
+      margin-left 0
+    &:last-child
+      margin-right 0
+      
+
+
+  &:after
+    content attr(data-value)
+    position absolute
+    rem(294)
+    line-height 185px
+    font-family $black
+    color: #2dcf42;
+    z-index -1
+    bottom 0
+    left -5px
+  &__title
+    display table
+  &__number, &__text
+    display table-cell
+    vertical-align middle
+    font-family $black
+  &__number
+    rem(83)
+  &__text
+    padding-left 26px
+    span 
+      display block
+      rem(20)
+  p
+    rem(15)
+    line-height 25px
+.bonus-wrapper
+  .title
+    text-align center
+.bonus-numbers-row
+  display flex
+  align-items top
+  justify-content space-around
+  flex-wrap wrap
+  
+  margin-top 20px
+  +md()
+  
+    margin-top 75px
+    margin-bottom 25px
+    justify-content space-between
+    
+  
+  &__icon
+    display none
+    margin-top 5px
+    rem(10)
+    color #2a3e48
+    opacity .19 !important
+    +md()
+      display block
+.bonus-number-item
+  opacity 0
+  width 100%
+  text-align center
+  margin-bottom 30px
+  // width 100%
+  +xs()
+    width 30%
+  +md()
+  
+    text-align center
+    width auto
+  +lg()
+    margin-bottom 0
+    text-align left
+  h2
+    rem(18)
+    color: #486776;
+    font-family $black 
+  h3
+    rem(16)
+    font-family $bold
+    color $main
+    margin-top 15px
+  
+
+// partner
   
 @media(min-width 400px)
   .company

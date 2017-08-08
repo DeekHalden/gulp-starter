@@ -15,24 +15,22 @@
           <div class="header__toggle"><span class="header__toggle-item"></span><span class="header__toggle-item"></span><span class="header__toggle-item"></span>
           </div>
           <div class="aside">
-            <div class="aside__nav"><span class="aside__link aside__link--dropdown">О компании<span class="aside__sub"> <a class="aside__link" href="company.html">О компании</a><a class="aside__link" href="company.html">О компании</a><a class="aside__link" href="company.html">О компании</a></span></span><a class="aside__link" href="trader.html">Трейдеру</a><a class="aside__link" href="">Стать участником</a><a class="aside__link" href="">Партнеру</a><a class="aside__link" href="">Отзывы</a>
+            <div class="aside__nav"><span class="aside__link aside__link--dropdown">О компании<span class="aside__sub"> <a class="aside__link" href="company.html#documents">Докуметация</a><a class="aside__link" href="company.html#faq">ЧаВо</a></span></span><a class="aside__link" href="trader.html">Трейдеру</a><a class="aside__link" href="participate.html">Стать участником</a><a class="aside__link" href="partner.html">Партнеру</a><a class="aside__link" href="">Отзывы</a><a class="aside__link aside__link--login" href="login.html"> <i class="icon-login"></i>Войти</a>
             </div>
           </div>
         </div>
       </div>
       <div class="main main--padding">
-        <div class="container">
-          <div class="breadcrumb">
-            <ul class="breadcrumb__list">
-              <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html">Главная</a></li>
-              <li class="breadcrumb__item breadcrumb__item--devider">/</li>
-              <li class="breadcrumb__item"><span class="breadcrumb__link-current">О компании</span></li>
-            </ul>
-          </div>
+        <div class="breadcrumb container">
+          <ul class="breadcrumb__list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html">Главная</a></li>
+            <li class="breadcrumb__item breadcrumb__item--devider">/</li>
+            <li class="breadcrumb__item"><span class="breadcrumb__link-current">О компании</span></li>
+          </ul>
         </div>
         <div class="jumbotron"><img class="company-img" src="./img/company-bg.png" alt="" role="presentation"/>
         </div>
-        <section class="company content">
+        <section class="company content" id="documents">
           <div class="container content-wrapper clearfix">
             <div class="company__company-wrapper">
               <H2 class="title"><span class="main-style">О компании</span></H2>
@@ -54,7 +52,7 @@
             </div>
           </div>
         </section>
-        <section class="content container">
+        <section class="content container" id="faq">
           <section class="faq" id="faq">
             <div class="wrapper-inner">
               <div class="faq__content">
@@ -122,7 +120,7 @@
       </div>
       <div class="footer clearfix">
         <div class="container clearfix">
-          <div class="footer__aside footer__aside--left"><a class="footer__logo-wrapper" href="index.html"><img class="footer__logo" src="./img/logo.svg" alt="" role="presentation"/><span>FORWARD <br> TRADE</span></a>
+          <div class="footer__aside footer__aside--left clearfix"><a class="footer__logo-wrapper" href="index.html"><img class="footer__logo" src="./img/logo.svg" alt="" role="presentation"/><span>FORWARD <br> TRADE</span></a>
             <p>Компания FORWARD-TRADE объединяет трейдеров и людей, желающих зарабатывать на финансовых рынках. Любой участник – может выбрать трейдера, отвечающего его личным предпочтениям, и начать с ним сотрудничать. Проще говоря, это место где встречаются средства тех, кто хочет заработать, и опыт тех, кто знает, как это правильно сделать.</p>
           </div>
           <div class="footer__aside footer__aside--right">
@@ -131,6 +129,8 @@
             <div class="additions">
               <form class="search" id="seach" name="search">
                 <div class="search__form-control"><input class="search__input" type="text" id="seach__query" name="seach__query" placeholder="Поиск"/>
+                  <button class="search__input" type="submit" value=""><i class="icon-search"></i>
+                  </button>
                 </div>
               </form>
               <div class="socials"><a class="socials__link" href=""><i class="icon-vk"></i>vkontakte</a><a class="socials__link" href=""><i class="icon-youtube"></i>YouTube</a><a class="socials__link" href=""><i class="icon-inst"></i>instagram</a>

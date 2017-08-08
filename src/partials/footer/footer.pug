@@ -2,7 +2,7 @@
 -let socials = [{className:'icon-vk', text:'vkontakte'},{className:'icon-youtube', text:'YouTube'},{className:'icon-inst', text:'instagram'}]
 +b.footer.clearfix
     .container.clearfix
-        +e.aside--left
+        +e.aside--left.clearfix
             +e.A(href="index.html").logo-wrapper
                 +e.logo.IMG(src="./img/logo.svg")
                 span FORWARD <br> TRADE
@@ -15,6 +15,8 @@
                 +b.FORM.search(id="seach" name="search")
                     +e.form-control
                         +e.INPUT(type="text" id="seach__query" name="seach__query" placeholder="Поиск").input
+                        +e.BUTTON(type="submit" value="").input
+                            i.icon-search
                 +b.socials
                     each el in socials
                         +e.A(href="").link

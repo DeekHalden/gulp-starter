@@ -1,0 +1,45 @@
+mixin breadcrumbs(items, last)
+  
+  .breadcrumb.container
+    ul.breadcrumb__list&attributes(attributes)
+      each item in items
+        li.breadcrumb__item
+           a(href=item.link).breadcrumb__link= item.title
+        li.breadcrumb__item.breadcrumb__item--devider /
+      if last
+        li.breadcrumb__item
+          span.breadcrumb__link-current= last
+
+mixin createHeader()
+  -let data = [{className: 'link--dropdown', title:'О компании', sub:[{href:'company.html#documents',title:'Докуметация'}, {href:'company.html#faq',title:'ЧаВо'},]},{className: 'link', href:'trader.html',title:'Трейдеру'}, {className: 'link', href:'participate.html',title:'Стать участником'}, {className: 'link', href:'partner.html',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'},{className: 'link--login', href:'login.html',title:'Войти', icon:'icon-login'}]
+  .container-fluid.header-wrapper(class=attributes.class)
+    +b.header.clearfix.container
+        +e.A(href="index.html").logo-wrapper
+            +e.logo.IMG(src="./img/logo.svg")
+            span FORWARD <br> TRADE
+        +e.toggle()
+            +e.toggle-item.SPAN
+            +e.toggle-item.SPAN
+            +e.toggle-item.SPAN
+        +b.aside
+            //- +e.actions.clearfix
+            //-     +e.actions-nav
+            //-         +e.link.A(href="") Über uns      
+            //-         +e.link.A(href="") Kontakte
+            +e.nav
+                each el in data
+                    -if(el.sub)
+                        +e.SPAN(class=el.className) #{el.title}
+                            +e.sub 
+                                each el in data[0].sub
+                                    +e.A(href=el.href).link #{el.title}
+                    -else 
+                        -if(el.icon)
+                          +e.A(href=el.href, class=el.className) 
+                            i(class=el.icon)
+                            | #{el.title}
+                        -else 
+                          +e.A(href=el.href, class=el.className) #{el.title}
+                            
+                          
+

@@ -1,4 +1,4 @@
-extends _layout
+extends ./../pug-helpers/_layout
 block header
   +createHeader()&attributes({class: 'header-wrapper--white'})
 block content
@@ -8,7 +8,7 @@ block content
     +breadcrumbs([{title:'Главная',link:'index.html'}],'О компании')
     .jumbotron
       +b.IMG(src="./img/company-bg.png").company-img
-    +b.SECTION.company.content
+    +b.SECTION.company.content#documents
       .container.content-wrapper.clearfix
         +e.company-wrapper
           H2.title
@@ -33,7 +33,7 @@ block content
               +e.I.icon-pdf.icon-pdf
               +e.SPAN.text Agreement.pdf
               +e.I.icon-download.icon-download
-    +b.SECTION.content.container
+    +b.SECTION.content.container#faq
       include ../partials/faq/faq
 
 

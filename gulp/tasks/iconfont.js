@@ -32,17 +32,6 @@ gulp.task('font', function(){
             }))
             .pipe(rename('_svgfont.styl'))
             .pipe(gulp.dest(config.src.stylus+'lib/'));
-        gulp.src(config.src.helpers+'icons.html')
-            .pipe(consolidate('lodash', {
-                glyphs: glyphs,
-                fontName: fontname,
-                fontPath: 'fonts/',
-                className: 'icon',
-                htmlBefore: '<i class="icon ',
-                htmlAfter: '"></i>',
-                htmlBr: ''
-            }))
-            .pipe(gulp.dest(config.dest.root));
     })
     .pipe(gulp.dest(config.dest.css+'fonts/'))
     .pipe(reload({stream: true}))

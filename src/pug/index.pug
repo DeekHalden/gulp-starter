@@ -1,4 +1,4 @@
-extends _layout
+extends ./../pug-helpers/_layout
 
 block content
     -let workdata = [{icon:'', text:"Ознакомьтесь с нашими трейдерами"},{icon:'', text:"Ознакомьтесь с документацией предоставленной на сайте"},{icon:'', text:"Откройте счет в компании Forward-Trade"},{icon:'', text:"Выберите трейдера с которым вы хотите сотрудничать"},{icon:'', text:"Наблюдайте за торговлей трейдера"},{icon:'', text:"Выплатите вознаграждение трейдеру с полученной прибыли"},{icon:'', text:"Получайте прибыль с Forward-Trade"}]
@@ -118,8 +118,8 @@ block content
         +b.SECTION.advantages.content                                
             .container.content-wrapper.clearfix
                 +e.text
-                    H1.title(data-title="приемущества сотрудничества")
-                        span.main-style приемущества 
+                    H1.title(data-title="преимущества сотрудничества")
+                        span.main-style преимущества 
                         SPAN.add-style сотрудничества 
                 .advantages-row.clearfix
                     each el, i in advantagedata

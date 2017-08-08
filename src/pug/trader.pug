@@ -1,4 +1,4 @@
-extends _layout
+extends ./../pug-helpers/_layout
 block header
   +createHeader()&attributes({class: 'header-wrapper--white'})
 block content
@@ -8,7 +8,6 @@ block content
     +b.main--padding
         +breadcrumbs([{title:'Главная',link:'index.html'}],'Трейдеру')
         +b.jumbotron--company
-            +b.IMG(src="./img/trader-bg.png").trader-img
             +e.title-wrapper.container
                 +e.H2.title
                     span.add-style СТАНЬ ЧАСТЬЮ КОМАНДЫ 

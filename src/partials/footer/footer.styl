@@ -3,13 +3,36 @@
   position absolute
   bottom 0
   background-color: #2a3e48;
-  height 427px
+  height 450px
   left 0
   right 0
+  +sm()
+    height 157px
+    
+  +md()
+    height auto
+    padding-top 101px
+    padding-bottom 101px
   &__logo-wrapper
     @extends .header__logo-wrapper
+    span
+      font-weight 300
+      letter-spacing 1px
+    +sm()
+      width 140px
+      float none
+      // margin-bottom 32px
+    +md()
+      
+      margin-bottom 62px
+      img
+        display table-cell
+        height 47px
   &__aside
     &--left
+      +sm()
+        width 48%
+        float left
       p
         color: #8b9aa2;
         font-family $regular
@@ -17,14 +40,14 @@
         font-weight: 400;
         line-height: 25px;
         +sm()
-          width 50%
-          float left
+          height 75px
+          overflow hidden
     &--right
       display flex
       margin-top 20px
       +sm()
         margin-top 0
-        width 50%
+        width 48%
         float right
 .nav
   width 50%
@@ -33,6 +56,8 @@
   flex-wrap wrap
   flex-direction column
   text-align center
+  +sm()
+    width 40%
   &__link
     text-align left
     margin-bottom 5px 
@@ -42,16 +67,26 @@
     font-weight: 700;
     text-decoration none
     color #fff
+    +sm()
+      margin-bottom 8px
+    +md()
+      margin-bottom 0
+      & + .nav__link
+        margin-top 20px
     &:hover
       color $main
   +sm()
     justify-content center
 .additions
   width 50%
+  +sm()
+    width 60%
+  
 .search
   width 100%
   &__form-control
     width 100%
+    position relative
   &__input
     color #fff
     width 100%
@@ -61,16 +96,38 @@
     border-radius 5px !important
     border none
     padding-left 15px
+    &[type="submit"]
+      cursor pointer
+      position absolute
+      right 0
+      padding-left 0
+      top 0
+      width 50px
+      color $main
+      background-color transparent
+      border none
+      &:focus
+        outline none
+      &:hover
+        color #fff
 .socials
   margin-top 10px
   display flex
   flex-direction column
   justify-content flex-end
+  +md()
+    margin-top 113px
+    flex-direction row
+    justify-content space-between
   &__link
     display block
     color #fff
     text-decoration none
     margin-bottom 5px
+    +sm()
+      i
+        margin-right 10px
+        rem(10)
     &:hover
       color $main
       i
@@ -80,6 +137,10 @@
       display inline-block
       margin-right 5px
       color $main
+      
+@media(orientation: landscape)
+  .footer
+    height 327px
       
         
             

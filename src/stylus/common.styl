@@ -47,9 +47,10 @@ html, body
     height 100%
 	
 .main
-    padding-bottom 427px
+    padding-bottom 445px
     &--padding
-        padding-top 67px
+        padding-top 107px
+
     
 .container-fluid
     width 100%
@@ -156,21 +157,31 @@ a, img, div, input, select
     
 
 
+@media (orientation: landscape)
+    .main
+        padding-bottom 327px
 @media (min-width: 576px)
+    .main
+        padding-bottom 327px
     .container 
         width: 540px
 @media (min-width: 768px)
-
+    .main
+        padding-bottom 157px
+        
     .container 
         width: 720px
 @media (min-width: 992px)
-
+    .main
+        padding-bottom 387px
     .container 
         width: 960px;
-
+            
 @media (min-width: 1200px)
     .container 
-        width: 1116px;
+        width: 1270px;
+        padding-left 80px
+        padding-right 80px
 .wrapper
     min-height 100%
     position relative
