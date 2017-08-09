@@ -9,8 +9,8 @@
       padding-top 42px
       padding-bottom 42px
     +lg()
-      padding-top 84px
-      padding-bottom 84px
+      padding-top 62px
+      padding-bottom 62px
   h1
     font-family $pfd
     rem(30)
@@ -66,6 +66,7 @@
   position relative
   overflow hidden
   &--partner 
+    text-align center
     background-image url('./../img/partner-bg.png') !important
     
   &--company 
@@ -179,7 +180,6 @@
   padding-bottom 80px  
   position: relative
   z-index: 3
-  text-align center
   &--partner
     background-image none !important
     padding-top 40px !important
@@ -199,6 +199,7 @@
 .card
   &--why
     margin-bottom 40px
+    
     h3
       rem(15)
       font-family $bold
@@ -223,6 +224,7 @@
       color #486776
       line-height 20px
     +md()
+      opacity 0
       margin-top 82px
       display inline-block
       width 23.5%
@@ -263,7 +265,7 @@
     +sm()
       width: 255px
     +md()
-      display none
+      opacity 0
     img
       width: 100%
       display: block
@@ -315,7 +317,7 @@
         margin-left auto
         margin-right auto
     +lg()
-      display none
+      opacity 0
       width: 20%
       float left
       padding-right 20px
@@ -455,6 +457,7 @@
     +lg()
       width 45%
     p
+      color #486776
       font-family $regular
       line-height 25px
       rem(13)
@@ -510,6 +513,7 @@
     &:nth-child(2n)
       float right
   +md()
+    opacity 0
     width 350px
     &:nth-child(2n + 1)
       padding-right 110px
@@ -597,6 +601,7 @@
       display block
       width calc(100% - 120px)
   p
+    color $add
     margin-bottom 0 !important
     +sm()
       padding-top 20px
@@ -852,6 +857,7 @@
 // advantages
 .advantages-row
   text-align center
+  margin-top 20px
   +lg()
     display flex
     justify-content space-between
@@ -887,6 +893,7 @@
     text-shadow 1px 1px 1px #fff
     margin-bottom 47px
     clear both
+    
   &__link
     @extends .card__link
     background-color $main
@@ -993,13 +1000,15 @@
       position absolute
       top -200px
       background-color #fff
+      z-index 1
       .title
         text-align left
         margin-bottom 58px
   +lg()
     .content-wrapper 
+      
       padding-top 45px !important
-      padding-bottom 164px !important
+      padding-bottom 0 !important
         
     
   &__info-row
@@ -1117,6 +1126,8 @@
     rem(14)
     font-family $regular
     font-weight 400
+    +md()
+      opacity 0
     
     i 
       display inline-block
@@ -1129,7 +1140,13 @@
 .join
   background #f5f8fa
   &--partner 
+    z-index 1
     background #fff !important
+    +md()
+      .container
+        padding-bottom 0 !important
+        padding-top 20px !important
+      
   img
     display none
   +md()
@@ -1138,9 +1155,9 @@
       display block
       position absolute
       right 137px 
-      bottom 0
+      bottom 0px
       &.girl
-        right 50px
+        right 0px
     // background-size contain
   &__text
     h2
@@ -1149,6 +1166,8 @@
       color #486776
       line-height 25px
       rem(14)
+      & + p
+        margin-top 20px
     +md()
       width 49%
       padding 10px 0 0
@@ -1212,12 +1231,26 @@
         float right
         &:nth-child(2n)
           float left
+    &--part
+      width 100%
+      +xs()
+        width 30%
+        float left
+        margin-right 10px
         
     &--100
       width 100%
       clear both
     &--right
       float right  !important
+    &--top
+      input
+        padding 0 20px
+      +xs()
+        margin-top 30px
+      +md()
+        input
+          padding 0 40px
     &--single
       height 50px
       line-height 50px
@@ -1245,6 +1278,9 @@
       // position absolute
       z-index -1
       cursor pointer
+    &--rur
+      background #f1f4f7 url('./../img/rur.png') 97% center no-repeat
+      
     &--dropdown
       background #f1f4f7 url('./../img/downarrow.png') 97% center no-repeat
       
@@ -1301,6 +1337,7 @@
       
     p
       +sm()
+        color $add
         padding-left 39px
         vertical-align middle
         display table-cell
@@ -1388,7 +1425,7 @@
   +md()
     display flex
     justify-content space-between
-    margin-top 105px
+    margin-top 55px
   
 .bonus-item
   margin 0 auto 30px
@@ -1396,10 +1433,11 @@
   max-width 540px
   box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
   background-color: #20c335;
-  padding 53px
   color #fff
   z-index 1
+  padding 20px
   +md()
+    padding 53px
     width calc(100% / 2 - 15px)
     margin-bottom 65px
     &:first-child
@@ -1412,19 +1450,24 @@
   &:after
     content attr(data-value)
     position absolute
-    rem(294)
-    line-height 185px
+    rem(100)
     font-family $black
     color: #2dcf42;
     z-index -1
-    bottom 0
-    left -5px
+    left -2px
+    bottom -38px
+    +sm()
+      bottom 0
+      line-height 185px
+      rem(294)
   &__title
-    display table
+    +sm()
+      display table
   &__number, &__text
-    display table-cell
     vertical-align middle
     font-family $black
+    +sm()
+      display table-cell
   &__number
     rem(83)
   &__text
@@ -1461,7 +1504,6 @@
     +md()
       display block
 .bonus-number-item
-  opacity 0
   width 100%
   text-align center
   margin-bottom 30px
@@ -1469,7 +1511,7 @@
   +xs()
     width 30%
   +md()
-  
+    opacity 0
     text-align center
     width auto
   +lg()
@@ -1487,6 +1529,525 @@
   
 
 // partner
+
+// personal
+
+.personal-header
+  display none 
+  margin-top 20px
+  &.is-active
+    display flex
+    justify-content space-around
+    flex-wrap wrap
+  // @media(min-width 400px)
+    // align-items center
+  +md()
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    box-shadow: 0 15px 27px rgba(61,78,96,0.06);
+ 
+
+    
+    
+
+
+.personal-item
+  width 100%
+  margin-bottom 20px
+  text-align center
+  @media(min-width 400px)
+    width auto
+    // min-width 50%
+    h2
+      margin-bottom 0
+    &--ip
+      width 100%
+    &--currency, &--amount, &--time
+      width 33%
+  +md()
+    text-align left !important
+    &--ip,&--time, &--currency, &--amount
+      width auto
+    &--ip
+      h2
+        margin-bottom 20px
+    &--time
+      h2
+        margin-top 8px
+        margin-bottom 25px
+      h3
+        padding-left 25px
+        i
+          left 0
+    &--currency
+      h2
+        margin-top 8px
+        margin-bottom 8px
+    &--amount
+      h2
+        margin-top 8px
+        margin-bottom 12px
+    &--purchase
+      margin-top 9px
+    
+  h2
+    margin-bottom 10px
+  &--ip
+    h2
+      rem(24)
+      font-family $black
+      color: #2a3e48;
+      text-transform uppercase
+      span 
+        color: #1eaf26;
+    h3
+      rem(15)
+      color #2a3e48
+      font-weight 300
+  &--time
+    h2
+      rem(13)
+      color: #2a3e48;
+    h3
+      color #76878f
+      position relative
+      i 
+        position absolute
+        top 50%
+        transform translateY(-50%)
+        left calc(50% - 50px)
+      
+  &--currency, &--amount 
+    h2
+      color: #2a3e48;
+      rem(15)
+      font-family $bold
+  &--currency
+    h3 
+      color: #2a3e48;
+      rem(13)
+      font-weight: 300;
+  &--amount 
+    h3
+      rem(27)
+      color: #1eaf26;
+      font-family $black
+      text-transform: uppercase;
+  &--purchase
+    button
+      margin 0 auto
+      @extends .card__link
+      width 215px
+      height 60px
+      position relative
+      box-shadow: inset 0 1px 1px 1px rgba(0, 0, 0, 0.23);
+      border-radius: 5px;
+      background-color: #20c335;
+      background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0) 100%);
+      padding-left 30px
+      padding-top 1px
+      font-family $bold
+      &:hover
+        background-color $main
+        
+        
+      i
+
+        // vertical-align middle
+        position absolute
+        top 50%
+        transform translateY(-50%)
+        margin-right 18px
+        left 15px
+        rem(19)
+
+
+.aside-block
+  .purchase 
+    @extends .card__link
+    margin 0 auto
+    width: 205px;
+    height: 50px;
+    box-shadow: inset 0 1px 1px 1px rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    background-color: $main
+    background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0) 100%);
+    &:hover
+      background-color #1eaf26
+      
+  .title
+    span 
+      color: #2a3e48;
+      rem(13)
+      font-weight: 400;
+  &--left 
+    +md()
+      float left
+  &--right
+    +md()
+      padding 46px 0 46px 46px
+      width calc(100% - 281px)
+      float right
+      background-color #fff
+    .title
+      rem(30)
+      font-family $black
+      color $main
+      +md()
+        margin-bottom 45px
+      
+.toggle-wrapper
+  h2 
+    cursor pointer
+    color $main
+    text-align left
+    rem(20)
+    i 
+      margin-top 4px
+      display inline-block
+      margin-right 5px
+      float right
+  +md()
+    display none
+    
+.personal-toggler
+  @extends .header__toggle 
+  left 0
+  right auto
+  margin-top 0
+  &__toggle-item
+    @extends .header__toggle-item 
+    
+.main-content-wrapper
+  +md()
+    position relative
+    &:before
+      content ''
+      background-color $main
+      position absolute
+      top 0
+      height 138px
+      width 40%
+      z-index -1
+    &:after
+      z-index -1
+      content ''
+      position absolute
+      top 138px
+      height 100%
+      width 40%
+      background-color #38515e
+.personal-navigation
+  display none
+  margin-top 20px
+  +md()
+    margin-top 0
+    margin-left -25px
+    display block
+    width 306px
+  &__heading
+    width 100%
+    padding 20px
+    background-color $main
+    display table
+    position relative
+    &:after
+      position absolute
+      content ''
+      bottom -10px
+      left 20px
+      border-top 20px solid $main
+      border-left 20px solid $main
+      border-right 2px solid transparent
+      border-bottom 10px solid transparent
+      visibility visible
+    +md()
+      padding 28px 0px
+      padding-left 25px
+  &__img-wrapper
+    display table-cell
+    width 82px
+    height 82px
+    border-radius 7px
+    
+    overflow hidden
+    img
+      display block
+      width 100%
+    
+  &__name
+    vertical-align middle
+    display table-cell
+    color #fff
+    padding-left 20px
+    h2
+      text-align left
+      color #fff
+      rem(17)
+      font-family $bold
+      span 
+        font-family $regular
+        rem(13)
+        display block
+  &__content
+    background-color: #38515e;
+    display flex
+    flex-direction column
+    +md()
+      margin-top 20px
+
+  &__link
+    padding 22px 20px
+    color #fff
+    text-decoration none
+    background-color: #38515e;
+    
+    +md()
+      padding 22px 0
+      padding-left 25px
+      
+    i
+      width 20px
+      display inline-block
+      margin-right 33px
+    &:hover, &--active
+      color $main
+      background #344c58 url('./../img/arrow.png') no-repeat 95% center
+      
+.cards-row
+  &--25
+    display flex
+    flex-wrap  wrap
+    
+    justify-content space-between      
+  +lg()
+    margin-bottom 40px
+.personal-card
+  background-color #fff
+  box-shadow: 0 36px 32px rgba(61, 78, 95, 0.08);
+  border-radius 5px
+  position relative
+  color #2a3e48
+  padding 20px 20px 30px 20px
+  margin-bottom 23px
+  &__icon
+    position absolute
+    top 10px 
+    right 10px
+    color #2a3e48;
+    opacity: 0.16;  
+    rem(15)
+  &__title
+    rem(18)
+    font-family $black
+    max-width 70%
+    margin-bottom 50px
+    span
+      rem(13)
+      font-family $regular
+  &__number
+    rem(80)
+    color $main
+    font-family $black
+    line-height 63px
+    float right
+  &__total
+    rem(25)
+    font-family $black
+    color $main
+  // &__img
+  //   display block
+  //   height 32px
+  &--50
+    width 100%
+    +lg()
+      float left
+      width calc(100% / 2 - 10px)
+      &:nth-of-type(2n)
+        float right
+        
+  &--25
+    float left
+    width 100%
+    transition .2s linear all
+    
+    &.is-active
+      border: 3px solid rgba(30, 175, 38, 0.27);
+      background-color: #ffffff;
+    
+    @media(min-width 400px)
+      width calc(100% / 2 - 10px)
+    +lg()
+      width calc(100% / 4 - 10px)
+    .personal-card
+      &__title
+        max-width 54%
+        +lg()
+          max-width 64%
+  &--data
+    min-height 220px
+    position relative
+    .personal-card
+      &__total
+        bottom 30px
+        position absolute
+  &--deal
+    .personal-card__title
+      margin-bottom 36px
+  &--total
+    .personal-card__values-row
+      display flex
+      justify-content space-between
+      flex-wrap wrap
+    h3
+      width 33%
+      float left
+      
+      rem(15)
+      &:first-of-type
+        span 
+          color $main
+      &:nth-of-type(2)
+        span 
+          color #2093c3
+      &:nth-of-type(3)
+        span 
+          color: #e9a041
+      span 
+        rem(20)
+        font-family $black
+        display block
+.finance-action-bar
+  margin-bottom 40px
+  &__link
+    display block
+    width 50%
+    line-height 66px
+    text-align center
+    color $add
+    height 66px
+    float left
+    rem(16)
+    font-family $black
+    background-color #dfe3e5
+    text-decoration none
+    background-image: linear-gradient(-1deg, rgba(0,0,0,0.11) 0%, rgba(0,0,0,0) 100%);
+    &:hover
+      
+      background-color $add
+      color #fff
+    &--active
+      color #fff
+      box-shadow: 0 13px 24px rgba(61, 78, 95, 0.27), inset 0 3px 0 rgba(56, 81, 94, 0.34);
+      background-color #1eaf26
+
+.rules
+  @extends .info__info-wrapper
+  width 100%
+  position relative
+  &--styled 
+    padding-right 140px
+  &__info
+    position absolute
+    right 10px
+    top 43px
+    rem(13)
+    color: #38515e;
+    line-height: 20px;
+    font-family $bold
+    span 
+      font-family $regular
+      font-weight: 100;
+      display block
+  i
+    margin-left 10px
+    display inline-block !important
+    rem(20)
+    color  #38515e;
+    opacity: 0.16;
+  &__title
+    rem(20)
+    color: #38515e;
+    font-family $black
+    margin-bottom 25px
+  p 
+    display block !important
+    padding-left 0 !important
+    rem(15)
+    line-height 25px 
+    color: #486776;
+    
+    
+.table-wrapper
+  margin-top 33px 
+  +sm()
+    margin-top 66px
+  .title
+    rem(20)
+    font-family $black
+    color: #38515e
+.table
+  margin-top value
+  width 100%
+  margin-bottom 130px
+  border-collapse collapse
+  color #999999
+  &--stripped
+    tr:nth-child(odd)
+      background-color: #f1f4f7;
+  th
+    background-color rgba(56, 81, 94, .53);
+    rem(13)
+    color #fff
+    font-family $bold
+    text-align left
+    padding 14px 14px
+  td
+    color #38515e
+    padding 14px 14px
+    height 40px
+    i
+      rem(9)
+      display inline-block
+      margin-right 5px
+      &.is-success
+        color $main
+      &.is-pending 
+        color skyblue
+      &.is-failed 
+        color red
+      
+    // &:first-child
+    //   width 40%
+@media(max-width 768px)
+  .table
+    margin-bottom 20px
+    width 100%
+    tr:first-child
+      display none
+      
+    tr
+      padding 20px 0
+    th
+      rem(12)
+      padding 12px 40px
+    td
+      rem(16)
+      padding 12px 40px
+    td
+      display block
+      text-align  right
+      &:first-child
+        width 100%
+      &:before
+        width 50%
+        text-align left
+        float left
+        content ''
+        content attr(data-th) 
+    
+// personal
   
 @media(min-width 400px)
   .company

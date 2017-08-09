@@ -10,6 +10,53 @@ mixin breadcrumbs(items, last)
         li.breadcrumb__item
           span.breadcrumb__link-current= last
 
+mixin CreateTable(headings, rows)
+  +b.TABLE.table--stripped&attributes(attributes)
+    +e.TR.tr
+      each heading in headings 
+        +e.TH.th=heading
+      each row in rows 
+        +e.TR.tr
+          each td , i in row
+            -if(td.text)
+              +e.TD.td(data-th=headings[i])
+                i(class=td.icon.className+' '+td.icon.addClass )
+                | #{td.text}
+            -else 
+              +e.TD.td(data-th=headings[i])=td
+
+mixin PersonalInfoCard(title, icon, value, number,total,img, input)
+  -if(input)
+    +b.LABEL(class=attributes.class, for='in__'+attributes.id, data-text=attributes.text).form-control
+      +e.H2.title=title.title
+        -if(title.subtitle)
+          span=title.subtitle
+      -if(img)
+        +e.IMG(src=img).img
+      +b.INPUT(type="radio", name='in__'+ attributes.name, id='in__'+ attributes.id value='in__'+ attributes.id)
+      
+  -else 
+    +b(class=attributes.class).clearfix
+      +e.H2.title=title.title
+        -if(title.subtitle)
+          span=title.subtitle
+      -if(value)
+        +e.values-row.clearfix
+          each el in value
+            -if(el.title)
+              +e.H3.value
+                | #{el.title}
+                span=el.amount
+      -if(number)
+        +e.H2.number=number
+      -if(img)
+        +e.IMG(src=img).img
+      -if(total)
+        +e.H2.total=total
+      -if(icon)
+        +e.I.icon(class=icon)
+
+
 mixin createHeader()
   -let data = [{className: 'link--dropdown', title:'О компании', sub:[{href:'company.html#documents',title:'Докуметация'}, {href:'company.html#faq',title:'ЧаВо'},]},{className: 'link', href:'trader.html',title:'Трейдеру'}, {className: 'link', href:'participate.html',title:'Стать участником'}, {className: 'link', href:'partner.html',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'},{className: 'link--login', href:'login.html',title:'Войти', icon:'icon-login'}]
   .container-fluid.header-wrapper(class=attributes.class)
@@ -22,10 +69,6 @@ mixin createHeader()
             +e.toggle-item.SPAN
             +e.toggle-item.SPAN
         +b.aside
-            //- +e.actions.clearfix
-            //-     +e.actions-nav
-            //-         +e.link.A(href="") Über uns      
-            //-         +e.link.A(href="") Kontakte
             +e.nav
                 each el in data
                     -if(el.sub)

@@ -31,6 +31,7 @@
   "dependencies": {
     "bemto.pug": "^2.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-stylus": "^2.6.0"
+    "gulp-stylus": "^2.6.0",
+    "ttf2woff2": "^2.0.3"
   }
 }

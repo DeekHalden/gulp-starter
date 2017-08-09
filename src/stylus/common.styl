@@ -49,7 +49,9 @@ html, body
 .main
     padding-bottom 445px
     &--padding
-        padding-top 107px
+        padding-top 67px
+        +lg()
+            padding-top 107px
 
     
 .container-fluid
@@ -103,7 +105,7 @@ img
         list-style none
     &__item, &__link
         display inline-block
-        color $add
+        color: #2a3e48;
         text-decoration none
         &--devider
             margin 0 5px
@@ -162,7 +164,7 @@ a, img, div, input, select
         padding-bottom 327px
 @media (min-width: 576px)
     .main
-        padding-bottom 327px
+        padding-bottom 477px
     .container 
         width: 540px
 @media (min-width: 768px)

@@ -1,0 +1,96 @@
+include ../../node_modules/bemto.pug/bemto.pug
+include mixin
+mixin icon(name)
+  svg(class="icon icon-" + name)
+    use(xlink:href="#icon-" + name)
+-
+  set_bemto_settings({
+    prefix: '',
+    element: '__',
+    modifier: '--'
+  }) 
+doctype html
+
+-let navigation = [{title:'Персональняа сводка', icon:'icon-personal'},{title:'Тарифы', icon:'icon-rate'},{title:'Мои финансы', icon:'icon-finance'}, {title:'Мои партнеры', icon:'icon-partner'},{title:'Насторойки', icon:'icon-settings'}]
+
+
+
+
+
+
+
+
+
+html
+  head
+    meta(charset="utf-8")
+    block title
+      title Forward
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
+    meta(name="format-detection" content="telephone=no")
+    link(rel="stylesheet" media="all" href="css/style.css")
+  body
+    .wrapper
+      block header
+        +createHeader()
+      +b.main--padding
+        block breadcrumbs
+        +b.SECTION
+          .container.clearfix
+            +b.toggle-wrapper--personal
+              +b.H2.clearfix Личная информация
+                +b.personal-toggler
+                  +e.toggle-item.SPAN
+                  +e.toggle-item.SPAN
+                  +e.toggle-item.SPAN
+            +b.personal-header
+                +b.personal-item--ip
+                  +e.H2.ip Ваш IP: 
+                    span 185.55.02.03
+                  +e.H3.date четверг, 27 июля 2017
+                +b.personal-item--time
+                  +e.H2 Точное время в Москве
+                  +e.H3
+                    i.icon-time
+                    span 10:47:42
+                +b.personal-item--currency
+                  +e.H2 USD: 
+                  +e.H3 покупка - 
+                    span 59,41
+                  +e.H3 продажа - 
+                    span 59,66
+                +b.personal-item--amount
+                  +e.H2 БАЛАНС: 
+                  +e.H3 1 323 616 руб
+                +b.personal-item--purchase
+                  +e.BUTTON 
+                    i.icon-rate
+                    | Пополнить баланс  
+        +b.SECTION
+          .conatiner-fluid.main-content-wrapper
+            .container.clearfix
+              +b.aside-block--left
+                +b.toggle-wrapper--settings
+                  +b.H2.username.clearfix Пользователь
+                    i.icon-settings
+                +b.personal-navigation
+                  +e.heading.clearfix
+                    +e.img-wrapper
+                      img(src="./img/0.png")
+                    +e.name
+                      h2 
+                        span Здравствуйте! 
+                        | Волошин
+                  +e.content
+                    each el in navigation
+                      +e.A(href='').link
+                        i(class=el.icon)
+                        | #{el.title}
+
+              +b.aside-block--right
+                block aside
+      include ../partials/footer/footer
+  block additional-scripts
+    script(src="./js/app.js")
+    

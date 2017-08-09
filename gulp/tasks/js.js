@@ -9,7 +9,7 @@ gulp.task('js', function () {
     gulp.src(config.src.js+'**/*.js')
         .pipe(include())
         .on('error', function(){notify("Javascript include error");})
-        //.pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest(config.dest.js))
         .pipe(reload({stream: true}));
 });
