@@ -92,6 +92,12 @@ input::-ms-input-placeholder
 input::-webkit-inner-spin-button
     display none
     -webkit-appearance none
+input::-ms-clear 
+    display: none;
+select:focus::-ms-value 
+    background-color: transparent; 
+    color:#000;
+    
 select::-ms-expand 
     display none
 img
@@ -138,7 +144,9 @@ input[type='number']::-webkit-outer-spin-button
     margin 0
 
 
-
+button
+    &:focus
+        outline none
 
 a, img, div, input, select
     &:active, &:focus
@@ -179,7 +187,7 @@ a, img, div, input, select
     .container 
         width: 960px;
             
-@media (min-width: 1200px)
+@media (min-width: 1280px)
     .container 
         width: 1270px;
         padding-left 80px

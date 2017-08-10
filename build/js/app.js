@@ -1815,7 +1815,7 @@ $(document).ready(function() {
             fixedBgPos: true,
             autoFocusLast: true,
         });
-        $('.infowindow__title span').on('click', function(e) {
+        $('.infowindow__title span, .info__icon-close').on('click', function(e) {
             e.preventDefault()
             $.magnificPopup.close()
         });
@@ -2009,8 +2009,7 @@ $(document).ready(function() {
         $("#in").validate({
             ignore: ".ignore",
             debug: true,
-            rules: {
-            },
+            rules: {},
             submitHandler: function(form) {
                 var data = $(form).serialize();
                 console.log(data)
@@ -2032,13 +2031,59 @@ $(document).ready(function() {
                     });
             }
         });
+        $("#out").validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {},
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                console.log(data)
+                 $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                $.ajax({
+                        url: '',
+                        type: 'POST',
+                        data: data,
+                    })
+                    .done(function() {
+                        form.reset();
+                        console.log("success");
+                    })
+                    .fail(function() {
+                        console.log("error");
+                    })
+                    .always(function() {
+                        console.log("compvare");
+                    });
+            }
+        });
     }());
     (function() {
-        $('#in label.form-control').click(function () {
+        $('#in label.form-control').click(function() {
             $('#in label.form-control').removeClass('is-active')
             $(this).addClass('is-active')
             var text = $(this).data('text')
-            $('.rules').html('<p><strong>' +text[1] +'- </strong>' + text[2] + '</p><h2 class="rules__info">Время пополнения<span>' +text[0]+'</span><h2>')
+            $('.rules').html('<h2 class="rules__info">Время пополнения<span>' + text[0] + '</span></h2><p><strong>' + text[1] + '- </strong>' + text[2] + '</p>')
         });
-    }())
+    }());
+    (function() {
+        $('.traders-card__heading--closed').on('click', function(e) {
+            e.preventDefault();
+            $(this).parent().find('.traders-card__infowindow').fadeToggle()
+        });
+    }());
+    (function() {
+        $('.traders-card__heading--one-liner').each(function() {
+            var currValue = parseInt($(this).find('.curr-value').text());
+            var endValue = parseInt($(this).find('.end-value').text());
+            var percent = (currValue * 100) / endValue
+            $(this).parent().find('.indicator-wrapper__indicator').css('width', percent + '%')
+        })
+    }());
 });

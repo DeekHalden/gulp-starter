@@ -2,7 +2,7 @@ extends ./../pug-helpers/_personal-layout
 block header
   +createHeader()&attributes({class: 'header-wrapper--white'})
 block breadcrumbs
-  +breadcrumbs([{title:'Главная',link:'index.html'}, {title:'Личный кабинет', link:'personal-all.html'}],'Персональная сводка')
+  +breadcrumbs([{title:'Главная',link:'index.html'}, {title:'Личный кабинет', link:'personal-all.html'}],'Мои финансы')
 block aside
   -let cards = [{title:{title:'Пополнено всего'}, icon:'icon-downarrow',  total:'95500,00'},{title:{title:'Cредства в работе'}, icon:'icon-refresh', total: '6850,00'},{title:{title:'Доход от партнеров'}, icon:'icon-partner',  total:'50050,00'},{title:{title:'Всего выведено'}, icon:'icon-card', total: '2280570,00'}]
   -let accessdata = [{title:{title:'Баланс Visa/MasterCard'}, img: './img/visa.png', total:'95500,00'},{title:{title:'Баланс Qiwi/Visa'}, img: './img/qiwi.png',total: '6850,00'},{title:{title:'Баланс Payeer'}, img: './img/payeer.png', total:'50050,00'},{title:{title:'Баланс Яндекс.Деньги'}, img: './img/ya.png',total: '2280570,00'}]
@@ -11,7 +11,7 @@ block aside
 
 
   +b.access-data
-    h2.title Мои финансы
+    h2.title.title--main Мои финансы
     +b.finance-action-bar.clearfix
       +e.A(href="personal--in.html").link Пополнение
       +e.A(href="personal--out.html").link--active Вывод 
@@ -21,14 +21,14 @@ block aside
     +b.form-block
       +b.FORM.form--out(name="out" id="out").clearfix
         +e.form-control--part
-          label() Выберите кошелек
-          +e.SELECT.input--dropdown
+          label() Выберите кошелек:
+          +e.SELECT.input--dropdown(name="out__wallet" id="out__wallet")
               option(value="") Qiwi/visa
               option(value="") Qiwi/visa
               option(value="") Qiwi/visa
               option(value="") Qiwi/visa
         +e.form-control--part
-          label(for="out__amount") Сума вывода
+          label(for="out__amount") Сумма вывода
           +e.INPUT(type="number" name="out__amount" id="out__amount").input--rur
         +e.form-control--right.--top
           +e.INPUT.input--submit(type="submit" value="Отправить заявку") 
@@ -39,6 +39,13 @@ block aside
     +b.table-wrapper
       .title История вывода средств
       +CreateTable(headings, rows)
+    #small-thanks.mfp-hide.infowindow-wrapper
+      +b.infowindow--nopadding.container
+        +b.info__info-wrapper
+          +e.icon-close &times;
+          i.icon-info
+          p Ваша заявка на вывод средств принята и будет обработана в течение 3-суток
+        
 
 
 

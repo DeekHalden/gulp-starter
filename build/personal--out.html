@@ -27,7 +27,7 @@
             <li class="breadcrumb__item breadcrumb__item--devider">/</li>
             <li class="breadcrumb__item"><a class="breadcrumb__link" href="personal-all.html">Личный кабинет</a></li>
             <li class="breadcrumb__item breadcrumb__item--devider">/</li>
-            <li class="breadcrumb__item"><span class="breadcrumb__link-current">Персональная сводка</span></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__link-current">Мои финансы</span></li>
           </ul>
         </div>
         <section>
@@ -86,13 +86,13 @@
                       <h2> <span>Здравствуйте! </span>Волошин</h2>
                     </div>
                   </div>
-                  <div class="personal-navigation__content"><a class="personal-navigation__link" href=""><i class="icon-personal"></i>Персональняа сводка</a><a class="personal-navigation__link" href=""><i class="icon-rate"></i>Тарифы</a><a class="personal-navigation__link" href=""><i class="icon-finance"></i>Мои финансы</a><a class="personal-navigation__link" href=""><i class="icon-partner"></i>Мои партнеры</a><a class="personal-navigation__link" href=""><i class="icon-settings"></i>Насторойки</a>
+                  <div class="personal-navigation__content"><a class="personal-navigation__link" href="personal-all.html"><i class="icon-personal"></i>Персональняа сводка</a><a class="personal-navigation__link" href="personal--rate--traders.html"><i class="icon-rate"></i>Тарифы</a><a class="personal-navigation__link" href="personal--in.html"><i class="icon-finance"></i>Мои финансы</a><a class="personal-navigation__link" href="personal--partners.html"><i class="icon-partner"></i>Мои партнеры</a><a class="personal-navigation__link" href="personal-settings.html"><i class="icon-settings"></i>Насторойки</a>
                   </div>
                 </div>
               </div>
               <div class="aside-block aside-block--right">
                 <div class="access-data">
-                  <h2 class="title">Мои финансы</h2>
+                  <h2 class="title title--main">Мои финансы</h2>
                   <div class="finance-action-bar clearfix"><a class="finance-action-bar__link" href="personal--in.html">Пополнение</a><a class="finance-action-bar__link finance-action-bar__link--active" href="personal--out.html">Вывод </a>
                   </div>
                   <div class="cards-row cards-row--25">
@@ -124,8 +124,8 @@
                   <div class="form-block">
                     <form class="form form--out clearfix" name="out" id="out">
                       <div class="form__form-control form__form-control--part">
-                        <label>Выберите кошелек</label>
-                        <select class="form__input form__input--dropdown">
+                        <label>Выберите кошелек:</label>
+                        <select class="form__input form__input--dropdown" name="out__wallet" id="out__wallet">
                           <option value="">Qiwi/visa</option>
                           <option value="">Qiwi/visa</option>
                           <option value="">Qiwi/visa</option>
@@ -133,7 +133,7 @@
                         </select>
                       </div>
                       <div class="form__form-control form__form-control--part">
-                        <label for="out__amount">Сума вывода</label><input class="form__input form__input--rur" type="number" name="out__amount" id="out__amount"/>
+                        <label for="out__amount">Сумма вывода</label><input class="form__input form__input--rur" type="number" name="out__amount" id="out__amount"/>
                       </div>
                       <div class="form__form-control form__form-control--right form__form-control--top"><input class="form__input form__input--submit" type="submit" value="Отправить заявку"/>
                       </div>
@@ -220,6 +220,15 @@
                         </tr>
                       </tr>
                     </table>
+                  </div>
+                  <div class="mfp-hide infowindow-wrapper" id="small-thanks">
+                    <div class="infowindow infowindow--nopadding container">
+                      <div class="info__info-wrapper">
+                        <div class="info__icon-close">&times;
+                        </div><i class="icon-info"></i>
+                        <p>Ваша заявка на вывод средств принята и будет обработана в течение 3-суток</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

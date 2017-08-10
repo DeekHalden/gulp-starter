@@ -11,16 +11,7 @@ mixin icon(name)
   }) 
 doctype html
 
--let navigation = [{title:'Персональняа сводка', icon:'icon-personal'},{title:'Тарифы', icon:'icon-rate'},{title:'Мои финансы', icon:'icon-finance'}, {title:'Мои партнеры', icon:'icon-partner'},{title:'Насторойки', icon:'icon-settings'}]
-
-
-
-
-
-
-
-
-
+-let navigation = [{href: 'personal-all.html',title:'Персональняа сводка', icon:'icon-personal'},{href: 'personal--rate--traders.html',title:'Тарифы', icon:'icon-rate'},{href: 'personal--in.html',title:'Мои финансы', icon:'icon-finance'}, {href: 'personal--partners.html',title:'Мои партнеры', icon:'icon-partner'},{href: 'personal-settings.html',title:'Насторойки', icon:'icon-settings'}]
 html
   head
     meta(charset="utf-8")
@@ -84,7 +75,7 @@ html
                         | Волошин
                   +e.content
                     each el in navigation
-                      +e.A(href='').link
+                      +e.A(href=el.href).link
                         i(class=el.icon)
                         | #{el.title}
 

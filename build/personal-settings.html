@@ -27,7 +27,7 @@
             <li class="breadcrumb__item breadcrumb__item--devider">/</li>
             <li class="breadcrumb__item"><a class="breadcrumb__link" href="personal-all.html">Личный кабинет</a></li>
             <li class="breadcrumb__item breadcrumb__item--devider">/</li>
-            <li class="breadcrumb__item"><span class="breadcrumb__link-current">Персональная сводка</span></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__link-current">Настройки профиля</span></li>
           </ul>
         </div>
         <section>
@@ -92,84 +92,44 @@
               </div>
               <div class="aside-block aside-block--right">
                 <div class="personal-data clearfix">
-                  <h2 class="title">Персональная сводка</h2>
-                  <div class="cards-row clearfix">
-                    <div class="personal-card personal-card--50 personal-card personal-card--deal clearfix">
-                      <h2 class="personal-card__title">Количество сделок
-                      </h2>
-                      <h2 class="personal-card__number">365
-                      </h2><i class="personal-card__icon icon-star"></i>
-                    </div>
-                    <div class="personal-card personal-card--50 personal-card personal-card--total clearfix">
-                      <h2 class="personal-card__title">Ваш доход <span>(в рублях)</span>
-                      </h2>
-                      <div class="personal-card__values-row clearfix">
-                        <h3 class="personal-card__value">в день<span>257,00</span>
-                        </h3>
-                        <h3 class="personal-card__value">в месяц<span>1954,00</span>
-                        </h3>
-                        <h3 class="personal-card__value">в год<span>2521327,00</span>
-                        </h3>
-                      </div><i class="personal-card__icon icon-finance"></i>
-                    </div>
-                  </div>
-                  <div class="cards-row cards-row--25">
-                    <div class="personal-card personal-card--25 personal-card personal-card--total clearfix">
-                      <h2 class="personal-card__title">Пополнено всего
-                      </h2>
-                      <h2 class="personal-card__total">95500,00
-                      </h2><i class="personal-card__icon icon-downarrow"></i>
-                    </div>
-                    <div class="personal-card personal-card--25 personal-card personal-card--total clearfix">
-                      <h2 class="personal-card__title">Cредства в работе
-                      </h2>
-                      <h2 class="personal-card__total">6850,00
-                      </h2><i class="personal-card__icon icon-refresh"></i>
-                    </div>
-                    <div class="personal-card personal-card--25 personal-card personal-card--total clearfix">
-                      <h2 class="personal-card__title">Доход от партнеров
-                      </h2>
-                      <h2 class="personal-card__total">50050,00
-                      </h2><i class="personal-card__icon icon-partner"></i>
-                    </div>
-                    <div class="personal-card personal-card--25 personal-card personal-card--total clearfix">
-                      <h2 class="personal-card__title">Всего выведено
-                      </h2>
-                      <h2 class="personal-card__total">2280570,00
-                      </h2><i class="personal-card__icon icon-card"></i>
-                    </div>
-                  </div>
+                  <h2 class="title">Настройки профиля:</h2>
                 </div>
-                <div class="access-data">
-                  <h2 class="title">Доступные средства <span>(в рублях)</span></h2>
-                  <div class="cards-row cards-row--25">
-                    <div class="personal-card personal-card--25 personal-card personal-card--data clearfix">
-                      <h2 class="personal-card__title">Баланс Visa/MasterCard
-                      </h2><img class="personal-card__img" src="./img/visa.png" alt="" role="presentation"/>
-                      <h2 class="personal-card__total">95500,00
-                      </h2>
+                <div class="graph-wrapper">
+                  <form class="form" id="settings" name="settings">
+                    <div class="form__form-control form__form-control--50">
+                      <label class="form__label" for="settings__login">Логин
+                      </label><input class="form__input" type="text" id="settings__login" name="settings__login"/>
                     </div>
-                    <div class="personal-card personal-card--25 personal-card personal-card--data clearfix">
-                      <h2 class="personal-card__title">Баланс Qiwi/Visa
-                      </h2><img class="personal-card__img" src="./img/qiwi.png" alt="" role="presentation"/>
-                      <h2 class="personal-card__total">6850,00
-                      </h2>
+                    <div class="form__form-control form__form-control--50">
+                      <label for="settings__email">E-mail
+                      </label><input class="form__input" type="emain" id="settings__email" name="settings__email"/>
                     </div>
-                    <div class="personal-card personal-card--25 personal-card personal-card--data clearfix">
-                      <h2 class="personal-card__title">Баланс Payeer
-                      </h2><img class="personal-card__img" src="./img/payeer.png" alt="" role="presentation"/>
-                      <h2 class="personal-card__total">50050,00
-                      </h2>
+                    <div class="form__form-control form__form-control--100 clearfix"><input class="form__input form__input--submit" type="submit" value="Изменить пароль"/>
                     </div>
-                    <div class="personal-card personal-card--25 personal-card personal-card--data clearfix">
-                      <h2 class="personal-card__title">Баланс Яндекс.Деньги
-                      </h2><img class="personal-card__img" src="./img/ya.png" alt="" role="presentation"/>
-                      <h2 class="personal-card__total">2280570,00
-                      </h2>
+                  </form>
+                </div>
+                <div class="graph-wrapper">
+                  <h2 class="title">Мои кошельки</h2>
+                  <form class="form" id="wallet" name="wallet">
+                    <div class="form__form-control form__form-control--25">
+                      <label class="form__label" for="wallet__qiwi">QIWI Wallet
+                      </label><input class="form__input" type="number" id="wallet__qiwi" name="wallet__qiwi"/>
                     </div>
-                  </div>
-                  <button class="purchase">Пополнить баланс
-                  </button>
+                    <div class="form__form-control form__form-control--25">
+                      <label for="wallet__yandex">Яндекс.Деньги
+                      </label><input class="form__input" type="number" id="wallet__yandex" name="wallet__yandex"/>
+                    </div>
+                    <div class="form__form-control form__form-control--25">
+                      <label for="wallet__visa">Visa/MasterCard
+                      </label><input class="form__input" type="number" id="wallet__visa" name="wallet__visa"/>
+                    </div>
+                    <div class="form__form-control form__form-control--25">
+                      <label for="wallet__payeer">Payeer
+                      </label><input class="form__input" type="number" id="wallet__payeer" name="wallet__payeer"/>
+                    </div>
+                    <div class="form__form-control form__form-control--100 clearfix"><input class="form__input form__input--submit" type="submit" value="Сохранить"/>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
