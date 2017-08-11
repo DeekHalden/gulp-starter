@@ -11,7 +11,7 @@ mixin icon(name)
   }) 
 doctype html
 
--let navigation = [{href: 'personal-all.html',title:'Персональняа сводка', icon:'icon-personal'},{href: 'personal--rate--traders.html',title:'Тарифы', icon:'icon-rate'},{href: 'personal--in.html',title:'Мои финансы', icon:'icon-finance'}, {href: 'personal--partners.html',title:'Мои партнеры', icon:'icon-partner'},{href: 'personal-settings.html',title:'Насторойки', icon:'icon-settings'}]
+-let navigation = [{href: 'personal-all.html',title:'Персональная сводка', icon:'icon-personal'},{href: 'personal--rate--traders.html',title:'Тарифы', icon:'icon-rate'},{href: 'personal--in.html',title:'Мои финансы', icon:'icon-finance'}, {href: 'personal--partners.html',title:'Мои партнеры', icon:'icon-partner'},{href: 'personal-settings.html',title:'Настройки', icon:'icon-settings'}]
 html
   head
     meta(charset="utf-8")
@@ -30,11 +30,8 @@ html
         +b.SECTION
           .container.clearfix
             +b.toggle-wrapper--personal
-              +b.H2.clearfix Личная информация
-                +b.personal-toggler
-                  +e.toggle-item.SPAN
-                  +e.toggle-item.SPAN
-                  +e.toggle-item.SPAN
+              +b.H2.clearfix 
+                i.icon-personal
             +b.personal-header
                 +b.personal-item--ip
                   +e.H2.ip Ваш IP: 
@@ -55,7 +52,7 @@ html
                   +e.H2 БАЛАНС: 
                   +e.H3 1 323 616 руб
                 +b.personal-item--purchase
-                  +e.BUTTON 
+                  +e.A(href="personal--in.html#purchase") 
                     i.icon-rate
                     | Пополнить баланс  
         +b.SECTION
@@ -63,24 +60,35 @@ html
             .container.clearfix
               +b.aside-block--left
                 +b.toggle-wrapper--settings
-                  +b.H2.username.clearfix Пользователь
+                  +b.H2.username.clearfix 
                     i.icon-settings
                 +b.personal-navigation
                   +e.heading.clearfix
                     +e.img-wrapper
-                      img(src="./img/0.png")
+                      img(src="./img/card0.png")
                     +e.name
                       h2 
                         span Здравствуйте! 
                         | Волошин
                   +e.content
-                    each el in navigation
-                      +e.A(href=el.href).link
-                        i(class=el.icon)
-                        | #{el.title}
+                    each el, i in navigation
+                      -if(i===1)
+                        +e.A(href=el.href).link.is-active
+                          i(class=el.icon)
+                          | #{el.title}
+                      -else 
+                        +e.A(href=el.href).link
+                          i(class=el.icon)
+                          | #{el.title}
 
               +b.aside-block--right
                 block aside
+                #small-thanks.mfp-hide.infowindow-wrapper
+                  +b.infowindow--nopadding.container
+                    +b.info__info-wrapper
+                      +e.icon-close &times;
+                      i.icon-info
+                      p Ваша заявка на вывод средств принята и будет обработана в течение 3-суток
       include ../partials/footer/footer
   block additional-scripts
     script(src="./js/app.js")

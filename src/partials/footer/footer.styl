@@ -3,7 +3,7 @@
   position absolute
   bottom 0
   background-color: #2a3e48;
-  height 450px
+  height 260px
   left 0
   right 0
   +sm()
@@ -15,10 +15,13 @@
     padding-bottom 101px
   &__logo-wrapper
     @extends .header__logo-wrapper
+    margin 0 auto
+    float none
     span
       font-weight 300
       letter-spacing 1px
     +sm()
+      margin 0 
       width 140px
       float none
       // margin-bottom 32px
@@ -34,29 +37,40 @@
         width 48%
         float left
       p
+        display none
         color: #8b9aa2;
         font-family $regular
         rem(13)
         font-weight: 400;
         line-height: 25px;
         +sm()
+          display block
           height 75px
           overflow hidden
     &--right
       display flex
       margin-top 20px
+      flex-direction column
       +sm()
+        flex-direction row
         margin-top 0
         width 48%
         float right
 .nav
-  width 50%
+  margin-top 10px
+  order 1
+  width 100%
+  clear both
   display flex
   justify-content space-around
   flex-wrap wrap
-  flex-direction column
+  flex-direction row
   text-align center
   +sm()
+    order 0
+    margin-top 0
+    flex-direction column
+    clear none 
     width 40%
   &__link
     text-align left
@@ -78,12 +92,19 @@
   +sm()
     justify-content center
 .additions
-  width 50%
+  width 100%
+  float left
   +sm()
+    float none
     width 60%
   
 .search
+  margin-top 10px
+  order 2
   width 100%
+  +sm()
+    order 0
+    margin-top 0
   &__form-control
     width 100%
     position relative
@@ -113,8 +134,10 @@
 .socials
   margin-top 10px
   display flex
-  flex-direction column
-  justify-content flex-end
+  flex-direction row
+  justify-content space-between
+  +sm()
+    margin-top 40px
   +md()
     margin-top 113px
     flex-direction row
@@ -140,7 +163,7 @@
       
 @media(orientation: landscape)
   .footer
-    height 327px
+    height 267px
       
         
             

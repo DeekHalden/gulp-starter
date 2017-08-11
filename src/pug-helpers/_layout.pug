@@ -25,7 +25,14 @@ html(lang="ru")
         +createHeader()
       block content
       include ../partials/footer/footer
-  block additional-scripts
+      #small-thanks.mfp-hide.infowindow-wrapper
+        +b.infowindow--nopadding.container
+          +b.info__info-wrapper
+            +e.icon-close &times;
+            i.icon-info
+            p Ваша заявка на вывод средств принята и будет обработана в течение 3-суток
+    block additional-scripts
+      script(src="js/app.js")
     
 
     

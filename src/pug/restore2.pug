@@ -1,0 +1,19 @@
+extends ./../pug-helpers/_layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+  +b.main--padding
+    +breadcrumbs([{title:'Главная',link:'index.html'}],'Войти')
+    +b.SECTION.form-wrapper.content
+      +b.form-content
+        +b.FORM.form--restore(id="restore2" name="restore2")
+          h2.title Восстановление пароля
+          +e.form-control--100
+            +e.LABEL(for="restore2__password") Пароль
+            +e.INPUT.input.equal(type="password", name="restore2__password", id="restore2__password", data-msg="Пароли не совпадают")
+          +e.form-control--100
+            +e.LABEL(for="restore2__password_again") Повторите пароль
+            +e.INPUT.input.equal(type="password", name="restore2__password_again", id="restore2__password_again",  data-msg="Пароли не совпадают")
+          +e.form-control--100.clearfix
+            +e.INPUT.input--submit.form__input--100(type="submit" value="Изменить")
+          

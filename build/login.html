@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Forward</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" media="all" href="css/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container-fluid header-wrapper header-wrapper--white">
+        <div class="header clearfix container"><a class="header__logo-wrapper" href="index.html"><img class="header__logo" src="./img/logo.svg" alt="" role="presentation"/><span>FORWARD <br> TRADE</span></a>
+          <div class="header__toggle"><span class="header__toggle-item"></span><span class="header__toggle-item"></span><span class="header__toggle-item"></span>
+          </div>
+          <div class="aside">
+            <div class="aside__nav"><span class="aside__link aside__link--dropdown">О компании <i class="icon-down"></i><span class="aside__sub"> <a class="aside__link" href="company.html#documents">Докуметация</a><a class="aside__link" href="company.html#faq">FAQs</a></span></span><a class="aside__link is-active" href="trader.html">Трейдеру</a><a class="aside__link" href="participate.html">Стать участником</a><a class="aside__link" href="partner.html">Партнеру</a><a class="aside__link" href="">Отзывы</a><a class="aside__link aside__link--login" href="login.html"> <i class="icon-login"></i>Войти</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main main--padding">
+        <div class="breadcrumb container">
+          <ul class="breadcrumb__list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html">Главная</a></li>
+            <li class="breadcrumb__item breadcrumb__item--devider">/</li>
+            <li class="breadcrumb__item"><span class="breadcrumb__link-current">Войти</span></li>
+          </ul>
+        </div>
+        <section class="form-wrapper content">
+          <div class="form-content">
+            <div class="form-content__action-bar"><a class="form-content__link" href="register.html">Регистрация</a><a class="form-content__link is-active">Войти</a>
+            </div>
+            <form class="form form--login" id="login" name="login">
+              <div class="form__form-control form__form-control--100">
+                <label for="login__email">Email
+                </label><input class="form__input" type="email" name="login__email" id="login__email" data-msg="Обязательное поле"/>
+              </div>
+              <div class="form__form-control form__form-control--100">
+                <label for="login__email">Пароль
+                </label><input class="form__input" type="password" name="login__pass" id="login__pass" data-msg="Обязательное поле"/>
+              </div>
+              <div class="form__form-control form__form-control--100"><a class="form__link" href="restore.html">Забыли пароль?</a>
+              </div>
+              <div class="form__form-control form__form-control--100 clearfix"><input class="form__input form__input--submit form__input form__input--100" type="submit" name="login__pass" id="login__pass" value="Войти"/>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+      <div class="footer clearfix">
+        <div class="container clearfix">
+          <div class="footer__aside footer__aside--left clearfix"><a class="footer__logo-wrapper" href="index.html"><img class="footer__logo" src="./img/logo.svg" alt="" role="presentation"/><span>FORWARD <br> TRADE</span></a>
+            <p>Компания FORWARD-TRADE объединяет трейдеров и людей, желающих зарабатывать на финансовых рынках. Любой участник – может выбрать трейдера, отвечающего его личным предпочтениям, и начать с ним сотрудничать. Проще говоря, это место где встречаются средства тех, кто хочет заработать, и опыт тех, кто знает, как это правильно сделать.</p>
+          </div>
+          <div class="footer__aside footer__aside--right">
+            <div class="nav"><a class="nav__link" href="company.html">О компании</a><a class="nav__link" href="trader.html">Трейдеру</a><a class="nav__link" href="participate.html">Стать участником</a><a class="nav__link" href="partners.html">Партнерам</a><a class="nav__link" href="feedbach.html">Отзывы</a>
+            </div>
+            <div class="additions">
+              <form class="search" id="seach" name="search">
+                <div class="search__form-control"><input class="search__input" type="text" id="seach__query" name="seach__query" placeholder="Поиск"/>
+                  <button class="search__input" type="submit" value=""><i class="icon-search"></i>
+                  </button>
+                </div>
+              </form>
+              <div class="socials"><a class="socials__link" href=""><i class="icon-vk"></i>vkontakte</a><a class="socials__link" href=""><i class="icon-youtube"></i>YouTube</a><a class="socials__link" href=""><i class="icon-inst"></i>instagram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mfp-hide infowindow-wrapper" id="small-thanks">
+        <div class="infowindow infowindow--nopadding container">
+          <div class="info__info-wrapper">
+            <div class="info__icon-close">&times;
+            </div><i class="icon-info"></i>
+            <p>Ваша заявка на вывод средств принята и будет обработана в течение 3-суток</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

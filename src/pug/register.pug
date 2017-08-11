@@ -1,0 +1,33 @@
+extends ./../pug-helpers/_layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+  +b.main--padding
+    +breadcrumbs([{title:'Главная',link:'index.html'}],'Войти')
+    +b.SECTION.form-wrapper.content
+      +b.form-content
+        +e.action-bar
+          +e.A().link.is-active Регистрация
+          +e.A(href="login.html").link Войти
+        +b.FORM.form--login(id="register" name="register")
+          +e.form-control--100
+            +e.LABEL(for="register__login") Login
+            +e.INPUT.input(type="text" name="register__login" id="register__login" data-msg="Обязательное поле")
+          +e.form-control--100
+            +e.LABEL(for="register__email") Email
+            +e.INPUT.input(type="email" name="register__email" id="register__email" data-msg="Обязательное поле" data-error-msg="Формат email'a xx@xx.xx")
+          +e.form-control--100
+            +e.LABEL(for="register__pass") Пароль
+            +e.INPUT.input(type="password" name="register__pass" id="register__pass" data-msg="Обязательное поле")
+          +e.form-control--100
+            +e.LABEL(for="register__pass_again") Повторите пароль
+            +e.INPUT.input(type="password" name="register__pass_again" id="register__pass_again" data-msg="Обязательное поле")
+          +e.form-control--100.--checkbox
+            input(type="checkbox" id="register__agree" name="register__agree" data-msg="Обязательное поле" data-error-msg="Обязательное поле")
+            
+            label(for="register__agree" id="register__agree-label") 
+              +e.SPAN.checkbox 
+                i.icon-check
+              | Согласен (а) с правилами сервиса
+          +e.form-control--100.clearfix
+            +e.INPUT.input--submit.form__input--100(type="submit" value="Зарегистрироваться")

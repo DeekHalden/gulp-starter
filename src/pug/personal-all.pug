@@ -20,6 +20,6 @@ block aside
     +b.cards-row--25
       each el in accessdata
         +PersonalInfoCard(el.title, el.icon, false,  false,el.total, el.img)&attributes({'class':'personal-card--25 personal-card--data'})
-    +b.BUTTON.purchase Пополнить баланс
+    +b.A(href="personal--in.html#purchase").purchase Пополнить баланс
 
 

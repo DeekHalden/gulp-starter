@@ -276,10 +276,9 @@ $(document).ready(function() {
     (function() {
         $(".faq__qw").on('click', function(e) {
             e.preventDefault()
-            var el = $(this).parent();
-            el.find(".faq__answer").fadeToggle()
-            el.find(".icon-toggle-wrapper .icon-minus").toggle()
-            el.find(".icon-toggle-wrapper .icon-plus").toggle()
+            $(this).parent().find(".faq__answer").fadeToggle()
+            $(this).find(".icon-toggle-wrapper .icon-minus").toggle()
+            $(this).find(".icon-toggle-wrapper .icon-plus").toggle()
         })
     }());
     (function() {
@@ -288,7 +287,7 @@ $(document).ready(function() {
             console.log(filename)
             $('.form__input--mask').text(filename.slice(0, 30).concat('...'))
         });
-        $("input[type='tel']").keydown(function(e) {
+        $("input[type='tel'], input[type='number']").keydown(function(e) {
             // Allow: backspace, devare, tab, escape, enter and .
             if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
                 // Allow: Ctrl/cmd+A
@@ -306,18 +305,19 @@ $(document).ready(function() {
             if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
                 e.preventDefault();
             }
-            var max = 11;
-            if (e.which < 0x20) {
-                // e.which < 0x20, then it's not a printable character
-                // e.which === 0 - Not a character
-                return; // Do nothing
-            }
-            if (this.value.length == max) {
-                e.preventDefault();
-            } else if (this.value.length > max) {
-                // Maximum exceeded
-                this.value = this.value.substring(0, max);
-            }
+            if($(this).attr('type') == 'number') return
+            // var max = 11;
+            // if (e.which < 0x20) {
+            //     // e.which < 0x20, then it's not a printable character
+            //     // e.which === 0 - Not a character
+            //     return; // Do nothing
+            // }
+            // if (this.value.length == max) {
+            //     e.preventDefault();
+            // } else if (this.value.length > max) {
+            //     // Maximum exceeded
+            //     this.value = this.value.substring(0, max);
+            // }
         })
         $.validator.addMethod("alpha", function(value, element) {
             return this.optional(element) || value == value.match(/^[a-zA-Zа-яА-Я ]+$/);
@@ -335,6 +335,25 @@ $(document).ready(function() {
             return isPhone;
 
         }, "Please enter valid phone");
+
+        function sendRequest(url, data,form) {
+                form.reset();
+            $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                })
+                .done(function() {
+                    console.log("success");
+                })
+                .fail(function() {
+                    console.log("error");
+                })
+                .always(function() {
+                    console.log("compvare");
+                });
+
+        }
 
         $("#join").validate({
             ignore: ".ignore",
@@ -372,6 +391,9 @@ $(document).ready(function() {
 
 
             },
+            messages: {
+
+            },
             submitHandler: function(form) {
                 $.magnificPopup.open({
                     items: {
@@ -382,56 +404,23 @@ $(document).ready(function() {
                     closeBtnInside: false
                 });
                 var data = $(form).serialize();
-                $.ajax({
-                        url: '',
-                        type: 'POST',
-                        data: data,
-                    })
-                    .done(function() {
-                        form.reset();
-                        console.log("success");
-                    })
-                    .fail(function() {
-                        console.log("error");
-                    })
-                    .always(function() {
-                        console.log("compvare");
-                    });
+                var url = ''
+                sendRequest(url, data,form )
             }
         });
         $("#in").validate({
             ignore: ".ignore",
             debug: true,
-            rules: {},
-            submitHandler: function(form) {
-                var data = $(form).serialize();
-                console.log(data)
-                $.ajax({
-                        url: '',
-                        type: 'POST',
-                        data: data,
-                    })
-                    .done(function() {
+            rules: {
+                in__amount: {
+                    required: true
+                }
+            },
+            messages: {
 
-                        form.reset();
-                        console.log("success");
-                    })
-                    .fail(function() {
-                        console.log("error");
-                    })
-                    .always(function() {
-                        console.log("compvare");
-                    });
-            }
-        });
-        $("#out").validate({
-            ignore: ".ignore",
-            debug: true,
-            rules: {},
+            },
             submitHandler: function(form) {
-                var data = $(form).serialize();
-                console.log(data)
-                 $.magnificPopup.open({
+                $.magnificPopup.open({
                     items: {
                         src: "#small-thanks"
                     },
@@ -439,30 +428,353 @@ $(document).ready(function() {
                     fixedBgPos: true,
                     closeBtnInside: false
                 });
-                $.ajax({
-                        url: '',
-                        type: 'POST',
-                        data: data,
-                    })
-                    .done(function() {
-                        form.reset();
-                        console.log("success");
-                    })
-                    .fail(function() {
-                        console.log("error");
-                    })
-                    .always(function() {
-                        console.log("compvare");
-                    });
+                var data = $(form).serialize();
+                var url = ''
+                var url = ''
+                sendRequest(url, data,form )
             }
         });
+        $('input[type="number"]').on('change keyup', function() {
+            console.log(1)
+            if ($(this).val() < 0) {
+                $(this).val(0)
+            }
+        });
+        $("#out").validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                out__amount: {
+                    required: true,
+
+                }
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#cooperate-form').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                cooperate_form__value: {
+                    required: true,
+
+                }
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#cooperate-form').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                cooperate_form__value: {
+                    required: true,
+
+                }
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#login').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                login__email: {
+                    required: true,
+                    emailMethod: true
+
+                },
+                login__pass: {
+                    required: true
+                }
+
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#register').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                register__login: {
+                    required: true,
+                    alpha: true
+                },
+                register__email: {
+                    required: true,
+                    emailMethod: true
+
+                },
+                register__pass: {
+                    required: true
+                },
+                register__pass_again : {
+                    required: true,
+                    equalTo: '#register__pass'
+                },
+                register__agree : {
+                    required: true
+                }
+
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#settings').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                settings__login: {
+                    required: true,
+                    alpha: true
+                },
+                settings__email: {
+                    required: true,
+                    emailMethod: true
+
+                },
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#register').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                register__login: {
+                    required: true,
+                    alpha: true
+                },
+                register__email: {
+                    required: true,
+                    emailMethod: true
+
+                },
+                register__pass: {
+                    required: true
+                },
+                register__pass_again : {
+                    required: true,
+                    equalTo: '#register__pass'
+                },
+                register__agree : {
+                    required: true
+                }
+
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#restore').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                
+                restore__email: {
+                    required: true,
+                    emailMethod: true
+                }
+            },
+            messages: {
+
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#restore2').validate({
+            ignore: ".ignore",
+            debug: true,
+            rules: {
+                
+                restore2__password: {
+                    required: true,
+                    
+                },
+                restore2__password_again: {
+                    required: true,
+                    equalTo: '#restore2__password'
+                }
+
+            },
+            messages: {
+                
+            },
+            submitHandler: function(form) {
+                var data = $(form).serialize();
+                var url = ''
+                console.log(data)
+                $.magnificPopup.open({
+                    items: {
+                        src: "#small-thanks"
+                    },
+                    type: 'inline',
+                    fixedBgPos: true,
+                    closeBtnInside: false
+                });
+                var url = ''
+                sendRequest(url, data,form )
+            }
+        });
+        $('#register__agree-label').click(function() {
+            $(this).parent().find('i').fadeToggle()
+        })
+        $('.form__icon').on('click', function() {
+            // alert(1)
+            var oldValue = $(this).parent().parent().find('input').val()
+            console.log(oldValue)
+            if ($(this).hasClass('icon-control-up') === true) {
+                var newValue = parseInt(oldValue) + 500;
+                console.log(parseInt(oldValue))
+            } else if (oldValue <= 500) {
+
+                var newValue = 500;
+            } else {
+
+                var newValue = parseInt(oldValue) - 500;
+            }
+            $(this).parent().parent().find('input').val(newValue)
+        });
+        // $('#restore2 input[type="password"]').on('keydown', function() {
+        //     $(this).removeClass('is-invalid is-valid')
+        //     if($(this).hasClass('valid')) {
+        //         $(this).addClass('is-valid')
+        //     } else {
+        //         $(this).addClass('is-invalid')
+        //     }
+        // });
     }());
     (function() {
         $('#in label.form-control').click(function() {
             $('#in label.form-control').removeClass('is-active')
             $(this).addClass('is-active')
             var text = $(this).data('text')
-            $('.rules').html('<h2 class="rules__info">Время пополнения<span>' + text[0] + '</span></h2><p><strong>' + text[1] + '- </strong>' + text[2] + '</p>')
+            $('.rules').html('<div class="left-side"><p><strong>' + text[1] + '- </strong>' + text[2] + '</p></div><div class="right-side"><h2 class="rules__info">Время пополнения:<span>' + text[0] + '</span></h2></div>')
         });
     }());
     (function() {
@@ -479,4 +791,37 @@ $(document).ready(function() {
             $(this).parent().find('.indicator-wrapper__indicator').css('width', percent + '%')
         })
     }());
+    (function() {
+        $('.finance-action-bar__link').on('click', function() {
+            $('.finance-action-bar__link').removeClass('is-active')
+            $(this).addClass('is-active')
+            var index = $(this).index();
+            $('.tab').fadeOut()
+            $($('.tab')[index]).fadeIn()
+
+        })
+    }());
+    (function() {
+        $('.personal-card__link').on('click', function() {
+
+
+            copyToClipboard('personal-link')
+        });
+
+        function copyToClipboard(elementId) {
+            var aux = document.createElement("input");
+            aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+        }
+    }());
+    (function() {
+        $('.personal-card').on('mouseover',function() {
+            $(this).addClass('animated pulse')
+        })
+    }())
+
+
 });

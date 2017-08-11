@@ -739,6 +739,7 @@
   background-color #f1f3f5
   max-width 600px
   padding-bottom 20px
+  padding 0 40px 20px !important
   &--nopadding
     padding 0 !important
     .info__info-wrapper
@@ -750,10 +751,10 @@
   +md()
     padding 0 56px 54px
   &__title
-    padding 20px 15px
+    padding 20px 15px 20px 40px
     color: #2a3e48;
-    margin-left -15px
-    margin-right -15px
+    margin-left -40px
+    margin-right -40px
     box-shadow: 0 28px 24px rgba(0, 0, 0, 0.17);
     rem(25)
     font-weight: 900;
@@ -762,13 +763,13 @@
     +md()
       padding 20px 84px 
       margin-left -84px
-      margin-right -54px
+      margin-right -84px
     span 
       cursor: pointer
       top 50%
       vertical(50)
       position: absolute
-      right 30px
+      right 40px
       
       &:hover 
         color $main
@@ -1229,7 +1230,7 @@
       &.error
         cursor initial
         position absolute
-        bottom 0px
+        bottom -10px
         font-family $regular
         font-weight 300
         color red
@@ -1275,8 +1276,42 @@
       font-family $regular
       rem(13)
       font-weight: 300;
+    &--checkbox
+      margin-bottom 31px
+      input 
+        display none
+      label 
+        color #486776
+        font-family $regular !important
+        rem(13)
+        &.error
+          rem(15)
+          bottom -30px
+  &__input-controls
+    position absolute
+    right 0
+    top 0
+    height 50px
+    width 50px
+    text-align center
+  &__icon
+    cursor pointer
+    height 50%
+    line-height 25px
+    display block
+    rem(5)
+    &:hover
+      color $main
+  &__link
+    color $add
+    display block
+    text-align center
+    margin-bottom 20px
+    text-decoration none
+    &:hover
+      color $main
   &__input
-    margin-bottom 30px
+    margin-bottom 20px
     font-family $regular
     rem(14)
     color #486776
@@ -1288,12 +1323,18 @@
     box-shadow: inset 2px 2px 0 rgba(102, 115, 130, 0.18);
     border-radius: 5px !important
     background-color: #f1f4f7;
+    &.equal
+      &.valid
+        background #f1f4f7 url('./../img/true.png') no-repeat 95% center
+      &.error
+        background #f1f4f7 url('./../img/false.png') no-repeat 95% center
     &.error
       border 1px solid red
     &[type="file"]
       // position absolute
       z-index -1
       cursor pointer
+    
     &--rur
       background #f1f4f7 url('./../img/rur.png') 97% center no-repeat
       
@@ -1326,6 +1367,26 @@
       @extends .card__link
       padding-left 0
       float right
+    &--100
+      width 100% !important
+  &__checkbox
+    box-shadow: inset 2px 2px 0 rgba(102, 115, 130, 0.18);
+    width 18px
+    vertical-align middle
+    margin-top -2px
+    margin-right 10px
+    height 18px
+    border-radius 4px
+    display inline-block
+    position relative
+    i
+      rem(10)
+      position absolute
+      top 50%
+      left 50%
+      transform translateX(-50%) translateY(-50%)
+      display none
+      color $main
   
 // traders
 // participate
@@ -1588,6 +1649,7 @@
     width auto
     // min-width 50%
     h2
+      font-family $black
       margin-bottom 0
     &--ip
       width 100%
@@ -1603,11 +1665,16 @@
     &--time
       h2
         margin-top 8px
-        margin-bottom 25px
+        margin-bottom 17px
       h3
-        padding-left 25px
+        font-family $black
+        rem(25)
+        padding-left 30px
         i
           left 0
+          top 16px
+          opacity .26
+          rem(20)
     &--currency
       h2
         margin-top 8px
@@ -1644,7 +1711,7 @@
         position absolute
         top 50%
         transform translateY(-50%)
-        left calc(50% - 50px)
+        left calc(50% - 55px)
       
   &--currency, &--amount 
     h2
@@ -1663,7 +1730,7 @@
       font-family $black
       text-transform: uppercase;
   &--purchase
-    button
+    a
       margin 0 auto
       @extends .card__link
       width 215px
@@ -1672,6 +1739,7 @@
       box-shadow: inset 0 1px 1px 1px rgba(0, 0, 0, 0.23);
       border-radius: 5px;
       background-color: #20c335;
+      line-height 60px
       background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0) 100%);
       padding-left 30px
       padding-top 1px
@@ -1705,9 +1773,13 @@
       
   .title
     span 
+      display block
       color: #2a3e48;
       rem(13)
       font-weight: 400;
+      +xs()
+        display inline-block
+      
   &--left 
     +md()
       float left
@@ -1734,7 +1806,7 @@
       +md()
         margin-bottom 32px
         &--main
-          margin-bottom 50px
+          margin-bottom 50px !important
       
 .toggle-wrapper
   &--personal
@@ -1785,7 +1857,7 @@
     display block
     width 306px
   &__heading
-    width 100%
+    width 100% 
     padding 20px
     background-color $main
     display table
@@ -1811,8 +1883,9 @@
     
     overflow hidden
     img
-      display block
-      width 100%
+      // max-width 100%
+      height 100%
+      display inline-block
     
   &__name
     vertical-align middle
@@ -1837,20 +1910,21 @@
       padding-top 20px
 
   &__link
-    padding 22px 20px
+    padding 22px 20px 22px 70px
     color #fff
     text-decoration none
+    position relative
     background-color: #38515e;
-    
-    +md()
-      padding 22px 0
-      padding-left 25px
       
     i
+      position absolute
+      top 46%
+      left 40px
+      transform translateY(-50%)
       width 20px
       display inline-block
       margin-right 33px
-    &:hover, &--active
+    &:hover, &.is-active
       color $main
       background #344c58 url('./../img/arrow.png') no-repeat 95% center
       
@@ -1944,8 +2018,9 @@
       margin-bottom 3px
       flex-direction row
       align-items flex-end
+      
       width 100%
-      justify-content center
+      justify-content flex-start
       margin-bottom 20px
       +sm()
         
@@ -1988,9 +2063,9 @@
     &--xl
       line-height .8
       rem(65)
-      @media(min-width 400px)
+      margin-right 31px
+      +sm()
         margin-left 30px
-        margin-right 31px
       
     &--sm
       rem(25)
@@ -2007,6 +2082,7 @@
       vertical-align middle
       line-height 1
       color $main
+      margin-right 5px
     .personal-card
       &__referal
         color: #2a3e48;
@@ -2057,7 +2133,7 @@
       width calc(100% / 2 - 10px)
     +md()
       min-height initial
-    +lg()
+    @media(min-width 1300px)
       width calc(100% / 4 - 10px)
     .personal-card
       &__title
@@ -2105,10 +2181,11 @@
       justify-content space-between
       flex-wrap wrap
     h3
-      width 33%
+      width 100%
       float left
-      
       rem(15)
+      +xs()
+        width 33%
       &:first-of-type
         span 
           color $main
@@ -2136,6 +2213,7 @@
     font-family $black
     background-color #dfe3e5
     text-decoration none
+    cursor pointer
     background-image: linear-gradient(-1deg, rgba(0,0,0,0.11) 0%, rgba(0,0,0,0) 100%);
     +sm()
       width 50%
@@ -2144,28 +2222,47 @@
       
       background-color $add
       color #fff
-    &--active
+    &.is-active
       color #fff
       box-shadow: 0 13px 24px rgba(61, 78, 95, 0.27), inset 0 3px 0 rgba(56, 81, 94, 0.34);
       background-color #1eaf26
+.tabs-wrapper
+  .tab
+    &--2
+      display none
 
 .rules
   @extends .info__info-wrapper
   width 100%
   position relative
   &--styled 
-    padding-right 40px
-  &__info
+    padding-right 10px
+    padding-left 10px
+    +md()
+      padding-right 40px
+      padding-left 40px
+  .left-side
+    padding-right 20px
+    float left
+    width calc(100% - 150px)
+    border-right 1px solid #f1f4f7
+  .right-side
+    width 150px
     float right
+      
+  &__info
+    
     rem(13)
     color: #38515e;
-    line-height: 20px;
     font-family $bold
+    line-height 20px
+    padding-left 20px
     span 
       font-family $regular
       font-weight: 100;
       display block
   i
+    margin-top 2px
     float none
     vertical-align top !important
     margin-left 10px
@@ -2179,6 +2276,7 @@
     font-family $black
     margin-bottom 25px
   p 
+    
     display block !important
     padding-left 0 !important
     rem(15)
@@ -2188,7 +2286,9 @@
     
 .table-wrapper
   margin-top 33px 
+  margin-bottom 30px
   +sm()
+    margin-bottom 0
     margin-top 66px
   .title
     rem(20)
@@ -2287,10 +2387,16 @@
       width 33%
       &:nth-child(2n)
         width 33%
-    +lg()
+    @media(min-width 1400px)
       width auto
       &:nth-child(2n)
         width auto
+      &:nth-child(2)
+        padding-right 15px
+        border-right 1px solid #f1f4f7;
+      &:nth-last-child(1)
+        padding-left 15px
+        border-left 1px solid #f1f4f7;
   &__img-wrapper
     width 82px
     height 82px
@@ -2311,8 +2417,9 @@
       line-height: 20px;
       /* Text style for "Опыт:" */
       font-family $bold
-      i 
+      .icon
         margin-top 10px
+      i 
         display block
         color: #38515e;
         opacity: 0.16;
@@ -2368,9 +2475,11 @@
             rem(13)
     &--bottom
       line-height 10px 
-    &--one-liner 
-      span 
-        display inline-block
+    &--one-liner
+      .curr-value 
+        display block
+        span 
+          display inline-block 
     &--closed
       cursor pointer
       color: #38515e;
@@ -2450,7 +2559,24 @@
     height 40px
     line-height 40px
     padding 0 25px
-    @extends .personal-item--purchase button
+    @extends .personal-item--purchase a
+
+#cooperate 
+  position relative
+  max-width 420px
+  margin 0 auto
+  background-color #fff
+  padding 44px 76px
+  color $add
+  .title
+    font-family $black
+    rem(25)
+    margin-bottom 38px
+  p
+    rem(13) 
+    line-height 25px
+  .form__input--submit 
+    width 100%
     
 .access-data > p
   color: #486776;
@@ -2580,6 +2706,61 @@ for i in (0..10)
     +sm()
       margin-top 21px
 // personal
+// form-block
+.form-wrapper
+  position relative
+  background-color transparent
+  +md()
+    min-height 800px
+  &:after    
+    width 164px
+    z-index -1
+    height 200px
+    position absolute
+    +sm()
+      content ''
+      top 10%
+      left calc(50% + 220px)
+      transform translateX(-50%)
+      background #fff url('./../img/lock-bg.png') no-repeat center
+      background-size cover
+    
+.form-content
+  background-color #fff
+  max-width 100%
+  padding 20px 20px
+  box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
+  z-index 10
+  +xs()
+    padding 51px 77px
+  +md()
+    position absolute
+    both()
+  .title
+    margin-bottom 42px
+    color: #2a3e48;
+    font-family $black
+    rem(25)
+  +xs()
+    width 450px
+  +lg()
+    margin-bottom 40px
+  &__link
+    font-size: 25px;
+    font-family $black
+    font-weight: 900;
+    color: #2a3e48;
+    text-decoration none
+    
+    & + & 
+      margin-left 20px
+    &.is-active
+      color: #20c335;
+    /* Text style for "Войти" */
+    
+  
+
+// form-block
   
 // pagination
 .pagination
@@ -2613,8 +2794,11 @@ for i in (0..10)
       margin-left 10px
     &--current 
       color $main
-    i
-      rem(10)
+    &--fastforward 
+      
+      color $main
+      i
+        rem(5)
 // pagination
 @media(min-width 400px)
   .company

@@ -15,7 +15,7 @@
           <div class="header__toggle"><span class="header__toggle-item"></span><span class="header__toggle-item"></span><span class="header__toggle-item"></span>
           </div>
           <div class="aside">
-            <div class="aside__nav"><span class="aside__link aside__link--dropdown">О компании<span class="aside__sub"> <a class="aside__link" href="company.html#documents">Докуметация</a><a class="aside__link" href="company.html#faq">ЧаВо</a></span></span><a class="aside__link" href="trader.html">Трейдеру</a><a class="aside__link" href="participate.html">Стать участником</a><a class="aside__link" href="partner.html">Партнеру</a><a class="aside__link" href="">Отзывы</a><a class="aside__link aside__link--login" href="login.html"> <i class="icon-login"></i>Войти</a>
+            <div class="aside__nav"><span class="aside__link aside__link--dropdown">О компании <i class="icon-down"></i><span class="aside__sub"> <a class="aside__link" href="company.html#documents">Докуметация</a><a class="aside__link" href="company.html#faq">FAQs</a></span></span><a class="aside__link is-active" href="trader.html">Трейдеру</a><a class="aside__link" href="participate.html">Стать участником</a><a class="aside__link" href="partner.html">Партнеру</a><a class="aside__link" href="">Отзывы</a><a class="aside__link aside__link--login" href="login.html"> <i class="icon-login"></i>Войти</a>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
         <section>
           <div class="container clearfix">
             <div class="toggle-wrapper toggle-wrapper--personal">
-              <h2 class="clearfix">Личная информация<span class="personal-toggler"><span class="personal-toggler__toggle-item"></span><span class="personal-toggler__toggle-item"></span><span class="personal-toggler__toggle-item"></span></span>
+              <h2 class="clearfix"> <i class="icon-personal"></i>
               </h2>
             </div>
             <div class="personal-header">
@@ -63,9 +63,7 @@
                 <h3>1 323 616 руб
                 </h3>
               </div>
-              <div class="personal-item personal-item--purchase">
-                <button> <i class="icon-rate"></i>Пополнить баланс  
-                </button>
+              <div class="personal-item personal-item--purchase"><a href="personal--in.html#purchase"> <i class="icon-rate"></i>Пополнить баланс  </a>
               </div>
             </div>
           </div>
@@ -75,18 +73,18 @@
             <div class="container clearfix">
               <div class="aside-block aside-block--left">
                 <div class="toggle-wrapper toggle-wrapper--settings">
-                  <h2 class="username clearfix">Пользователь<i class="icon-settings"></i>
+                  <h2 class="username clearfix"> <i class="icon-settings"></i>
                   </h2>
                 </div>
                 <div class="personal-navigation">
                   <div class="personal-navigation__heading clearfix">
-                    <div class="personal-navigation__img-wrapper"><img src="./img/0.png">
+                    <div class="personal-navigation__img-wrapper"><img src="./img/card0.png">
                     </div>
                     <div class="personal-navigation__name">
                       <h2> <span>Здравствуйте! </span>Волошин</h2>
                     </div>
                   </div>
-                  <div class="personal-navigation__content"><a class="personal-navigation__link" href="personal-all.html"><i class="icon-personal"></i>Персональняа сводка</a><a class="personal-navigation__link" href="personal--rate--traders.html"><i class="icon-rate"></i>Тарифы</a><a class="personal-navigation__link" href="personal--in.html"><i class="icon-finance"></i>Мои финансы</a><a class="personal-navigation__link" href="personal--partners.html"><i class="icon-partner"></i>Мои партнеры</a><a class="personal-navigation__link" href="personal-settings.html"><i class="icon-settings"></i>Насторойки</a>
+                  <div class="personal-navigation__content"><a class="personal-navigation__link" href="personal-all.html"><i class="icon-personal"></i>Персональная сводка</a><a class="personal-navigation__link is-active" href="personal--rate--traders.html"><i class="icon-rate"></i>Тарифы</a><a class="personal-navigation__link" href="personal--in.html"><i class="icon-finance"></i>Мои финансы</a><a class="personal-navigation__link" href="personal--partners.html"><i class="icon-partner"></i>Мои партнеры</a><a class="personal-navigation__link" href="personal-settings.html"><i class="icon-settings"></i>Настройки</a>
                   </div>
                 </div>
               </div>
@@ -98,11 +96,11 @@
                   <form class="form" id="settings" name="settings">
                     <div class="form__form-control form__form-control--50">
                       <label class="form__label" for="settings__login">Логин
-                      </label><input class="form__input" type="text" id="settings__login" name="settings__login"/>
+                      </label><input class="form__input" type="text" id="settings__login" name="settings__login" data-msg="Обязательное поле"/>
                     </div>
                     <div class="form__form-control form__form-control--50">
                       <label for="settings__email">E-mail
-                      </label><input class="form__input" type="emain" id="settings__email" name="settings__email"/>
+                      </label><input class="form__input" type="email" id="settings__email" name="settings__email" data-msg="Формат email'a xx@xx.xx"/>
                     </div>
                     <div class="form__form-control form__form-control--100 clearfix"><input class="form__input form__input--submit" type="submit" value="Изменить пароль"/>
                     </div>
@@ -130,6 +128,15 @@
                     <div class="form__form-control form__form-control--100 clearfix"><input class="form__input form__input--submit" type="submit" value="Сохранить"/>
                     </div>
                   </form>
+                </div>
+                <div class="mfp-hide infowindow-wrapper" id="small-thanks">
+                  <div class="infowindow infowindow--nopadding container">
+                    <div class="info__info-wrapper">
+                      <div class="info__icon-close">&times;
+                      </div><i class="icon-info"></i>
+                      <p>Ваша заявка на вывод средств принята и будет обработана в течение 3-суток</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

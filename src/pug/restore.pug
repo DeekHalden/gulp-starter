@@ -1,0 +1,18 @@
+extends ./../pug-helpers/_layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+  +b.main--padding
+    +breadcrumbs([{title:'Главная',link:'index.html'}],'Войти')
+    +b.SECTION.form-wrapper.content
+      +b.form-content
+        +b.FORM.form--restore(id="restore" name="restore")
+          h2.title Восстановление пароля
+          +e.form-control--100
+            +e.LABEL(for="restore__email") Email
+            +e.INPUT.input(type="email", name="restore__email", id="restore__email", data-msg="Обязательное поле", data-error-msg="Формат email'a xx@xx.xx")
+          +e.form-control--100.clearfix
+            +e.INPUT.input--submit.form__input--100(type="submit" value="Восстановить")
+          +e.form-control--100.--checkbox
+            +e.form-control--100
+            +e.A(href="register.html").link Впервые на сайте? Зарегистрироваться!

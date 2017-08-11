@@ -1,0 +1,22 @@
+extends ./../pug-helpers/_layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+  +b.main--padding
+    +breadcrumbs([{title:'Главная',link:'index.html'}],'Войти')
+    +b.SECTION.form-wrapper.content
+      +b.form-content
+        +e.action-bar
+          +e.A(href="register.html").link Регистрация
+          +e.A().link.is-active Войти
+        +b.FORM.form--login(id="login" name="login")
+          +e.form-control--100
+            +e.LABEL(for="login__email") Email
+            +e.INPUT.input(type="email" name="login__email" id="login__email" data-msg="Обязательное поле")
+          +e.form-control--100
+            +e.LABEL(for="login__email") Пароль
+            +e.INPUT.input(type="password" name="login__pass" id="login__pass" data-msg="Обязательное поле")
+          +e.form-control--100
+            +e.A(href="restore.html").link Забыли пароль?
+          +e.form-control--100.clearfix
+            +e.INPUT.input--submit.form__input--100(type="submit" name="login__pass" id="login__pass" value="Войти")

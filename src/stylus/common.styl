@@ -47,7 +47,7 @@ html, body
     height 100%
 	
 .main
-    padding-bottom 445px
+    padding-bottom 260px
     &--padding
         padding-top 67px
         +lg()
@@ -97,6 +97,8 @@ input::-ms-clear
 select:focus::-ms-value 
     background-color: transparent; 
     color:#000;
+input[type="radio"] 
+    display none
     
 select::-ms-expand 
     display none
@@ -104,6 +106,7 @@ img
     border-style none
     
 .breadcrumb
+    border-bottom 1px solid  #f1f4f7;
     padding 18px 0
     
     background-color: #ffffff;
@@ -169,10 +172,10 @@ a, img, div, input, select
 
 @media (orientation: landscape)
     .main
-        padding-bottom 327px
+        padding-bottom 267px
 @media (min-width: 576px)
     .main
-        padding-bottom 477px
+        padding-bottom 260px
     .container 
         width: 540px
 @media (min-width: 768px)

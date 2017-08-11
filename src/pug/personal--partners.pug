@@ -10,9 +10,11 @@ block aside
     h2.title Мои партнеры
     +b.cards-row
       +b.personal-card--100.--center
-        +b.I.icon-chain
-        +e.P.referal Ваша реферальная ссылка:
-          span http://forward-trade.com/voloshin
+        
+        +e.P.referal
+          +b.I.icon-chain
+          | Ваша реферальная ссылка:
+          span#personal-link http://forward-trade.com/voloshin
         +e.BUTTON.link Скопировать ссылку
       +b.personal-card--100
 
@@ -60,7 +62,7 @@ block aside
     +b.table-wrapper
       h2.title Уровень привлеченных инвестиций:
       +b.cards-row--25
-        -for(let i = 0; i < 7; i++)
+        -for(let i = 0; i < 8; i++)
           -if(i===7)
             +b.personal-card--25.--fixed.--not-active
               p Чтобы получить партнерский бонус, нужно иметь хотя бы один активный депозит

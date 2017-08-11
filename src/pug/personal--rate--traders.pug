@@ -6,41 +6,100 @@ block breadcrumbs
 block aside
   -let carddata = {img: './img/4.png', name:'Дмитрий Соболев', tactic:'агресивный', exp:'43', rating: '43', income: '6', rate: '4.4', from: '1000', to: '150 000',closed: true}
   -let carddatafalse = {img: './img/4.png', name:'Дмитрий Соболев', tactic:'агресивный', exp:'43', rating: '43', income: '6', rate: '4.4', from: '1000', to: '150 000'}
+  
+  -let carddata1 = {img: './img/4.png', name:'Дмитрий Соболев', day:'3', commision:'4', income: '5', period:{start:'10',end:'15'}, amount:'200 000',  incomeValue: '2999', status: ['В работе',true]}
+  -let carddatanew = {img: './img/4.png', name:'Дмитрий Соболев', day:'3', commision:'4', income: '5', period:{start:'4',end:'33'}, amount:'200 000',  incomeValue: '2999', status: ['Закрыт',false]}
   -let infodata = {img:'./img/0.png',name:'Артем Соболев',birth: 1990, exp:'60 месяцев', tactic: 'Агрессивная', fee: '4.2%', income:'6%', field:'Валюта, фьючерсы и опционы, крипто-валюты', add: 'Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.', email: 'webcase@com.ua'}
   +b.access-data
-    h2.title Тарифы
+    h2.title.title--main Тарифы
     +b.finance-action-bar.clearfix
-      +e.A(href="personal--rate--traders.html").link--active Трейдеры
-      +e.A(href="personal--rate--deposits.html").link Депозиты в работе 
-    +b.cards-row
-      -for(let i = 0; i < 5; i++)
-        +CreateCard(carddata, i)
-        .mfp-hide(id="infowindow-" + i).infowindow-wrapper
-          +b.infowindow.container
-            +e.H3.title Анкета трейдера
-              span &times;
-            +e.img-wrapper
-              +e.IMG(src=infodata.img)
-            +e.name
-              h3 Артем Соболев
-            +e.BUTTON(data-email=infodata.email).details-toggle Показать email
-            +e.personal.clearfix
-              +e.P Год рождения
-                span=infodata.birth
-              +e.P Опыт работы
-                span=infodata.exp
-              +e.P Тактики торговли
-                span=infodata.tactic
-            +e.finance-details.clearfix
-              +e.P Вознаграждение:
-                span=infodata.fee
-              +e.P Доходность:
-                span=infodata.income
-            +e.stage.clearfix
-              +e.P Рынки:
-                span Валюта, фьючерсы и опционы, крипто-валюты
-              +e.P Дополнительная информация:
-                span Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.
-      +CreateCard(carddatafalse)
-      +CreatePagination()
+      +e.A().link.is-active Трейдеры
+      +e.A().link Депозиты в работе
+    .tabs-wrapper
+      .tab.tab--1 
+        +b.cards-row
+          -for(let i = 0; i < 5; i++)
+            +CreateCard(carddata, i)
+            .mfp-hide(id="infowindow-" + i).infowindow-wrapper
+              +b.infowindow.container
+                +e.H3.title Анкета трейдера
+                  span &times;
+                +e.img-wrapper
+                  +e.IMG(src=infodata.img)
+                +e.name
+                  h3 Артем Соболев
+                +e.BUTTON(data-email=infodata.email).details-toggle Показать email
+                +e.personal.clearfix
+                  +e.P Год рождения
+                    span=infodata.birth
+                  +e.P Опыт работы
+                    span=infodata.exp
+                  +e.P Тактики торговли
+                    span=infodata.tactic
+                +e.finance-details.clearfix
+                  +e.P Вознаграждение:
+                    span=infodata.fee
+                  +e.P Доходность:
+                    span=infodata.income
+                +e.stage.clearfix
+                  +e.P Рынки:
+                    span Валюта, фьючерсы и опционы, крипто-валюты
+                  +e.P Дополнительная информация:
+                    span Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.
+          +CreateCard(carddatafalse)
+          +CreatePagination()
+          #cooperate.mfp-hide.infowindow-wrapper
+            .info__icon-close &times;
+                            
+            h2.title Илья Серебреников
+            p Чтобы начать выкуп грузовых площадей, Вам необходимо сначала создать личный аккаунт. Регистрация аккаунта не занимает много времени и абсолютно бесплатна. Для этого перейдите на страницу регистрации, нажав кнопку "Создать аккаунт" в правой верхней части сайта. После нажатия этой кнопки и перехода на страницу регистрации, Вам следует заполнить форму регистрации. Необходимо в обязательном порядке указать имя пользователя, пароль, а также - в необязательном порядке - номер телефона.
+            +b.FORM.form(name="cooperate-form")#cooperate-form
+              +e.form-control--100
+                +e.label(for="cooperate_form__value")
+                +e.INPUT(type="number" step='500' min='500' value="500").input--cooperate
+                +e.input-controls
+                  +e.I.icon.icon-control-up
+                  +e.I.icon.icon-control-down
+              +e.form-control--100.clearfix
+                +e.INPUT(type="submit" value="Подтвердить").input--submit
+      .tab.tab--2
+        +b.cards-row
+          +e.H3.title Средства начисляются в автоматическом режиме в будние дни
+            +e.A().hide
+              i.icon-hide 
+              span Скрыть обработанные депозиты
+          -for(let i = 0; i < 5; i++)
+            +CreateNewCard(carddata1, i)
+            .mfp-hide(id="infowindow-" + i).infowindow-wrapper
+              +b.infowindow.container
+                +e.H3.title Анкета трейдера
+                  span &times;
+                +e.img-wrapper
+                  +e.IMG(src=infodata.img)
+                +e.name
+                  h3 Артем Соболев
+                +e.BUTTON(data-email=infodata.email).details-toggle Показать email
+                +e.personal.clearfix
+                  +e.P Год рождения
+                    span=infodata.birth
+                  +e.P Опыт работы
+                    span=infodata.exp
+                  +e.P Тактики торговли
+                    span=infodata.tactic
+                +e.finance-details.clearfix
+                  +e.P Вознаграждение:
+                    span=infodata.fee
+                  +e.P Доходность:
+                    span=infodata.income
+                +e.stage.clearfix
+                  +e.P Рынки:
+                    span Валюта, фьючерсы и опционы, крипто-валюты
+                  +e.P Дополнительная информация:
+                    span Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.
+          +CreateNewCard(carddatanew)
+          +CreatePagination()
+
+
+
+
 

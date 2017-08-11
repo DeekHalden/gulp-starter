@@ -34,7 +34,10 @@
 
 .icon-toggle-wrapper
     cursor pointer
-    top 39%
+    top 50%
+    transform translateY(-50%)
+    position absolute
+    
     left 19px
     display inline-block
     margin-right 28px
@@ -64,7 +67,6 @@
     
     color: $add
     line-height 24px
-    transition .2s linear all
     &:hover
         color #fff
         box-shadow: 0 11px 32px rgba(61, 78, 95, 0.8);
@@ -73,6 +75,7 @@
         .icon-toggle-wrapper
             &__icon
                 color #fff
+    
     
 .faq__qw-bold
     background-color $blue
@@ -105,7 +108,7 @@
         padding-top 0px
         padding-bottom 20px
     .faq__qw
-        padding 8px 8px 8px 8px
+        padding 8px 8px 8px 58px
     .icon-toggle-wrapper
         margin-right 8px
     .icon-toggle-wrapper,

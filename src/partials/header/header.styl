@@ -9,7 +9,7 @@
     transition .2s linear all
     
     &--white
-        background-color #fff
+        background-color rgba(255,255,255, .8)
         box-shadow 0 15px 27px rgba(61, 78, 96, 0.06);
         .header
             &__logo-wrapper
@@ -24,36 +24,16 @@
         .aside
             &__sub
                 
-                background-color #fff
-                +md()
+                +lg()
                     background-color #fff
         &.header-wrapper--tiny
             background-color #fff
-    &--tiny 
-        padding-top 0px 
-        padding-bottom 0px
-        background-color #fff
-        border-bottom 1px solid $main
+    &--tiny
         .header
             &__logo-wrapper
                 span 
-                    color $main
-        .aside
-            background-color #fff
-            &__sub
-                background-color #fff
-            &__link
-                color $main
-                i 
-                    color $main
-                &:hover
                     color $add
-        &.header-wrapper--white
-            .aside
-                &__link
-                    color $add
-                    &:hover 
-                        color $main
+    
 .header
     &__logo-wrapper
         width 150px
@@ -115,7 +95,7 @@
             bottom  5px
 .aside
     top 0
-    background-color rgba(255,255,255, 1)
+    background-color rgba($main, .8)
     width 280px
     position fixed
     right -280px
@@ -151,55 +131,80 @@
         position relative
         &:hover
             color $main
+        &--dropdown
+            i
+                rem(5)
+                display inline-block
+                margin-top -4px
+                margin-left 10px
+                color $main
         &--login
             i
-                color $main
                 margin-top 3px
                 display inline-block
                 margin-right 12px
     &__sub
         display none
-        background-color transparent
+        
         
         &.is-active
-            padding-top 20px
+            padding-top 10px
             display block
+            +lg()
+                background-color #fff
+
         
-        +md()
-            top 58px
+        +lg()
+            padding-top 0
+            top 28px
             left -10px
             position absolute
-            width 200%
             padding-left 10px
-            
             .aside
                 &__link
-                    color $main
+                    color #fff
                     float none
-                    
-                    padding 10px 0 !important
+                    line-height 1
+                    padding 0px 0 10px !important
                     display block
                     margin-bottom 0
+                    &:hover
+                        color $add
             
         // position absolute
-        
-            
     &--open 
         
         right 0
         .aside
             &__sub
                 border-bottom 1px solid rgba(205,205,205,0.3)
-            &__link
-                color $main
+            &__link, i
+                color #fff
                 &:hover
                     color $add
         
 @media(min-width 1200px)
-    
+    .header-wrapper
+        padding-bottom 0
+        &--white
+            background-color #fff
+        &--tiny
+            background-color #fff
+            .header
+                padding-top 0
+                padding-bottom 0
+            
+            .aside
+                &__link
+                    color $main
+                    padding-bottom 10px
+                    &:hover
+                        color $add
+            
     .header
+        
         padding-top 20px 
-        padding-bottom 20px
+        padding-bottom 0px
         &__toggle
             display none
         &--white
@@ -207,6 +212,30 @@
                 &__link
                     &--login
                          border-left 1px solid #f1f4f7
+        &--tiny 
+            padding-top 0px 
+            padding-bottom 0px
+            background-color #fff
+            border-bottom 1px solid $main
+                &__logo-wrapper
+                    span 
+                        color $main
+            .aside
+                background-color #fff
+                &__sub
+                    background-color #fff
+                &__link
+                    color $main
+                    i 
+                        color $main
+                    &:hover
+                        color $add
+            &.header-wrapper--white
+                .aside
+                    &__link
+                        color $add
+                        &:hover 
+                            color $main
     .aside
         transition 0s
         line-height 47px
@@ -234,7 +263,10 @@
             text-align left
             display inline-block
             margin-right 20px
+            padding-bottom 20px
             float left
+            &.is-active
+                border-bottom 2px solid $main 
             &--login
                 padding-left 65px
                 i

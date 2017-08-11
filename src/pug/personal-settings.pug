@@ -10,10 +10,10 @@ block aside
     +b.FORM.form(id="settings" name="settings")
       +e.form-control--50
         +e.LABEL(for="settings__login").label Логин
-        +e.INPUT.input(type="text" id="settings__login" name="settings__login")
+        +e.INPUT.input(type="text" id="settings__login" name="settings__login" data-msg="Обязательное поле")
       +e.form-control--50
         +e.LABEL(for="settings__email") E-mail
-        +e.INPUT.input(type="emain" id="settings__email" name="settings__email")
+        +e.INPUT.input(type="email" id="settings__email" name="settings__email" data-msg="Формат email'a xx@xx.xx")
       +e.form-control--100.clearfix
         +e.INPUT.input--submit(type="submit" value="Изменить пароль")
   +b.graph-wrapper
