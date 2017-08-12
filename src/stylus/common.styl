@@ -47,7 +47,7 @@ html, body
     height 100%
 	
 .main
-    padding-bottom 260px
+    padding-bottom 250px
     &--padding
         padding-top 67px
         +lg()
@@ -97,6 +97,9 @@ input::-ms-clear
 select:focus::-ms-value 
     background-color: transparent; 
     color:#000;
+select
+    -webkit-appearance:none;
+    -webkit-border-radius: 0px;
 input[type="radio"] 
     display none
     
@@ -139,6 +142,7 @@ select::-ms-expand
     
 select
     -webkit-appearance none
+    -webkit-border-radius 0px
     -moz-appearance none
      
 input[type='number']::-webkit-inner-spin-button, 
@@ -172,10 +176,10 @@ a, img, div, input, select
 
 @media (orientation: landscape)
     .main
-        padding-bottom 267px
+        padding-bottom 277px
 @media (min-width: 576px)
     .main
-        padding-bottom 260px
+        padding-bottom 177px
     .container 
         width: 540px
 @media (min-width: 768px)

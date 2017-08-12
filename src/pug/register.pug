@@ -23,9 +23,9 @@ block content
             +e.LABEL(for="register__pass_again") Повторите пароль
             +e.INPUT.input(type="password" name="register__pass_again" id="register__pass_again" data-msg="Обязательное поле")
           +e.form-control--100.--checkbox
-            input(type="checkbox" id="register__agree" name="register__agree" data-msg="Обязательное поле" data-error-msg="Обязательное поле")
+            input(type="checkbox" id="register__agree" name="register__agree" data-msg="Обязательное поле" data-error-msg="Обязательное поле" checked)
             
-            label(for="register__agree" id="register__agree-label") 
+            label(for="register__agree" id="register__agree-label" ) 
               +e.SPAN.checkbox 
                 i.icon-check
               | Согласен (а) с правилами сервиса

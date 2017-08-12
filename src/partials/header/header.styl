@@ -23,16 +23,28 @@
                     color $main
         .aside
             &__sub
-                
                 +lg()
                     background-color #fff
+                .aside__link
+                    color    $add
+                    &:hover
+                        color $main
         &.header-wrapper--tiny
             background-color #fff
     &--tiny
+        background-color #fff
         .header
             &__logo-wrapper
                 span 
                     color $add
+        .aside
+            &__sub
+                &.is-active
+                    background-color #fff
+                +lg()
+                    .aside__link
+                        color $main
+                
     
 .header
     &__logo-wrapper
@@ -151,7 +163,7 @@
             padding-top 10px
             display block
             +lg()
-                background-color #fff
+                background-color transparent
 
         
         +lg()
@@ -276,6 +288,8 @@
         
             
             
-                        
+@media(max-width 1199px)    
+    .header-wrapper--tiny .aside__sub.is-active 
+        background-color transparent
             
     

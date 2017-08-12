@@ -485,7 +485,7 @@
 .svg-wrapper
   
   position absolute
-  top 256px
+  top 234px
   left 47%
   transform translateX(-50%)
   img
@@ -743,8 +743,9 @@
   &--nopadding
     padding 0 !important
     .info__info-wrapper
-      
-      padding 69px  95px
+      padding 60px 20px
+      +sm()
+        padding 69px  95px
       p
         font-family $bold 
     
@@ -770,6 +771,8 @@
       vertical(50)
       position: absolute
       right 40px
+      +md()
+        right 75px
       
       &:hover 
         color $main
@@ -1248,6 +1251,24 @@
         float right
         &:nth-child(2n)
           float left
+    &--33
+      width 100%
+      float left
+      @media(min-width 400px)
+        width: 48%
+        &:nth-child(3)
+          margin-top 29px
+          float right
+      +sm()
+        width: 45%
+        &:nth-child(3)
+          float left
+      +lg()
+        width: 33%
+      // +sm()
+      //   width: 37%
+      //   &:nth-of-type(3)
+      //     float left
     &--part
       width 100%
       +xs()
@@ -1367,6 +1388,8 @@
       @extends .card__link
       padding-left 0
       float right
+      &:hover
+        background-color $add
     &--100
       width 100% !important
   &__checkbox
@@ -1385,7 +1408,7 @@
       top 50%
       left 50%
       transform translateX(-50%) translateY(-50%)
-      display none
+      // display none
       color $main
   
 // traders
@@ -1409,6 +1432,8 @@
   &__info-wrapper
     padding 40px
     box-shadow: 0 15px 27px rgba(61, 78, 96, 0.06);
+    &--100
+      width: 100%
     +sm()
       display table
     i
@@ -1425,8 +1450,10 @@
         display table-cell
       
     p
+      line-height 25px
+      color #486776
       +sm()
-        color $add
+        
         padding-left 39px
         vertical-align middle
         display table-cell
@@ -1659,7 +1686,7 @@
     text-align left !important
     &--ip,&--time, &--currency, &--amount
       width auto
-    &--ip
+    
       h2
         margin-bottom 20px
     &--time
@@ -1685,6 +1712,10 @@
         margin-bottom 12px
     &--purchase
       margin-top 9px
+  +lg()
+    &--ip
+      width: 306px
+      border-right 1px solid #f1f4f7
     
   h2
     margin-bottom 10px
@@ -1745,7 +1776,7 @@
       padding-top 1px
       font-family $bold
       &:hover
-        background-color $main
+        background-color #2a3e48
       i
         // vertical-align middle
         position absolute
@@ -1767,7 +1798,7 @@
     background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0) 100%);
     margin 0 auto 30px
     &:hover
-      background-color #1eaf26
+      background-color $add
     +md()
       margin-bottom 80px
       
@@ -1793,7 +1824,7 @@
       &:after
         position absolute
         content ''
-        width 200%
+        width 100%
         z-index -1
         height 100%
         left 0 
@@ -1841,7 +1872,6 @@
     @extends .header__toggle-item 
     
 .main-content-wrapper
-  overflow hidden
   background-color #ffffff
   +md()
     position relative
@@ -1879,13 +1909,40 @@
     display table-cell
     width 82px
     height 82px
+    position relative
     border-radius 7px
-    
+    pointer-events none
     overflow hidden
     img
+      pointer-events none
       // max-width 100%
+      position absolute
+      width 100%
       height 100%
-      display inline-block
+      
+  &__mask
+    pointer-events none
+    position: absolute
+    width: 100%
+    height 100%
+    z-index: 1
+    background-color: rgba(0, 0, 0, 0.67);
+    &:hover 
+      i
+        color $main
+    input 
+      z-index: 1
+      position absolute
+      opacity 0
+      pointer-events all
+      width 100%
+      height 100%
+      cursor: pointer
+    i
+      color #fff
+      position absolute
+      both()
+    
     
   &__name
     vertical-align middle
@@ -1947,6 +2004,8 @@
     cursor pointer
     font-family $black
     transition .5s linear all
+    &.is-active
+      color $add
     +lg()
       margin-top 0
       display inline-block
@@ -2105,6 +2164,18 @@
     text-align center
     .personal-card__link
       margin 0 auto
+      position relative
+      span 
+        top -19px
+        horizontal(50%)
+        display none
+        min-width: 200%
+        +md()
+          top auto
+          bottom -19px
+        +lg()
+          bottom auto
+          top -19px
       +sm()
         margin auto
     +sm()
@@ -2128,6 +2199,10 @@
     &.is-active
       border: 3px solid rgba(30, 175, 38, 0.27);
       background-color: #ffffff;
+    &.is-pass
+      background-color #e2e2e2
+    &.is-future
+      background-color #f1f4f7
     
     @media(min-width 400px)
       width calc(100% / 2 - 10px)
@@ -2300,12 +2375,12 @@
   margin-bottom 50px
   border-collapse collapse
   color #999999
-  &.is-ladder
-    tr
-      &:nth-child(2)
-        background-color  #20c335
-        td
-          color #fff
+  // &.is-ladder
+  //   tr
+  //     &:nth-child(2)
+  //       background-color  #20c335
+  //       td
+  //         color #fff
         
   &--stripped
     tr:nth-child(odd)
@@ -2370,6 +2445,13 @@
   border-radius 5px
   margin-bottom 10px
   padding 20px
+  transition .2s linear all 
+  &--closed
+    .traders-card
+      &__heading--standart, &__name, &__tactic
+        color rgba($add, .5) !important
+  &:hover 
+    box-shadow: 0 36px 32px rgba(61, 78, 95, 0.28);
   &__row
     margin-bottom 20px
     width 50%
@@ -2438,6 +2520,8 @@
           border-radius: 4px;
           
           position relative
+          +lg()
+            width: 100%
           &__indicator
             transition .5s linear all
             position absolute
@@ -2480,6 +2564,8 @@
         display block
         span 
           display inline-block 
+      .end-value
+        color red
     &--closed
       cursor pointer
       color: #38515e;
@@ -2631,12 +2717,15 @@
     width 3px
     height 100%
     
-    background-image url('./../img/line-left.svg')
+    background #94a1a9 url('./../img/line-left.svg') no-repeat center
+    background-size contain
+
     
   &:after
     content ''
     position absolute
-    background-image url('./../img/line-bottom.svg')
+    background #94a1a9 url('./../img/line-bottom.svg') no-repeat center
+    background-size 100% 100%
     
     bottom 0
     width 100%
@@ -2800,6 +2889,48 @@ for i in (0..10)
       i
         rem(5)
 // pagination
+
+// 404
+.container-404
+  background url('./../img/404.png') no-repeat center center
+  background-size cover
+  padding 120px 0 140px
+  &__text
+    float right
+    background-color #fff
+    padding 22px 25px
+    max-width 590px
+    +sm()
+      padding 62px 94px 62px 70px
+    h2
+      rem(48)
+      font-family: $black
+      color $main
+      margin-bottom 20px
+      +sm()
+        margin-bottom 38px
+    p
+      rem(15)
+      line-height 25px
+      color #000
+      font-weight 500
+  &__link
+    @extends .card__link
+    box-shadow: inset 0 1px 1px 1px rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    background-color: #20c335;
+    width: 235px
+    height 50px
+    margin 44px auto 0 
+    font-family: $bold
+    rem(15)
+    background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.11) 0%, rgba(0, 0, 0, 0) 100%);
+    +sm()
+      margin 44px 0 0
+    &:hover
+      background-color $add
+  
+// 404
 @media(min-width 400px)
   .company
     &__certificates-row

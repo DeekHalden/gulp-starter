@@ -1,0 +1,38 @@
+extends ./../pug-helpers/_personal-layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block breadcrumbs
+  +breadcrumbs([{title:'Главная',link:'index.html'}, {title:'Личный кабинет', link:'personal-all.html'}],'Настройки профиля')
+block aside
+  +b.personal-data.clearfix
+    h2.title Настройки профиля:
+  +b.graph-wrapper
+    +b.FORM.form(id="settings" name="settings")
+      +e.form-control--50
+        +e.LABEL(for="settings__login").label Логин
+        +e.INPUT.input(type="text" id="settings__login" name="settings__login" data-msg="Обязательное поле")
+      +e.form-control--50
+        +e.LABEL(for="settings__email") E-mail
+        +e.INPUT.input(type="email" id="settings__email" name="settings__email" data-msg="Формат email'a xx@xx.xx")
+      +e.form-control--100.clearfix
+        +e.INPUT.input--submit(type="submit" value="Изменить пароль")
+  +b.graph-wrapper
+    h2.title Мои кошельки
+      
+    +b.FORM.form(id="wallet" name="wallet")
+      +e.form-control--25
+        +e.LABEL(for="wallet__qiwi").label QIWI Wallet
+        +e.INPUT.input(type="number" id="wallet__qiwi" name="wallet__qiwi")
+      +e.form-control--25
+        +e.LABEL(for="wallet__yandex") Яндекс.Деньги
+        +e.INPUT.input(type="number" id="wallet__yandex" name="wallet__yandex")
+      +e.form-control--25
+        +e.LABEL(for="wallet__visa") Visa/MasterCard
+        +e.INPUT.input(type="number" id="wallet__visa" name="wallet__visa")
+      +e.form-control--25
+        +e.LABEL(for="wallet__payeer") Payeer
+        +e.INPUT.input(type="number" id="wallet__payeer" name="wallet__payeer")
+
+      +e.form-control--100.clearfix
+        +e.INPUT.input--submit(type="submit" value="Сохранить")
+

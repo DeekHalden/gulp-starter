@@ -78,10 +78,8 @@ $(document).ready(function() {
             function activateAnimation() {
                 $('.advantage-item').each(function(i) {
                     if ($(this).isInViewport()) {
-                        var _this = this
-                        setInterval(function() {
-                            $(_this).addClass('animated bounceInLeft').css('opacity', 1)
-                        }, i * 250)
+                        
+                        $(this).addClass('animated bounceInLeft').css('opacity', 1)
                         $('.svg-wrapper img').addClass('fadeInLeft animated')
                     }
                 });
@@ -105,43 +103,57 @@ $(document).ready(function() {
 
                 $('.bonus-number-item, .bonus-numbers-row i').each(function(i) {
                     if ($(this).isInViewport()) {
-                        var _this = this
-                        setInterval(function() {
-                            $(_this).addClass('animated bounceInLeft').css('opacity', 1)
-                        }, i * 150)
+                        
+                        $(this).addClass('animated bounceInLeft').css('opacity', 1)
                     }
                 });
-                if ($('.card--advantages, .demands-row h4, .card--why, .card--stages').isInViewport()) {
+                $('.traders-card__heading--one-liner').each(function() {
+                    if ($(this).isInViewport()) {
+                        console.log(1)
+                        var currValue = parseInt($(this).find('.curr-value').text());
+                        var endValue = parseInt($(this).find('.end-value').text());
+                        var percent = (currValue * 100) / endValue
+                        if(percent === 100) {
+                            $(this).parent().find('.indicator-wrapper__indicator').css({'width':percent + '%','background-color': 'red'})
+                            
+                        }
+                        $(this).parent().find('.indicator-wrapper__indicator').css('width', percent + '%')
+                    }
+                });
+
+                if ($('.card--advantages').isInViewport()) {
                     $('.card--advantages').each(function(i) {
-                        var _this = this
-                        setInterval(function() {
-                            $(_this).addClass('animated zoomIn').css('opacity', 1)
-                        }, i * 250)
+                        
+                        $(this).addClass('animated zoomIn').css('opacity', 1)
                     });
+                }
+                if($('.demands-row h4').isInViewport()) {
                     $('.demands-row h4').each(function(i) {
-                        var _this = this
-                        setInterval(function() {
-                            $(_this).addClass('animated zoomIn').css('opacity', 1)
-                        }, i * 250)
+                        
+                        $(this).addClass('animated zoomIn').css('opacity', 1)
                     });
+                    
+                }
+                if($('.card--why').isInViewport()) {
                     $('.card--why').each(function(i) {
-                        var _this = this
-                        setInterval(function() {
-                            $(_this).addClass('animated zoomIn').css('opacity', 1)
-                        }, i * 250)
+                        
+                        $(this).addClass('animated zoomIn').css('opacity', 1)
                     });
+                    
+                }
+                if($('.card--stages').isInViewport()) {
                     $('.card--stages').each(function(i) {
-                        var _this = this
-                        setInterval(function() {
-                            $(_this).addClass('animated zoomIn').css('opacity', 1)
-                        }, i * 250)
+                        
+                        $(this).addClass('animated zoomIn').css('opacity', 1)
                     });
                 }
 
             }
-            activateAnimation()
+            activateAnimation();
 
-            $(window).on('resize scroll', function() {
+            $(window).on('resize scroll', function(e) {
+                e.preventDefault()
+                $('.aside__sub').removeClass('is-active')
                 activateAnimation()
 
             });
@@ -197,6 +209,8 @@ $(document).ready(function() {
 
         $('.infowindow-open').magnificPopup({
             type: 'inline',
+            removalDelay: 300,
+            mainClass: 'mfp-zoom-in',
             midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
             callbacks: {
                 beforeOpen: function() {
@@ -214,6 +228,8 @@ $(document).ready(function() {
         });
         $('.image-popup-vertical-fit').magnificPopup({
             type: 'inline',
+            removalDelay: 300,
+            mainClass: 'mfp-zoom-in',
             closeOnContentClick: true,
             mainClass: 'container',
             fixedContentPos: false,
@@ -305,7 +321,7 @@ $(document).ready(function() {
             if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
                 e.preventDefault();
             }
-            if($(this).attr('type') == 'number') return
+            if ($(this).attr('type') == 'number') return
             // var max = 11;
             // if (e.which < 0x20) {
             //     // e.which < 0x20, then it's not a printable character
@@ -336,8 +352,8 @@ $(document).ready(function() {
 
         }, "Please enter valid phone");
 
-        function sendRequest(url, data,form) {
-                form.reset();
+        function sendRequest(url, data, form) {
+            form.reset();
             $.ajax({
                     url: url,
                     type: 'POST',
@@ -369,7 +385,7 @@ $(document).ready(function() {
                 },
                 join__tel: {
                     required: true,
-                    usPhone: true
+                    // usPhone: true
 
                 },
                 join__message: {
@@ -400,12 +416,15 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var data = $(form).serialize();
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $("#in").validate({
@@ -425,13 +444,16 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var data = $(form).serialize();
                 var url = ''
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('input[type="number"]').on('change keyup', function() {
@@ -461,11 +483,14 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#cooperate-form').validate({
@@ -489,11 +514,14 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#cooperate-form').validate({
@@ -517,11 +545,14 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#login').validate({
@@ -550,11 +581,14 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#register').validate({
@@ -573,11 +607,11 @@ $(document).ready(function() {
                 register__pass: {
                     required: true
                 },
-                register__pass_again : {
+                register__pass_again: {
                     required: true,
                     equalTo: '#register__pass'
                 },
-                register__agree : {
+                register__agree: {
                     required: true
                 }
 
@@ -594,11 +628,14 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#settings').validate({
@@ -627,11 +664,14 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#register').validate({
@@ -650,11 +690,11 @@ $(document).ready(function() {
                 register__pass: {
                     required: true
                 },
-                register__pass_again : {
+                register__pass_again: {
                     required: true,
                     equalTo: '#register__pass'
                 },
-                register__agree : {
+                register__agree: {
                     required: true
                 }
 
@@ -671,18 +711,21 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#restore').validate({
             ignore: ".ignore",
             debug: true,
             rules: {
-                
+
                 restore__email: {
                     required: true,
                     emailMethod: true
@@ -700,21 +743,24 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#restore2').validate({
             ignore: ".ignore",
             debug: true,
             rules: {
-                
+
                 restore2__password: {
                     required: true,
-                    
+
                 },
                 restore2__password_again: {
                     required: true,
@@ -723,7 +769,7 @@ $(document).ready(function() {
 
             },
             messages: {
-                
+
             },
             submitHandler: function(form) {
                 var data = $(form).serialize();
@@ -734,11 +780,14 @@ $(document).ready(function() {
                         src: "#small-thanks"
                     },
                     type: 'inline',
-                    fixedBgPos: true,
+                    removalDelay: 300,
+                    mainClass: 'mfp-zoom-in',
+                    fixedBgPos: false,
+                    fixedContentPos: false,
                     closeBtnInside: false
                 });
                 var url = ''
-                sendRequest(url, data,form )
+                sendRequest(url, data, form)
             }
         });
         $('#register__agree-label').click(function() {
@@ -778,17 +827,22 @@ $(document).ready(function() {
         });
     }());
     (function() {
-        $('.traders-card__heading--closed').on('click', function(e) {
+        $('.traders-card__heading--closed').on('mouseenter', function(e) {
             e.preventDefault();
-            $(this).parent().find('.traders-card__infowindow').fadeToggle()
+            $(this).parent().find('.traders-card__infowindow').fadeIn()
+        }).on('mouseleave', function() {
+            $(this).parent().find('.traders-card__infowindow').fadeOut()
+
         });
     }());
     (function() {
-        $('.traders-card__heading--one-liner').each(function() {
-            var currValue = parseInt($(this).find('.curr-value').text());
-            var endValue = parseInt($(this).find('.end-value').text());
-            var percent = (currValue * 100) / endValue
-            $(this).parent().find('.indicator-wrapper__indicator').css('width', percent + '%')
+        $('.cards-row__hide').on('click',function() {
+            if($(this).hasClass('is-active')) {
+                $(this).removeClass('is-active').find('span').text('Скрыть обработанные депозиты')
+                
+            } else {
+                $(this).addClass('is-active').find('span').text('Показать обработанные депозиты')
+            }
         })
     }());
     (function() {
@@ -806,6 +860,11 @@ $(document).ready(function() {
 
 
             copyToClipboard('personal-link')
+            $(this).parent().find('.toast').fadeIn()
+            setTimeout(()=>{
+                
+                $(this).parent().find('.toast').fadeOut()
+            },1000)
         });
 
         function copyToClipboard(elementId) {
@@ -815,13 +874,16 @@ $(document).ready(function() {
             aux.select();
             document.execCommand("copy");
             document.body.removeChild(aux);
+
         }
     }());
     (function() {
-        $('.personal-card').on('mouseover',function() {
+        $('.personal-card').on('mouseover', function() {
             $(this).addClass('animated pulse')
-        })
-    }())
+        }).on('mouseleave', function() {
+            $(this).removeClass('animated pulse')
+        });
+    }());
 
 
 });

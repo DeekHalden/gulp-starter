@@ -12,11 +12,11 @@
                 each el in data
                     +e.A(href=el.link).link= el.title
             +b.additions
-                +b.FORM.search(id="seach" name="search")
-                    +e.form-control
-                        +e.INPUT(type="text" id="seach__query" name="seach__query" placeholder="Поиск").input
-                        +e.BUTTON(type="submit" value="").input
-                            i.icon-search
+                //- +b.FORM.search(id="seach" name="search")
+                //-     +e.form-control
+                //-         +e.INPUT(type="text" id="seach__query" name="seach__query" placeholder="Поиск").input
+                //-         +e.BUTTON(type="submit" value="").input
+                //-             i.icon-search
                 +b.socials
                     each el in socials
                         +e.A(href="").link

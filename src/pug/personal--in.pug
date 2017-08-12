@@ -7,7 +7,7 @@ block aside
   -let cards = [{title:{title:'Пополнено всего'}, icon:'icon-downarrow',  total:'95500,00'},{title:{title:'Cредства в работе'}, icon:'icon-refresh', total: '6850,00'},{title:{title:'Доход от партнеров'}, icon:'icon-partner',  total:'50050,00'},{title:{title:'Всего выведено'}, icon:'icon-card', total: '2280570,00'}]
   -let accessdata = [{text: ['моментально','qiwi','Nisi qui minim et esse dolor ut sit nisi occaecat ut in labore deserunt aliqua aute ullamco adipisicing nostrud aliqua ad officia dolor ad commodo veniam officia dolor ut sed laboris voluptate incididunt ut sit consequat id nostrud reprehenderit consequat.'], id:'qiwi',name:'payment_method',title:{title:'Баланс Visa/MasterCard'}, img: './img/visa.png', total:'95500,00'},{text: ['моментально','qiwi','Eiusmod qui cupidatat ad commodo ad nulla non duis enim aliqua quis minim cupidatat labore qui do officia exercitation reprehenderit proident proident adipisicing et labore et qui consequat laborum elit veniam in et ad adipisicing ut sunt elit commodo in nulla tempor.'], id:'visa',name:'payment_method',title:{title:'Баланс Qiwi/Visa'}, img: './img/qiwi.png',total: '6850,00'},{text: ['моментально','qiwi','In officia incididunt amet esse incididunt excepteur excepteur proident amet ex exercitation sed sed irure ea in consequat reprehenderit amet id voluptate ullamco magna non voluptate culpa dolore qui aliquip in in cillum exercitation do consectetur commodo ullamco sed sit quis voluptate veniam laborum ut velit exercitation ut nisi in minim aliqua est aliqua fugiat ut ex incididunt non est sit '], id:'payeer',name:'payment_method',title:{title:'Баланс Payeer'}, img: './img/payeer.png', total:'50050,00'},{text: ['моментально','qiwi','Aliqua nulla mollit minim culpa duis consectetur amet ut do enim et id in ut laborum quis veniam sit irure incididunt do excepteur id ad voluptate officia in quis enim in dolore in minim nisi laborum dolor sunt ut culpa sint est enim aliquip ad excepteur irure cupidatat commodo fugiat ullamco aliquip sit esse ad et exercitation ut ullamco id in et id exercitation qu.'], id:'yandex',name:'payment_method',title:{title:'Баланс Яндекс.Деньги'}, img: './img/ya.png',total: '2280570,00'}]
   -let headings = ['Сумма, руб.', 'Дата', 'Платежная система', 'Номер транзакции','Статус']
-  -let rows = [['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Успешно', icon:{className: 'icon-check', addClass:'is-success'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Ожидается', icon:{className: 'icon-check', addClass:'is-pending'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Успешно', icon:{className: 'icon-check', addClass:'is-success'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Отклонено', icon:{className: 'icon-check', addClass:'is-failed'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Успешно', icon:{className: 'icon-check', addClass:'is-success'}}]]
+  -let rows = [['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Успешно', icon:{className: 'icon-check', addClass:'is-success'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Ожидается', icon:{className: 'icon-refresh', addClass:'is-pending'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Успешно', icon:{className: 'icon-check', addClass:'is-success'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Отклонено', icon:{className: 'icon-close', addClass:'is-failed'}}],['2500,00', '25.07.17', 'Qiwi Wallet' , '24124123', {text:'Успешно', icon:{className: 'icon-check', addClass:'is-success'}}]]
 
 
   +b.access-data
@@ -23,11 +23,11 @@ block aside
             +b.cards-row--25
               each el in accessdata
                 +PersonalInfoCard(el.title, el.icon, false,  false,false, el.img, true)&attributes({'class':'personal-card--25', name:el.name, id:el.id, text: el.text})
-            +e.form-control--50
+            +e.form-control--33
               label(for="in__amount") Введите сумму пополнения:
               +e.INPUT(type="number" name="in__amount" id="in__amount" data-msg="Обязательное поле" data-error-msg="Неверная сумма").input--rur
-            +e.form-control--right.--top
-              +e.INPUT.input--submit(id="purchase" type="submit" value="Перейти к оплате") 
+            +e.form-control--33.--top
+              +e.INPUT.input--submit(type="submit" value="Перейти к оплате") 
           +b.rules--styled.clearfix
             p Таким образом сложившаяся структура организации влечет за собой процесс внедрения и модернизации позиций, занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что рамки и место обучения кадров требуют от нас анализа существенных 
         +b.table-wrapper

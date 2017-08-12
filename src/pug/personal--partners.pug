@@ -16,6 +16,7 @@ block aside
           | Ваша реферальная ссылка:
           span#personal-link http://forward-trade.com/voloshin
         +e.BUTTON.link Скопировать ссылку
+          span.toast Ссылка скопирована в буфер обмена
       +b.personal-card--100
 
         +e.row--wide
@@ -66,12 +67,16 @@ block aside
           -if(i===7)
             +b.personal-card--25.--fixed.--not-active
               p Чтобы получить партнерский бонус, нужно иметь хотя бы один активный депозит
+          -else if(i<4)
+            +b.personal-card--25.--fixed.is-pass
+              h2 50.000 руб 
+              h3 +100 руб
           -else if(i===4)
             +b.personal-card--25.--fixed.is-active
               h2 50.000 руб 
               h3 +100 руб
           -else
-            +b.personal-card--25.--fixed
+            +b.personal-card--25.--fixed.is-future
               h2 50.000 руб 
               h3 +100 руб
     +b.table-wrapper

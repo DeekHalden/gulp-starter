@@ -1,0 +1,22 @@
+extends ./../pug-helpers/_layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+  +b.main--padding
+    +breadcrumbs([{title:'Главная',link:'index.html'}],'404')
+    +b.SECTION.container-404.container-fliud
+      .container.clearfix
+        +e.text
+          h2.title Ошибка 404
+          p.content Вы находитесь здесь потому, что запрашиваемая страница не существует или была перемещена по другому адресу.
+          +e.A(href="index.html").link На главную
+
+        //- +e.img-block.clrarfix
+        //-   +e.text
+        //-     p Lorem ipsum dolor sit amet, cu aperiri tractatos nec, ei minim nostrud vim. Quot iracundia pro in, munere cotidieque ad quo. Ne cum nullam numquam. No eum mundi nominati reformidans.
+        //- +b.card--top
+        //-   h1 Forward trade
+        //-   p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, architecto.
+        //-   +e.A.link(href="participate.html") Стать участником
+        //-     i.icon-right
+

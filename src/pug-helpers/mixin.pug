@@ -11,76 +11,149 @@ mixin CreatePagination()
       i.icon-double-right
 
 mixin CreateCard(obj,index)
-  +b.traders-card
-    +e.row
-      +e.img-wrapper
-        img(src=obj.img)
-    +e.row
-      +e.H2.name=obj.name
-      +e.H2.tactic Тактика: 
-        span #{obj.tactic}
-    +e.row
-      +e.H2.heading--standart Опыт:
-        span #{obj.exp} месяца
-      +e.H2.heading--standart Рейтинг:
-        span #{obj.rating}%
-    +e.row
-      +e.H2.heading--standart Доходность:
-        span #{obj.income}%
-      +e.H2.heading--standart Вознагр.:
-        span #{obj.rate}%
-    +e.row
-      +e.H2.heading--standart От:
-        span #{obj.from} руб
-      +e.H2.heading--standart До:
-        span #{obj.to} руб
-    +e.row
-      -if(obj.closed)
-        +e.H2.heading--standart.--closed Закрыт
-          i.icon-info-1
-          +e.infowindow
-            p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
-      -else
-        +e.A(href="#cooperate").cooperate.infowindow-open Сотрудничать
-      +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+  -if(obj.closed)
+    +b.traders-card--closed
+      +e.row
+        +e.img-wrapper
+          img(src=obj.img)
+      +e.row
+        +e.H2.name=obj.name
+        +e.H2.tactic Тактика: 
+          span #{obj.tactic}
+      +e.row
+        +e.H2.heading--standart Опыт:
+          span #{obj.exp} месяца
+        +e.H2.heading--standart Рейтинг:
+          span #{obj.rating}%
+      +e.row
+        +e.H2.heading--standart Доходность:
+          span #{obj.income}%
+        +e.H2.heading--standart Вознагр.:
+          span #{obj.rate}%
+      +e.row
+        +e.H2.heading--standart От:
+          span #{obj.from} руб
+        +e.H2.heading--standart До:
+          span #{obj.to} руб
+      +e.row
+        -if(obj.closed)
+          +e.H2.heading--standart.--closed Закрыт
+            i.icon-info-1
+            +e.infowindow
+              p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
+        -else
+          +e.A(href="#cooperate").cooperate.infowindow-open Сотрудничать
+        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+  -else
+    +b.traders-card
+      +e.row
+        +e.img-wrapper
+          img(src=obj.img)
+      +e.row
+        +e.H2.name=obj.name
+        +e.H2.tactic Тактика: 
+          span #{obj.tactic}
+      +e.row
+        +e.H2.heading--standart Опыт:
+          span #{obj.exp} месяца
+        +e.H2.heading--standart Рейтинг:
+          span #{obj.rating}%
+      +e.row
+        +e.H2.heading--standart Доходность:
+          span #{obj.income}%
+        +e.H2.heading--standart Вознагр.:
+          span #{obj.rate}%
+      +e.row
+        +e.H2.heading--standart От:
+          span #{obj.from} руб
+        +e.H2.heading--standart До:
+          span #{obj.to} руб
+      +e.row
+        -if(obj.closed)
+          +e.H2.heading--standart.--closed Закрыт
+            i.icon-info-1
+            +e.infowindow
+              p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
+        -else
+          +e.A(href="#cooperate").cooperate.infowindow-open Сотрудничать
+        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+
 
 mixin CreateNewCard(obj,index)
-  +b.traders-card
-    +e.row
-      +e.img-wrapper
-        img(src=obj.img)
-    +e.row
-      +e.H2.name=obj.name
-      +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
-    +e.row
-      +e.H2.heading--standart Доход:
-        span #{obj.day}% в день
-      +e.H2.heading--standart
-        span.blue коммисия #{obj.commision}%
-        span.main-color.main-color--strong #{obj.income}%
-    +e.row
-      +e.H2.heading--standart.--one-liner Срок:
-        span.curr-value #{obj.period.start} 
-          | из 
-          span.end-value #{obj.period.end}  
-          |  дней
-      +e.H2.heading--standart 
-        +b.SPAN.indicator-wrapper
-          +e.SPAN.indicator
-        span 27.06.2017 дата начала
-    +e.row
-      +e.H2.heading--standart В управлении:
-        span #{obj.amount} руб
-      +e.H2.heading--standart Всего выплачено:
-        span.main-color.main-color--normal #{obj.incomeValue} руб
-    +e.row
-      +e.H2.heading--standart Статус:
-        -if(obj.status[1] === true)
-          i.icon.icon-refresh
-        -else 
-          i.icon.icon-close
-        
-      +e.H2.heading--standart.--bottom #{obj.status[0]}
+  -if(obj.status[1] === false)
+    +b.traders-card--closed
+      +e.row
+        +e.img-wrapper
+          img(src=obj.img)
+      +e.row
+        +e.H2.name=obj.name
+        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+      +e.row
+        +e.H2.heading--standart Доход:
+          span #{obj.day}% в день
+        +e.H2.heading--standart
+          span.blue коммисия #{obj.commision}%
+          span.main-color.main-color--strong #{obj.income}%
+      +e.row
+        +e.H2.heading--standart.--one-liner Срок:
+          span.curr-value #{obj.period.start} 
+            | из 
+            span.end-value #{obj.period.end}  
+            |  дней
+        +e.H2.heading--standart 
+          +b.SPAN.indicator-wrapper
+            +e.SPAN.indicator
+          span 27.06.2017 дата начала
+      +e.row
+        +e.H2.heading--standart В управлении:
+          span #{obj.amount} руб
+        +e.H2.heading--standart Всего выплачено:
+          span.main-color.main-color--normal #{obj.incomeValue} руб
+      +e.row
+        +e.H2.heading--standart Статус:
+          -if(obj.status[1] === true)
+            i.icon.icon-refresh
+          -else 
+            i.icon.icon-close
+          
+        +e.H2.heading--standart.--bottom #{obj.status[0]}
+  -else
+    +b.traders-card
+      +e.row
+        +e.img-wrapper
+          img(src=obj.img)
+      +e.row
+        +e.H2.name=obj.name
+        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+      +e.row
+        +e.H2.heading--standart Доход:
+          span #{obj.day}% в день
+        +e.H2.heading--standart
+          span.blue коммисия #{obj.commision}%
+          span.main-color.main-color--strong #{obj.income}%
+      +e.row
+        +e.H2.heading--standart.--one-liner Срок:
+          span.curr-value #{obj.period.start} 
+            | из 
+            span.end-value #{obj.period.end}  
+            |  дней
+        +e.H2.heading--standart 
+          +b.SPAN.indicator-wrapper
+            +e.SPAN.indicator
+          span 27.06.2017 дата начала
+      +e.row
+        +e.H2.heading--standart В управлении:
+          span #{obj.amount} руб
+        +e.H2.heading--standart Всего выплачено:
+          span.main-color.main-color--normal #{obj.incomeValue} руб
+      +e.row
+        +e.H2.heading--standart Статус:
+          -if(obj.status[1] === true)
+            i.icon.icon-refresh
+          -else 
+            i.icon.icon-close
+          
+        +e.H2.heading--standart.--bottom #{obj.status[0]}
 
 
     

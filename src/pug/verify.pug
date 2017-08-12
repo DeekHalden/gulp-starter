@@ -1,0 +1,14 @@
+extends ./../pug-helpers/_layout
+block header
+  +createHeader()&attributes({class: 'header-wrapper--white'})
+block content
+  +b.main--padding
+    +breadcrumbs([{title:'Главная',link:'index.html'}],'Подтверждение email')
+    +b.SECTION.info.content
+      .content-wrapper
+        .container
+          h2.title Спасибо за регистрацию на нашем сайте!
+          +e.info-wrapper--100
+            i.icon-info
+            p На ваш email было отправлено письмо. <br> Для подтверждения регистрации перейдите по ссылке в нем.
+      
