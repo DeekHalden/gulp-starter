@@ -220,7 +220,7 @@ mixin PersonalInfoCard(title, icon, value, number,total,img, input)
 
 
 mixin createHeader()
-  -let data = [{className: 'link--dropdown', title:'О компании', sub:[{href:'company.html#documents',title:'Докуметация'}, {href:'company.html#faq',title:'FAQs'},]},{className: 'link is-active', href:'trader.html',title:'Трейдеру'}, {className: 'link', href:'participate.html',title:'Стать участником'}, {className: 'link', href:'partner.html',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'},{className: 'link--login', href:'login.html',title:'Войти', icon:'icon-login'}]
+  -let data = [{className: 'link--dropdown', title:'О компании', href:'company.html'},{className: 'link is-active', href:'trader.html',title:'Трейдеру'}, {className: 'link', href:'participate.html',title:'Стать участником'}, {className: 'link', href:'partner.html',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'},{className: 'link--login', href:'login.html',title:'Войти', icon:'icon-login'}]
   .container-fluid.header-wrapper(class=attributes.class)
     +b.header.clearfix.container
         +e.A(href="index.html").logo-wrapper
@@ -233,19 +233,12 @@ mixin createHeader()
         +b.aside
             +e.nav
                 each el in data
-                    -if(el.sub)
-                        +e.SPAN(class=el.className) #{el.title} <i class="icon-down"></i>
-
-                            +e.sub 
-                                each el in data[0].sub
-                                    +e.A(href=el.href).link #{el.title}
+                    -if(el.icon)
+                      +e.A(href=el.href, class=el.className) 
+                        i(class=el.icon)
+                        | #{el.title}
                     -else 
-                        -if(el.icon)
-                          +e.A(href=el.href, class=el.className) 
-                            i(class=el.icon)
-                            | #{el.title}
-                        -else 
-                          +e.A(href=el.href, class=el.className) #{el.title}
+                      +e.A(href=el.href, class=el.className) #{el.title}
                             
                           
 

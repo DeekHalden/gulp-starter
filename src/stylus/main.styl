@@ -738,14 +738,17 @@
 .infowindow
   background-color #f1f3f5
   max-width 600px
+  margin 0 auto
   padding-bottom 20px
-  padding 0 40px 20px !important
+  padding 0 0 20px !important
+  &__content
+    padding 0 40px
   &--nopadding
     padding 0 !important
     .info__info-wrapper
-      padding 60px 20px
+      padding 60px 0px
       +sm()
-        padding 69px  95px
+        padding 69px  0px
       p
         font-family $bold 
     
@@ -754,17 +757,13 @@
   &__title
     padding 20px 15px 20px 40px
     color: #2a3e48;
-    margin-left -40px
-    margin-right -40px
     box-shadow: 0 28px 24px rgba(0, 0, 0, 0.17);
     rem(25)
     font-weight: 900;
     margin-bottom 20px
     position: relative
     +md()
-      padding 20px 84px 
-      margin-left -84px
-      margin-right -84px
+      padding 20px 40px 
     span 
       cursor: pointer
       top 50%
@@ -847,17 +846,21 @@
         rem(30)
         font-weight: 900;
         float right
+        &.fee
+          color #d6c717
     +md()
       display flex
       p
         float left
-        width: 50%
+        width: 66%
         rem(23)
         span
           
           rem(38)
           float none
           display: block
+        &:nth-child(2)
+          width: 34%
   &__stage
       @extends  .infowindow__personal
       +md()
@@ -900,6 +903,8 @@
     padding 189px 0
     .right-aligned
       float right
+      .part 
+        opacity 0
     &__link
       margin 0
   .title

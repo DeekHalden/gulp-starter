@@ -1651,8 +1651,11 @@ $(document).ready(function() {
 
     }());
     (function() {
-        $('.aside__link--dropdown').on('click', function() {
-            $('.aside__sub').toggleClass('is-active')
+        $('.aside__link--dropdown').on('mouseenter', function() {
+            $('.aside__sub').addClass('is-active')
+        }).on('mouseleave',function() {
+            
+            $('.aside__sub').removeClass('is-active')
         })
     }());
     (function() {
@@ -1685,19 +1688,22 @@ $(document).ready(function() {
     (function() {
         if ($(window).width() > 920) {
             function activateAnimation() {
-                $('.advantage-item').each(function(i) {
-                    if ($(this).isInViewport()) {
-                        
-                        $(this).addClass('animated bounceInLeft').css('opacity', 1)
+                if ($('.advantage-item').isInViewport()) {
+                    $('.advantage-item').each(function(i) {
+                        var self = this
+                        setInterval(function() {
+                            $(self).addClass('animated bounceInLeft').css('opacity', 1)
+                            
+                        }, i * 500);    
                         $('.svg-wrapper img').addClass('fadeInLeft animated')
-                    }
-                });
+                    });
+                };
                 $('.title').each(function() {
                     if ($(this).isInViewport()) {
                         $(this).addClass('animated zoomIn').css('opacity', 1)
                     }
 
-                })
+                });
                 if ($('.icon-gift').isInViewport()) {
                     function animateIcon() {
                         $('.icon-gift').addClass('animated jackInTheBox')
@@ -1707,15 +1713,27 @@ $(document).ready(function() {
                     }
 
                     setInterval(animateIcon, 4000)
-                }
+                };
 
-
-                $('.bonus-number-item, .bonus-numbers-row i').each(function(i) {
-                    if ($(this).isInViewport()) {
-                        
-                        $(this).addClass('animated bounceInLeft').css('opacity', 1)
+                if ($('.card__link').isInViewport()) {
+                    function animatebutton() {
+                        $('.card__link').addClass('animated pulse')
+                        setTimeout(function() {
+                            $('.card__link').removeClass('animated pulse')
+                        }, 2000)
                     }
-                });
+                    setInterval(animatebutton, 4000)
+
+                };
+
+                if ($('.bonus-number-item, .bonus-numbers-row i').isInViewport()) {
+                    $('.bonus-number-item, .bonus-numbers-row i').each(function(i) {
+                        var self = this
+                        setInterval(function() {
+                            $(self).addClass('animated bounceInLeft').css('opacity', 1)
+                        }, i * 400)
+                    });
+                };
                 $('.traders-card__heading--one-liner').each(function() {
                     if ($(this).isInViewport()) {
                         console.log(1)
@@ -1732,33 +1750,51 @@ $(document).ready(function() {
 
                 if ($('.card--advantages').isInViewport()) {
                     $('.card--advantages').each(function(i) {
-                        
-                        $(this).addClass('animated zoomIn').css('opacity', 1)
+                        var self = this
+                        setInterval(function() {
+                            $(self).addClass('animated zoomIn').css('opacity', 1)
+                        }, i * 300);
                     });
-                }
+                };
                 if($('.demands-row h4').isInViewport()) {
                     $('.demands-row h4').each(function(i) {
-                        
-                        $(this).addClass('animated zoomIn').css('opacity', 1)
+                        var self = this
+                        setInterval(function() {
+                            $(self).addClass('animated zoomIn').css('opacity', 1)
+                            
+                        }, i * 250)
                     });
                     
-                }
+                };
                 if($('.card--why').isInViewport()) {
                     $('.card--why').each(function(i) {
-                        
-                        $(this).addClass('animated zoomIn').css('opacity', 1)
+                        var self = this
+                        setInterval(function() {
+                            $(self).addClass('animated zoomIn').css('opacity', 1)
+                        }, i * 250)
                     });
                     
-                }
+                };
                 if($('.card--stages').isInViewport()) {
                     $('.card--stages').each(function(i) {
-                        
-                        $(this).addClass('animated zoomIn').css('opacity', 1)
+                        var self = this
+                        setInterval(function() {
+                            $(self).addClass('animated zoomIn').css('opacity', 1)
+                        }, i * 250)
                     });
+                };
+                if($('.right-aligned').isInViewport()) {
+                    $('.part').each(function(i) {
+                        var self = this
+                        setInterval(function() {
+                            $(self).addClass('animated zoomIn').css('opacity', 1)
+                        }, i * 500)
+                        $('.start-work__link').addClass('animated zoomIn')
+                    })
                 }
 
             }
-            activateAnimation();
+            // activateAnimation();
 
             $(window).on('resize scroll', function(e) {
                 e.preventDefault()
@@ -1907,6 +1943,7 @@ $(document).ready(function() {
         })
     }());
     (function() {
+        $('.form__input--mask').text('Паспорт.pdf').css('font-style','italic')
         $('input[type="file"]').on('change', function(e) {
             var filename = e.target.value.split('\\').pop();
             console.log(filename)
@@ -1986,20 +2023,31 @@ $(document).ready(function() {
             rules: {
 
                 join__name: {
-                    alpha: true
+                    alpha: true,
+                    required: true
                 },
                 join__email: {
                     required: true,
                     emailMethod: true
                 },
+                join__address: {
+                    required: true,
+                },
                 join__tel: {
                     required: true,
                     // usPhone: true
-
                 },
                 join__message: {
-                    required: false,
 
+                    required: false
+
+                },
+                join__work: {
+                    
+                    required: true
+                },
+                join__document: {
+                    required: true
                 },
                 hiddenRecaptcha: {
                     required: function() {

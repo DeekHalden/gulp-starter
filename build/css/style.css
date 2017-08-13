@@ -3805,10 +3805,10 @@ img.mfp-img {
   color: #1eaf26;
 }
 .header-wrapper--white .aside__sub .aside__link {
-  color: #486776;
+  color: #1eaf26;
 }
 .header-wrapper--white .aside__sub .aside__link:hover {
-  color: #1eaf26;
+  color: #486776;
 }
 .header-wrapper--white.header-wrapper--tiny {
   background-color: #fff;
@@ -4116,28 +4116,32 @@ input::-webkit-input-placeholder {
   font-family: Lato-Regular;
   font-size: 14px;
   font-size: 1rem;
-  color: #fff;
+  color: rgba(72,103,118,0.5);
+  font-style: italic;
   font-weight: 300;
 }
 input::-moz-placeholder {
   font-family: Lato-Regular;
   font-size: 14px;
   font-size: 1rem;
-  color: #fff;
+  color: rgba(72,103,118,0.5);
+  font-style: italic;
   font-weight: 300;
 }
 input::-moz-placeholder {
   font-family: Lato-Regular;
   font-size: 14px;
   font-size: 1rem;
-  color: #fff;
+  color: rgba(72,103,118,0.5);
+  font-style: italic;
   font-weight: 300;
 }
 input::-ms-input-placeholder {
   font-family: Lato-Regular;
   font-size: 14px;
   font-size: 1rem;
-  color: #fff;
+  color: rgba(72,103,118,0.5);
+  font-style: italic;
   font-weight: 300;
 }
 input::-webkit-inner-spin-button {
@@ -4825,14 +4829,18 @@ select:focus {
 .infowindow {
   background-color: #f1f3f5;
   max-width: 600px;
+  margin: 0 auto;
   padding-bottom: 20px;
-  padding: 0 40px 20px !important;
+  padding: 0 0 20px !important;
+}
+.infowindow__content {
+  padding: 0 40px;
 }
 .infowindow--nopadding {
   padding: 0 !important;
 }
 .infowindow--nopadding .info__info-wrapper {
-  padding: 60px 20px;
+  padding: 60px 0px;
 }
 .infowindow--nopadding .info__info-wrapper p {
   font-family: Lato-Bold;
@@ -4840,8 +4848,6 @@ select:focus {
 .infowindow__title {
   padding: 20px 15px 20px 40px;
   color: #2a3e48;
-  margin-left: -40px;
-  margin-right: -40px;
   -webkit-box-shadow: 0 28px 24px rgba(0,0,0,0.17);
   box-shadow: 0 28px 24px rgba(0,0,0,0.17);
   font-size: 25px;
@@ -4929,6 +4935,9 @@ select:focus {
   font-size: 2.142857142857143rem;
   font-weight: 900;
   float: right;
+}
+.infowindow__finance-details p span.fee {
+  color: #d6c717;
 }
 .advantages-row {
   text-align: center;
@@ -7362,7 +7371,7 @@ select:focus {
     justify-content: space-around;
   }
   .infowindow--nopadding .info__info-wrapper {
-    padding: 69px 95px;
+    padding: 69px 0px;
   }
   .download-wrapper {
     display: -webkit-box;
@@ -7684,9 +7693,7 @@ select:focus {
     padding: 0 56px 54px;
   }
   .infowindow__title {
-    padding: 20px 84px;
-    margin-left: -84px;
-    margin-right: -84px;
+    padding: 20px 40px;
   }
   .infowindow__title span {
     right: 75px;
@@ -7732,7 +7739,7 @@ select:focus {
   }
   .infowindow__finance-details p {
     float: left;
-    width: 50%;
+    width: 66%;
     font-size: 23px;
     font-size: 1.642857142857143rem;
   }
@@ -7741,6 +7748,9 @@ select:focus {
     font-size: 2.714285714285714rem;
     float: none;
     display: block;
+  }
+  .infowindow__finance-details p:nth-child(2) {
+    width: 34%;
   }
   .infowindow__stage {
     display: block;
@@ -7759,6 +7769,9 @@ select:focus {
   }
   .start-work .right-aligned {
     float: right;
+  }
+  .start-work .right-aligned .part {
+    opacity: 0;
   }
   .start-work__link {
     margin: 0;

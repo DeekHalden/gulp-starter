@@ -46,19 +46,19 @@ block content
                     +b.FORM.form--join(name="join" id="join" enctype="multipart/form-data").clearfix
                         +e.form-control--100
                             label(for="join__name") Фио
-                            +e.INPUT.input(type="text" id="join__name" name="join__name" data-msg="Некорректное имя" )
+                            +e.INPUT.input(type="text" id="join__name" name="join__name" data-msg="Некорректное имя" placeholder="Иванов Иван")
                         +e.form-control--50
                             label(for="join__email") E-mail
-                            +e.INPUT.input(type="email" id="join__email" name="join__email" data-msg="Введите email в формате XX@XX.XX" data-msg-required="Обязательное поле")
+                            +e.INPUT.input(type="email" id="join__email" name="join__email" data-msg="Введите email в формате XX@XX.XX" data-msg-required="Обязательное поле" placeholder="wanttoberich@money.mine")
                         +e.form-control--50
                             label(for="join__address") Адрес
-                            +e.INPUT.input(type="text" id="join__address" name="join__address")
+                            +e.INPUT.input(type="text" id="join__address" name="join__address"  data-msg="Обязательное поле" placeholder="г.Киев Хрещатик д.20 ")
                         +e.form-control--50
                             label(for="join__tel") Телефон
-                            +e.INPUT.input(type="tel" id="join__tel" name="join__tel" data-msg="Неверный номер телефона" data-msg-required="Обязательное поле")
+                            +e.INPUT.input(type="tel" id="join__tel" name="join__tel" data-msg="Неверный номер телефона" data-msg-required="Обязательное поле" placeholder="38066 333 44 44")
                         +e.form-control--50
                             label() Трейдерский опыт
-                            +e.SELECT.input--dropdown
+                            +e.SELECT.input--dropdown(id="join__exp" name="join__exp" data-msg-required="Обязательное поле")
                                 option(value="") 1 год
                                 option(value="") 2 года
                                 option(value="") 3 года
@@ -66,10 +66,10 @@ block content
                                 option(value="") 5 лет
                         +e.form-control--50
                             label(for="join__work") Место работы
-                            +e.INPUT.input(type="text" id="join__work" name="join__work")
+                            +e.INPUT.input(type="text" id="join__work" name="join__work" placeholder="Форекс клуб" data-msg="Обязательное поле")
                         +e.form-control--50
                             label(for="join__document") Документ подтверждающий личность
-                            +e.INPUT.input(type="file" id="join__document" name="join__document")
+                            +e.INPUT.input(type="file" id="join__document" name="join__document" data-msg="Обязательное поле")
                             +e.input--mask
                         +e.form-control--100
                             label(for="join__comment") Комментарий

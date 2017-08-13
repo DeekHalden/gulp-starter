@@ -89,32 +89,33 @@ block content
                                     +e.A(href='#infowindow-' + i data-effect="mfp-zoom-in").details.infowindow-open Подробнее о трейдере
                 -for(let index= 0; index< 8; index++)
                     .mfp-hide(id="infowindow-" + index).infowindow-wrapper
-                        +b.infowindow.container
+                        +b.infowindow
                             +e.H3.title Анкета трейдера
                                 span &times;
-                            +e.img-wrapper
-                                +e.IMG(src=infodata.img)
-                            +e.name
-                                h3 Артем Соболев
-                            +e.BUTTON(data-email=infodata.email).details-toggle Показать email
-                            +e.personal.clearfix
-                                +e.P Год рождения
-                                    span=infodata.birth
-                                +e.P Опыт работы
-                                    span=infodata.exp
-                                +e.P Тактики торговли
-                                    span=infodata.tactic
-                            +e.finance-details.clearfix
-                                +e.P Вознаграждение:
-                                    span=infodata.fee
+                            +e.content
+                                +e.img-wrapper
+                                    +e.IMG(src=infodata.img)
+                                +e.name
+                                    h3 Артем Соболев
+                                +e.BUTTON(data-email=infodata.email).details-toggle Показать email
+                                +e.personal.clearfix
+                                    +e.P Год рождения
+                                        span=infodata.birth
+                                    +e.P Опыт работы
+                                        span=infodata.exp
+                                    +e.P Тактики торговли
+                                        span=infodata.tactic
+                                +e.finance-details.clearfix
+                                    +e.P Вознаграждение трейдеру:
+                                        span.fee=infodata.fee
 
-                                +e.P Доходность:
-                                    span=infodata.income
-                            +e.stage.clearfix
-                                +e.P Рынки:
-                                    span Валюта, фьючерсы и опционы, крипто-валюты
-                                +e.P Дополнительная информация:
-                                    span Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.
+                                    +e.P Доходность:
+                                        span=infodata.income
+                                +e.stage.clearfix
+                                    +e.P Рынки:
+                                        span Валюта, фьючерсы и опционы, крипто-валюты
+                                    +e.P Дополнительная информация:
+                                        span Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.
         +b.SECTION.advantages.content                                
             .container.content-wrapper.clearfix
                 +e.text
