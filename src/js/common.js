@@ -44,8 +44,8 @@ $(document).ready(function() {
     (function() {
         $('.aside__link--dropdown').on('mouseenter', function() {
             $('.aside__sub').addClass('is-active')
-        }).on('mouseleave',function() {
-            
+        }).on('mouseleave', function() {
+
             $('.aside__sub').removeClass('is-active')
         })
     }());
@@ -84,8 +84,8 @@ $(document).ready(function() {
                         var self = this
                         setInterval(function() {
                             $(self).addClass('animated bounceInLeft').css('opacity', 1)
-                            
-                        }, i * 500);    
+
+                        }, i * 500);
                         $('.svg-wrapper img').addClass('fadeInLeft animated')
                     });
                 };
@@ -131,9 +131,9 @@ $(document).ready(function() {
                         var currValue = parseInt($(this).find('.curr-value').text());
                         var endValue = parseInt($(this).find('.end-value').text());
                         var percent = (currValue * 100) / endValue
-                        if(percent === 100) {
-                            $(this).parent().find('.indicator-wrapper__indicator').css({'width':percent + '%','background-color': 'red'})
-                            
+                        if (percent === 100) {
+                            $(this).parent().find('.indicator-wrapper__indicator').css({ 'width': percent + '%', 'background-color': 'red' })
+
                         }
                         $(this).parent().find('.indicator-wrapper__indicator').css('width', percent + '%')
                     }
@@ -147,26 +147,26 @@ $(document).ready(function() {
                         }, i * 300);
                     });
                 };
-                if($('.demands-row h4').isInViewport()) {
+                if ($('.demands-row h4').isInViewport()) {
                     $('.demands-row h4').each(function(i) {
                         var self = this
                         setInterval(function() {
                             $(self).addClass('animated zoomIn').css('opacity', 1)
-                            
+
                         }, i * 250)
                     });
-                    
+
                 };
-                if($('.card--why').isInViewport()) {
+                if ($('.card--why').isInViewport()) {
                     $('.card--why').each(function(i) {
                         var self = this
                         setInterval(function() {
                             $(self).addClass('animated zoomIn').css('opacity', 1)
                         }, i * 250)
                     });
-                    
+
                 };
-                if($('.card--stages').isInViewport()) {
+                if ($('.card--stages').isInViewport()) {
                     $('.card--stages').each(function(i) {
                         var self = this
                         setInterval(function() {
@@ -174,7 +174,7 @@ $(document).ready(function() {
                         }, i * 250)
                     });
                 };
-                if($('.right-aligned').isInViewport()) {
+                if ($('.right-aligned').isInViewport()) {
                     $('.part').each(function(i) {
                         var self = this
                         setInterval(function() {
@@ -319,6 +319,38 @@ $(document).ready(function() {
             }
             $(window).scroll(startCounter);
         }
+        if ($('.personal-card--total h3 span, .personal-card__total').isInViewport()) {
+            $('.personal-card--total h3 span, .personal-card__total').each(function() {
+                var $this = $(this);
+                $({
+                    Counter: 0
+                }).animate({
+                    Counter: $this.text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                        $this.text(Math.ceil(this.Counter) + '.00');
+                    }
+                });
+            })
+        }
+        if ($('.personal-card__number').isInViewport()) {
+            $('.personal-card__number').each(function() {
+                var $this = $(this);
+                $({
+                    Counter: 0
+                }).animate({
+                    Counter: $this.text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                        $this.text(Math.ceil(this.Counter));
+                    }
+                });
+            })
+        }
     }());
     (function() {
         if ($('video').length > 0) {
@@ -334,7 +366,7 @@ $(document).ready(function() {
         })
     }());
     (function() {
-        $('.form__input--mask').text('Паспорт.pdf').css('font-style','italic')
+        $('.form__input--mask').text('Паспорт.pdf').css('font-style', 'italic')
         $('input[type="file"]').on('change', function(e) {
             var filename = e.target.value.split('\\').pop();
             console.log(filename)
@@ -434,7 +466,7 @@ $(document).ready(function() {
 
                 },
                 join__work: {
-                    
+
                     required: true
                 },
                 join__document: {
@@ -841,21 +873,15 @@ $(document).ready(function() {
         $('#register__agree-label').click(function() {
             $(this).parent().find('i').fadeToggle()
         })
-        $('.form__icon').on('click', function() {
+        $('.form__input--cooperate').on('change', function() {
             // alert(1)
-            var oldValue = $(this).parent().parent().find('input').val()
-            console.log(oldValue)
-            if ($(this).hasClass('icon-control-up') === true) {
-                var newValue = parseInt(oldValue) + 500;
-                console.log(parseInt(oldValue))
-            } else if (oldValue <= 500) {
+            var val = $(this).val()
 
-                var newValue = 500;
-            } else {
+            if (val <= 100) {
 
-                var newValue = parseInt(oldValue) - 500;
+                val = 100
             }
-            $(this).parent().parent().find('input').val(newValue)
+            $(this).val(val)
         });
         // $('#restore2 input[type="password"]').on('keydown', function() {
         //     $(this).removeClass('is-invalid is-valid')
@@ -884,10 +910,10 @@ $(document).ready(function() {
         });
     }());
     (function() {
-        $('.cards-row__hide').on('click',function() {
-            if($(this).hasClass('is-active')) {
+        $('.cards-row__hide').on('click', function() {
+            if ($(this).hasClass('is-active')) {
                 $(this).removeClass('is-active').find('span').text('Скрыть обработанные депозиты')
-                
+
             } else {
                 $(this).addClass('is-active').find('span').text('Показать обработанные депозиты')
             }
@@ -909,10 +935,10 @@ $(document).ready(function() {
 
             copyToClipboard('personal-link')
             $(this).parent().find('.toast').fadeIn()
-            setTimeout(()=>{
-                
+            setTimeout(() => {
+
                 $(this).parent().find('.toast').fadeOut()
-            },1000)
+            }, 1000)
         });
 
         function copyToClipboard(elementId) {

@@ -4,13 +4,13 @@ block header
 block breadcrumbs
   +breadcrumbs([{title:'Главная',link:'index.html'}, {title:'Личный кабинет', link:'personal-all.html'}],'Персональная сводка')
 block aside
-  -let cards = [{title:{title:'Пополнено всего'}, icon:'icon-downarrow',  total:'95500,00'},{title:{title:'Cредства в работе'}, icon:'icon-refresh', total: '6850,00'},{title:{title:'Доход от партнеров'}, icon:'icon-partner',  total:'50050,00'},{title:{title:'Всего выведено'}, icon:'icon-card', total: '2280570,00'}]
-  -let accessdata = [{title:{title:'Баланс Visa/MasterCard'}, img: './img/visa.png', total:'95500,00'},{title:{title:'Баланс Qiwi/Visa'}, img: './img/qiwi.png',total: '6850,00'},{title:{title:'Баланс Payeer'}, img: './img/payeer.png', total:'50050,00'},{title:{title:'Баланс Яндекс.Деньги'}, img: './img/ya.png',total: '2280570,00'}]
+  -let cards = [{title:{title:'Пополнено всего'}, icon:'icon-downarrow',  total:'95500.00'},{title:{title:'Cредства в работе'}, icon:'icon-refresh', total: '6850.00'},{title:{title:'Доход от партнеров'}, icon:'icon-partner',  total:'50050.00'},{title:{title:'Всего выведено'}, icon:'icon-card', total: '2280570.00'}]
+  -let accessdata = [{title:{title:'Баланс Visa/MasterCard'}, img: './img/visa.png', total:'95500.00'},{title:{title:'Баланс Qiwi/Visa'}, img: './img/qiwi.png',total: '6850.00'},{title:{title:'Баланс Payeer'}, img: './img/payeer.png', total:'50050.00'},{title:{title:'Баланс Яндекс.Деньги'}, img: './img/ya.png',total: '2280570.00'}]
   +b.personal-data.clearfix
     h2.title Персональная сводка
     .cards-row.clearfix
       +PersonalInfoCard({title:'Количество сделок'}, 'icon-star', null, 365)&attributes({'class':'personal-card--50 personal-card--deal'})
-      +PersonalInfoCard({title:'Ваш доход ', subtitle:'(в рублях)'}, 'icon-finance', [{amount: '257,00',title:'в день'},{amount: '1954,00',title:'в месяц'},{amount: '2521327,00',title:'в год'}])&attributes({'class':'personal-card--50 personal-card--total'})
+      +PersonalInfoCard({title:'Ваш доход ', subtitle:'(в рублях)'}, 'icon-finance', [{amount: '257.00',title:'в день'},{amount: '1954.00',title:'в месяц'},{amount: '2521327.00',title:'в год'}])&attributes({'class':'personal-card--50 personal-card--total'})
     +b.cards-row--25
       each el in cards
         +PersonalInfoCard(el.title, el.icon, false, false, el.total)&attributes({'class':'personal-card--25 personal-card--total'})

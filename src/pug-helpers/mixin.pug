@@ -124,12 +124,12 @@ mixin CreateNewCard(obj,index)
           img(src=obj.img)
       +e.row
         +e.H2.name=obj.name
-        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее <br> о трейдере
       +e.row
         +e.H2.heading--standart Доход:
           span #{obj.day}% в день
         +e.H2.heading--standart
-          span.blue коммисия #{obj.commision}%
+          span.blue вознаграждение: #{obj.commision}%
           span.main-color.main-color--strong #{obj.income}%
       +e.row
         +e.H2.heading--standart.--one-liner Срок:
@@ -219,26 +219,36 @@ mixin PersonalInfoCard(title, icon, value, number,total,img, input)
         +e.I.icon(class=icon)
 
 
-mixin createHeader()
+mixin createHeader(loggedIn)
   -let data = [{className: 'link--dropdown', title:'О компании', href:'company.html'},{className: 'link is-active', href:'trader.html',title:'Трейдеру'}, {className: 'link', href:'participate.html',title:'Стать участником'}, {className: 'link', href:'partner.html',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'},{className: 'link--login', href:'login.html',title:'Войти', icon:'icon-login'}]
+  -let loggeddata = [{className: 'link--dropdown', title:'О компании', href:'company.html'},{className: 'link is-active', href:'trader.html',title:'Трейдеру'}, {className: 'link', href:'participate.html',title:'Стать участником'}, {className: 'link', href:'partner.html',title:'Партнеру'}, {className: 'link', href:'',title:'Отзывы'},{className: 'link--login',href:'login.html',title:'Выйти', icon:'icon-exit'}]
   .container-fluid.header-wrapper(class=attributes.class)
     +b.header.clearfix.container
-        +e.A(href="index.html").logo-wrapper
-            +e.logo.IMG(src="./img/logo.svg")
-            span FORWARD <br> TRADE
-        +e.toggle()
-            +e.toggle-item.SPAN
-            +e.toggle-item.SPAN
-            +e.toggle-item.SPAN
-        +b.aside
-            +e.nav
-                each el in data
-                    -if(el.icon)
-                      +e.A(href=el.href, class=el.className) 
-                        i(class=el.icon)
-                        | #{el.title}
-                    -else 
-                      +e.A(href=el.href, class=el.className) #{el.title}
+      +e.A(href="index.html").logo-wrapper
+        +e.logo.IMG(src="./img/logo.svg")
+        span FORWARD <br> TRADE
+      +e.toggle()
+        +e.toggle-item.SPAN
+        +e.toggle-item.SPAN
+        +e.toggle-item.SPAN
+      +b.aside
+        +e.nav
+          -if(loggedIn)
+            each el in loggeddata
+              -if(el.icon)
+                +e.A(href=el.href, class=el.className) 
+                  i(class=el.icon)
+                  | #{el.title}
+              -else 
+                +e.A(href=el.href, class=el.className) #{el.title}
+          -else 
+            each el in data
+              -if(el.icon)
+                +e.A(href=el.href, class=el.className) 
+                  i(class=el.icon)
+                  | #{el.title}
+              -else 
+                +e.A(href=el.href, class=el.className) #{el.title}
                             
                           
 

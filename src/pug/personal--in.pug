@@ -1,6 +1,5 @@
 extends ./../pug-helpers/_personal-layout
-block header
-  +createHeader()&attributes({class: 'header-wrapper--white'})
+
 block breadcrumbs
   +breadcrumbs([{title:'Главная',link:'index.html'}, {title:'Личный кабинет', link:'personal-all.html'}],'Мои финансы')
 block aside

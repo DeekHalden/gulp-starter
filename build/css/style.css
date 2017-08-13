@@ -206,6 +206,9 @@
 .icon-photo:before {
   content: "\EA32";
 }
+.icon-exit:before {
+  content: "\EA33";
+}
 .slick-slider {
   position: relative;
   display: block;

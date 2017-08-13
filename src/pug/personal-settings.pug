@@ -23,7 +23,7 @@ html
     link(rel="stylesheet" media="all" href="css/style.css")
   body
     .wrapper
-      +createHeader()&attributes({class: 'header-wrapper--white'})
+      +createHeader(true)&attributes({class: 'header-wrapper--white'})
       +b.main--padding
         +breadcrumbs([{title:'Главная',link:'index.html'}, {title:'Личный кабинет', link:'personal-all.html'}],'Настройки профиля')
         +b.SECTION
