@@ -29,7 +29,17 @@
 // 	font-family: "book", Arial, sans-serif
 
 // common blocks
-
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
 
 *
     margin 0
@@ -87,7 +97,7 @@ input::-moz-placeholder
     color rgba($add, .5)
     font-style italic
     font-weight 300
-input::-ms-input-placeholder 
+input:-ms-input-placeholder 
     font-family $regular
     rem(14)
     color rgba($add, .5)
@@ -140,6 +150,8 @@ input
     -webkit-appearance none
     -moz-appearance textfield
     border-radius 0
+textarea
+    overflow hidden
     
 select::-ms-expand
     display none
@@ -167,7 +179,7 @@ a, img, div, input, select
 .container 
     
     width 100%
-    transition .1s linear all
+    // transition .1s linear all
     position: relative
     margin-left: auto
     margin-right: auto
@@ -180,7 +192,7 @@ a, img, div, input, select
 
 @media (orientation: landscape)
     .main
-        padding-bottom 277px
+        padding-bottom 200px
 @media (min-width: 576px)
     .main
         padding-bottom 177px
@@ -194,7 +206,7 @@ a, img, div, input, select
         width: 720px
 @media (min-width: 992px)
     .main
-        padding-bottom 387px
+        padding-bottom 347px
     .container 
         width: 960px;
             

@@ -6,10 +6,17 @@ block aside
   -let carddatafalse = {img: './img/4.png', name:'Дмитрий Соболев', tactic:'агресивный', exp:'43', rating: '43', income: '6', rate: '4.4', from: '1000', to: '150 000'}
   
   -let carddata1 = {img: './img/4.png', name:'Дмитрий Соболев', day:'3', commision:'4', income: '5', period:{start:'10',end:'15'}, amount:'200 000',  incomeValue: '2999', status: ['В работе',true]}
-  -let carddatanew = {img: './img/4.png', name:'Дмитрий Соболев', day:'3', commision:'4', income: '5', period:{start:'33',end:'33'}, amount:'200 000',  incomeValue: '2999', status: ['Закрыт',false]}
+  -let carddatanew = {img: './img/4.png', name:'Дмитрий Соболев', day:'3', commision:'4', income: '5', period:{start:'33',end:'33'}, amount:'200 000',  incomeValue: '2999', status: ['Завершено',false]}
   -let infodata = {img:'./img/0.png',name:'Артем Соболев',birth: 1990, exp:'60 месяцев', tactic: 'Агрессивная', fee: '4.2%', income:'6%', field:'Валюта, фьючерсы и опционы, крипто-валюты', add: 'Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.', email: 'webcase@com.ua'}
   +b.access-data
     h2.title.title--main Тарифы
+      +b.status.clearfix
+        i.icon-info-1
+        +e.infowindow
+          p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
+        +e.P 
+          i.icon-crown
+          | VIP-статус
     +b.finance-action-bar.clearfix
       +e.A().link.is-active Трейдеры
       +e.A().link Депозиты в работе
@@ -48,7 +55,7 @@ block aside
                       span Технический анализ с использованием индикатора Ichimoku Kinko Hyo. Учитываю так же фундамент.
           +CreateCard(carddatafalse)
           +CreatePagination()
-          #cooperate.mfp-hide.infowindow-wrapper
+          #cooperate.mfp-hide.infowindow-wrapper.mfp-zoom-in
             .info__icon-close &times;
                             
             h2.title Илья Серебреников
@@ -56,7 +63,7 @@ block aside
             +b.FORM.form(name="cooperate-form")#cooperate-form
               +e.form-control--100
                 +e.label(for="cooperate_form__value")
-                +e.INPUT(type="number" step='' min='100' value="500" data-msg="Не менее 100").input--cooperate
+                +e.INPUT(type="number" min=100, placeholder="100" data-msg="Обязательное поле" data-error-msg="Не менее 100" name="cooperate_form__value" id="cooperate_form__value").input--cooperate
                 //- +e.input-controls
                 //-   +e.I.icon.icon-control-up
                 //-   +e.I.icon.icon-control-down

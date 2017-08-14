@@ -6,6 +6,7 @@ var autoprefixer = require('autoprefixer');
 var notify = require('gulp-notify');
 var mqpacker = require("css-mqpacker");
 var config = require('../config');
+let cleanCSS = require('gulp-clean-css');
 
 
 gulp.task('stylus', function() {
@@ -33,6 +34,7 @@ gulp.task('stylus', function() {
         message: '<%= error.message %>'
     }))
     .pipe(postcss(processors))
+    .pipe(cleanCSS())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.dest.css));
 });

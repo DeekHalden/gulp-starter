@@ -85,12 +85,19 @@ html
 
               +b.aside-block--right
                   +b.personal-data.clearfix
-                    h2.title Настройки профиля:
+                    h2.title.clearfix Настройки профиля:
+                      +b.status.is-active.clearfix
+                        i.icon-info-1
+                        +e.infowindow
+                          p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
+                        +e.P 
+                          i.icon-crown
+                          | VIP-статус
                   +b.graph-wrapper
                     +b.FORM.form(id="settings" name="settings")
                       +e.form-control--50
                         +e.LABEL(for="settings__login").label Логин
-                        +e.INPUT.input(type="text" id="settings__login" name="settings__login" data-msg="Обязательное поле")
+                        +e.INPUT.input(type="text" id="settings__login" name="settings__login" data-msg-required="Обязательное поле" data-msg="Неверное значение")
                       +e.form-control--50
                         +e.LABEL(for="settings__email") E-mail
                         +e.INPUT.input(type="email" id="settings__email" name="settings__email" data-msg="Формат email'a xx@xx.xx")

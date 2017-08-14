@@ -10,7 +10,15 @@ block aside
 
 
   +b.access-data
-    h2.title.title--main Мои финансы
+    h2.title.title--main.clearfix Мои финансы
+
+      +b.status.clearfix
+        i.icon-info-1
+        +e.infowindow
+          p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
+        +e.P 
+          i.icon-crown
+          | VIP-статус
     +b.finance-action-bar.clearfix
       +e.A().link.is-active Пополнение
       +e.A().link Вывод 
@@ -18,6 +26,7 @@ block aside
       .tab.tab--1
         +b.table-wrapper
           h3.title Выберите сервис
+            
           +b.FORM.form--in(name="in" id="in").clearfix
             +b.cards-row--25
               each el in accessdata

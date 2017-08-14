@@ -27,9 +27,15 @@ mixin CreateCard(obj,index)
           span #{obj.rating}%
       +e.row
         +e.H2.heading--standart Доходность:
-          span #{obj.income}%
-        +e.H2.heading--standart Вознагр.:
-          span #{obj.rate}%
+          span.main-color #{obj.income}%
+            i.icon-info-1
+            +e.infowindow
+              p Ваш заработок по итогу торгов за последние сутки
+        +e.H2.heading--standart Вознаграждение:
+          span.yellow-color #{obj.rate}%
+            i.icon-info-1
+            +e.infowindow
+              p Вознаграждение трейдера - процент от полученной прибыли в результате успешной сделки, который трейдер изымает как плату за свою деятельность. Своего рода, этакая заработная плата. За счет данного вознаграждения, трейдеру выгодно заниматься тем, чем он занимается
       +e.row
         +e.H2.heading--standart От:
           span #{obj.from} руб
@@ -42,8 +48,8 @@ mixin CreateCard(obj,index)
             +e.infowindow
               p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
         -else
-          +e.A(href="#cooperate").cooperate.infowindow-open Сотрудничать
-        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+          +e.A(href="#cooperate", data-effect="mfp-zoom-in").cooperate.infowindow-open Сотрудничать
+        +e.A(href="#infowindow-"+index, data-effect="mfp-zoom-in").more.infowindow-open подробнее о трейдере
   -else
     +b.traders-card
       +e.row
@@ -60,9 +66,15 @@ mixin CreateCard(obj,index)
           span #{obj.rating}%
       +e.row
         +e.H2.heading--standart Доходность:
-          span #{obj.income}%
-        +e.H2.heading--standart Вознагр.:
-          span #{obj.rate}%
+          span.main-color #{obj.income}%
+            i.icon-info-1
+            +e.infowindow
+              p Ваш заработок по итогу торгов за последние сутки
+        +e.H2.heading--standart Вознаграждение:
+          span.yellow-color #{obj.rate}%
+            i.icon-info-1
+            +e.infowindow
+              p Вознаграждение трейдера - процент от полученной прибыли в результате успешной сделки, который трейдер изымает как плату за свою деятельность. Своего рода, этакая заработная плата. За счет данного вознаграждения, трейдеру выгодно заниматься тем, чем он занимается
       +e.row
         +e.H2.heading--standart От:
           span #{obj.from} руб
@@ -75,8 +87,8 @@ mixin CreateCard(obj,index)
             +e.infowindow
               p Возможность инвестирования в данный тарифный план закрыта, несмотря на это, Вы продолжите получать прибыль до конца определенного тарифом срока.
         -else
-          +e.A(href="#cooperate").cooperate.infowindow-open Сотрудничать
-        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+          +e.A(href="#cooperate", data-effect="mfp-zoom-in").cooperate.infowindow-open Сотрудничать
+        +e.A(href="#infowindow-"+index, data-effect="mfp-zoom-in").more.infowindow-open подробнее о трейдере
 
 
 mixin CreateNewCard(obj,index)
@@ -87,19 +99,20 @@ mixin CreateNewCard(obj,index)
           img(src=obj.img)
       +e.row
         +e.H2.name=obj.name
-        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее о трейдере
+        +e.A(href="#infowindow-"+index, data-effect="mfp-zoom-in").more.infowindow-open подробнее <br> о трейдере
       +e.row
         +e.H2.heading--standart Доход:
-          span #{obj.day}% в день
+          span.blue #{obj.day}% в день
         +e.H2.heading--standart
-          span.blue коммисия #{obj.commision}%
+          span.yellow-color вознаграждение: #{obj.commision}%
           span.main-color.main-color--strong #{obj.income}%
       +e.row
-        +e.H2.heading--standart.--one-liner Срок:
+        +e.H2.heading--standart.--one-liner Срок: 
           span.curr-value #{obj.period.start} 
             | из 
             span.end-value #{obj.period.end}  
             |  дней
+          span.next-pay До следующего начисления 00:00
         +e.H2.heading--standart 
           +b.SPAN.indicator-wrapper
             +e.SPAN.indicator
@@ -109,7 +122,7 @@ mixin CreateNewCard(obj,index)
           span #{obj.amount} руб
         +e.H2.heading--standart Всего выплачено:
           span.main-color.main-color--normal #{obj.incomeValue} руб
-      +e.row
+      +e.row--status
         +e.H2.heading--standart Статус:
           -if(obj.status[1] === true)
             i.icon.icon-refresh
@@ -124,19 +137,20 @@ mixin CreateNewCard(obj,index)
           img(src=obj.img)
       +e.row
         +e.H2.name=obj.name
-        +e.A(href="#infowindow-"+index).more.infowindow-open подробнее <br> о трейдере
+        +e.A(href="#infowindow-"+index, data-effect="mfp-zoom-in").more.infowindow-open подробнее <br> о трейдере
       +e.row
         +e.H2.heading--standart Доход:
-          span #{obj.day}% в день
+          span.blue #{obj.day}% в день
         +e.H2.heading--standart
-          span.blue вознаграждение: #{obj.commision}%
+          span.yellow-color вознаграждение: #{obj.commision}%
           span.main-color.main-color--strong #{obj.income}%
       +e.row
-        +e.H2.heading--standart.--one-liner Срок:
+        +e.H2.heading--standart.--one-liner Срок: 
           span.curr-value #{obj.period.start} 
             | из 
             span.end-value #{obj.period.end}  
             |  дней
+          span.next-pay До следующего начисления 00:00
         +e.H2.heading--standart 
           +b.SPAN.indicator-wrapper
             +e.SPAN.indicator
@@ -146,14 +160,17 @@ mixin CreateNewCard(obj,index)
           span #{obj.amount} руб
         +e.H2.heading--standart Всего выплачено:
           span.main-color.main-color--normal #{obj.incomeValue} руб
-      +e.row
+      +e.row--status
         +e.H2.heading--standart Статус:
           -if(obj.status[1] === true)
             i.icon.icon-refresh
           -else 
             i.icon.icon-close
           
-        +e.H2.heading--standart.--bottom #{obj.status[0]}
+        -if(obj.status[1] === true)
+          +e.H2.heading--standart.--bottom.--main #{obj.status[0]}
+        -else 
+          +e.H2.heading--standart.--bottom #{obj.status[0]}
 
 
     
