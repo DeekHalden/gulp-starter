@@ -42,7 +42,7 @@ gulp.task('js', function () {
 
         //     }
         // }, webpack))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest(config.dest.js))
         .pipe(reload({stream: true}));
 });

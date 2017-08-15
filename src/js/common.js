@@ -89,34 +89,36 @@ $(document).ready(function() {
             } else if ($('.personal-card__number').length > 0) {
                 el = '.personal-card__number'
             }
-            var hT = $(el).offset().top,
-                hH = $(el).outerHeight(),
-                wH = $(window).height();
-            if ($(window).scrollTop() > hT + hH - wH) {
+            if(el) {
+                var hT = $(el).offset().top,
+                    hH = $(el).outerHeight(),
+                    wH = $(window).height();
+                if ($(window).scrollTop() > hT + hH - wH) {
 
-                $(window).off("scroll", startCounter);
-                $(el).each(function() {
-                    var $this = $(this);
-                    $({
-                        Counter: 0
-                    }).animate({
-                        Counter: $this.text()
-                    }, {
-                        duration: 2500,
-                        easing: 'swing',
-                        step: function() {
-                            if (el == '.card__number' || el == '.personal-card__number') {
-                                $this.text(Math.ceil(this.Counter));
+                    $(window).off("scroll", startCounter);
+                    $(el).each(function() {
+                        var $this = $(this);
+                        $({
+                            Counter: 0
+                        }).animate({
+                            Counter: $this.text()
+                        }, {
+                            duration: 2500,
+                            easing: 'swing',
+                            step: function() {
+                                if (el == '.card__number' || el == '.personal-card__number') {
+                                    $this.text(Math.ceil(this.Counter));
 
-                            } else {
-                                $this.text(Math.ceil(this.Counter) + '.00');
+                                } else {
+                                    $this.text(Math.ceil(this.Counter) + '.00');
 
+                                }
                             }
-                        }
+                        });
                     });
-                });
-            } else {
-                return false
+                } else {
+                    return false
+                }
             }
         }
         
@@ -169,19 +171,7 @@ $(document).ready(function() {
                         }, i * 400)
                     });
                 };
-                $('.traders-card__heading--one-liner').each(function() {
-                    if ($(this).isInViewport()) {
-                        console.log(1)
-                        var currValue = parseInt($(this).find('.curr-value').text());
-                        var endValue = parseInt($(this).find('.end-value').text());
-                        var percent = (currValue * 100) / endValue
-                        if (percent === 100) {
-                            $(this).parent().find('.indicator-wrapper__indicator').css({ 'width': percent + '%', 'background-color': '#2a3e48' }).addClass('no-animation')
-
-                        }
-                        $(this).parent().find('.indicator-wrapper__indicator').css('width', percent + '%')
-                    }
-                });
+                
 
                 if ($('.card--advantages').isInViewport()) {
                     $('.card--advantages').each(function(i) {
@@ -225,6 +215,20 @@ $(document).ready(function() {
 
             });
         }
+        $(window).on('resize scroll', function(e) {
+          $('.traders-card__heading--one-liner').each(function() {
+                    if ($(this).isInViewport()) {
+                        var currValue = parseInt($(this).find('.curr-value').text());
+                        var endValue = parseInt($(this).find('.end-value').text());
+                        var percent = (currValue * 100) / endValue
+                        if (percent === 100) {
+                            $(this).parent().find('.indicator-wrapper__indicator').css({ 'width': percent + '%', 'background-color': '#2a3e48' }).addClass('no-animation')
+
+                        }
+                        $(this).parent().find('.indicator-wrapper__indicator').css('width', percent + '%')
+                    }
+                }); 
+        })
         // activateAnimation();
 
 
